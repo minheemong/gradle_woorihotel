@@ -38,14 +38,14 @@ font-family: 'Nanum Myeongjo', serif;
 
 
 
-<link href="css/css.css" rel="stylesheet">
-<link href="css/Hotel.css" rel="stylesheet">
-<link href="member/member.css" rel="stylesheet">
+<link href="static/css/css.css" rel="stylesheet">
+<link href="static/css/Hotel.css" rel="stylesheet">
+<link href="static/member/member.css" rel="stylesheet">
 <!-- <link href="member/member.css" rel="stylesheet">
 <link href="css/Hotel.css" rel="stylesheet">
 <link href="script/script.js" rel="stylesheet"> -->
-<script src="script/script.js"></script>
-<script src="css/hotel.js"></script>
+<script src="static/script/script.js"></script>
+<script src="static/css/hotel.js"></script>
 <!-- <script src="css/hotel.js"></script>
 <script src="member/member.js"></script> -->
 

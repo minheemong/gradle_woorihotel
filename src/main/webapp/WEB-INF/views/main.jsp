@@ -79,8 +79,7 @@ function days () {
 </div>
 
 
-<form name="formm" method="post" action="hotel.do" style="background-color: #F1EBD6;">
-   <input type="hidden" name="command" value="bookForm">   
+<form name="formm" method="post" action="bookForm" style="background-color: #F1EBD6;">
 <div id="serch_bar_view"  style="border:1px solid black;">
            <div id="serch_bar">
                   <ul>
@@ -89,7 +88,7 @@ function days () {
                             
                     <li>객실&nbsp;&nbsp;<input type="text" name="roomnum" size="5" id="datepicker3"></li>
                     <li>성인&nbsp;&nbsp;<input type="text" name="usernum" size="5" id="datepicker4"></li>
-                    <li><input type="submit" value="검색하기"id="serch_bar_button" onclick="return checkRoom();"></li>
+                    <li><input type="submit" value="검색하기"id="serch_bar_button"></li>
                   </ul>
            </div>           
 </div>
