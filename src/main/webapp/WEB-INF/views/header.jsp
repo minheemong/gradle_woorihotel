@@ -77,7 +77,7 @@ font-family: 'Nanum Myeongjo', serif;
  <c:otherwise>
                <li id="logo">${loginUser.name}(${loginUser.id})</li>
                <li><a href="hotel.do?command=logout">로그아웃</a></li>
-               <li><a href="hotel.do?command=bookChecklist&page=1&a=1">마이페이지</a></li>
+               <li><a href="hotel.do?command=bookChecklist?page=1&a=1">마이페이지</a></li>
          
  </c:otherwise> 
  </c:choose>
