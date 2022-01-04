@@ -4,5 +4,26 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.ezen.spg.dao.IMemberDao">
+
+	<select id="getMember" resultType="com.ezen.spg.dto.MemberVO">
+		select * from hotelmember where id=#{param1}
+	</select>
 	
+	<select id="selectAddressByDong" resultType="com.ezen.spg.dto.AddressVO">
+		select * from address where dong like '%'||#{param1}||'%'
+	</select>
+	
+	<insert id="insertMember" parameterType="com.ezen.spg.dto.MemberVO">
+		insert into hotelmember (id, pwd, name, email, zip_num, address, phone) 
+		values(#{id}, #{pwd}, #{name}, #{email}, #{zip_num}, #{address}, #{phone})
+	</insert>
+	
+	<update id="updateMember" parameterType="com.ezen.spg.dto.MemberVO">
+		update hotelmember set pwd=#{pwd},name=#{name},zip_num=#{zip_num},
+		address=#{address},email=#{email},phone=#{phone} where id=#{id}
+	</update>
+	
+	<select id="confirmPhone" resultType="com.ezen.spg.dto.MemberVO">
+		select * from hotelmember where name=#{param1} and phone=#{param2}
+	</select>
 </mapper>

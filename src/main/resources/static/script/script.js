@@ -119,38 +119,6 @@ function result(zip_num, sido, gugun, dong){
 }//완료
 
 
-function go_save(){
-	if (document.joinFrm.id.value == "") {
-		alert("아이디를 입력하여 주세요."); 	    
-	    document.joinFrm.id.focus();
-	} if(document.joinFrm.reid.value != document.joinFrm.id.value){
-		alert("아이디 중복확인을 하지 않았습니다");		
-		document.joinFrm.id.focus();
-	} if(document.joinFrm.pwd.value == "") {
-	    alert("비밀번호를 입력해 주세요.");	    
-	    document.joinFrm.pwd.focus();
-	} if(document.joinFrm.pwd.value != document.joinFrm.pwdCheck.value) {
-	    alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");	    
-	    document.joinFrm.pwd.focus();
-	} if(document.joinFrm.name.value == "") {
-	    alert("이름을 입력해 주세요.");	    
-	    document.joinFrm.name.focus();
-	} if(document.joinFrm.email.value == "") {
-	    alert("이메일을 입력해 주세요.");	   
-	    document.joinFrm.email.focus();
-	}  if(document.joinFrm.phone.value == "") {
-	    alert("전화번호를 입력해 주세요.");	   
-	    document.joinFrm.phone.focus();
-	} if(document.joinFrm.zip_num.value == "") {
-	    alert("주소를 입력해 주세요.");	   
-	    document.joinFrm.zip_num.focus();
-	} else{
-		document.joinFrm.action = "hotel.do";
-	    document.joinFrm.submit();
-	}
-}
-
-
 
 
 

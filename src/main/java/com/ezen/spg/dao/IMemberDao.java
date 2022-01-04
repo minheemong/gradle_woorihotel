@@ -18,5 +18,7 @@ public interface IMemberDao {
 
 	void updateMember(MemberVO membervo);
 
+	MemberVO confirmPhone(String name, String phone);
+
 
 }

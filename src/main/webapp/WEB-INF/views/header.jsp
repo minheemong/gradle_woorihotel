@@ -56,7 +56,7 @@ font-family: 'Nanum Myeongjo', serif;
 <header class="header"><!-- 로고, 주메뉴, 카테고리 메뉴 등이 표시되는 영역 -->
  <!-- 상단 메뉴 시작 : 로그인 CART MyPage 등-->
    <div class="header_logo">
-        <a href="hotel.do?command=mainForm ">
+        <a href="mainForm">
             <h1 >THE WOORI</h1>
             <p> HOTELS &RESORTS</p>
         </a>
@@ -65,19 +65,19 @@ font-family: 'Nanum Myeongjo', serif;
  
  <div class="header_gnb">
   <ul>         
-              <li><a href="hotel.do?command=goInfo">호텔 우리 소개</a></li>                              
-              <li><a href="hotel.do?command=qnaList" >고객문의</a></li>
+              <li><a href="goInfo">호텔 우리 소개</a></li>                              
+              <li><a href="qnaList" >고객문의</a></li>
 
   <c:choose> 
 
           <c:when  test="${empty loginUser}">  
-              <li><a href="hotel.do?command=loginForm">로그인</a></li>
-              <li><a href="hotel.do?command=contract">회원가입</a></li>
+              <li><a href="loginForm">로그인</a></li>
+              <li><a href="contract">회원가입</a></li>
           </c:when> 
  <c:otherwise>
                <li id="logo">${loginUser.name}(${loginUser.id})</li>
-               <li><a href="hotel.do?command=logout">로그아웃</a></li>
-               <li><a href="hotel.do?command=bookChecklist?page=1&a=1">마이페이지</a></li>
+               <li><a href="logout">로그아웃</a></li>
+               <li><a href="bookChecklist?page=1&a=1">마이페이지</a></li>
          
  </c:otherwise> 
  </c:choose>

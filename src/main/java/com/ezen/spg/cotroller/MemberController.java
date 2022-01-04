@@ -36,6 +36,34 @@ public class MemberController {
 		return"member/login";
 	}
 	
+	@RequestMapping("findIdPwd")
+	public String find_id_pwd() {
+		return"member/findIdPwd";
+	}
+	
+	@RequestMapping("findIdForm")
+	public String find_id_form() {
+		return"member/findIdForm";
+	}
+	
+	@RequestMapping(value="/findIdStep1", method=RequestMethod.POST)
+	public ModelAndView find_id_form(@RequestParam("name") String name,
+			@RequestParam("phone") String phone,
+			Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		MemberVO mvo = ms.confirmPhone(name,phone);
+		if(mvo == null) {
+			mav.addObject("msg", "이름과 전화번호가 일치하는 회원이 없습니다.");
+			mav.addObject("name", name);
+			mav.addObject("phone", phone);
+			mav.setViewName("member/findIdForm");
+		}else {
+			// 인증번호 전송
+			mav.setViewName("member/findIdconfirmNumber"); // 인증번호 입력 화면으로 이동
+		}
+		return mav;	
+		}
+	
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
 			Model model, HttpServletRequest request) {
@@ -81,7 +109,7 @@ public class MemberController {
 	
 	@RequestMapping(value="joinForm", method=RequestMethod.POST)
 	public String joinForm() {
-		return "member/joinForm";
+		return "member/join";
 	}
 	
 	@RequestMapping("idCheckForm")
@@ -108,37 +136,48 @@ public class MemberController {
 		return mav;
 	}
 	
-	@RequestMapping("join")
+	@RequestMapping("joinComplete")
 	public String join(@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
 			Model model, HttpServletRequest request, @RequestParam(value="reid", required=false) String reid,
 			@RequestParam(value="pwdCheck", required=false) String pwdCheck) {
 		if(result.getFieldError("id")!=null) {
 			model.addAttribute("message", result.getFieldError("id").getDefaultMessage());
 			model.addAttribute("reid",reid);
-			return "member/joinForm";
+			return "member/join";
 		} else if(result.getFieldError("pwd")!=null) {
 			model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
 			model.addAttribute("reid",reid);
-			return "member/joinForm";
+			return "member/join";
 		}  else if(result.getFieldError("name")!=null) {
 			model.addAttribute("message", result.getFieldError("name").getDefaultMessage());
-			return "member/joinForm";
+			return "member/join";
 		} else if(result.getFieldError("email")!=null) {
 			model.addAttribute("message", result.getFieldError("email").getDefaultMessage());
-			return "member/joinForm";
+			return "member/join";
 		} else if(pwdCheck==null|| (pwdCheck!=null&& !pwdCheck.equals(membervo.getPwd() ))) {
 			model.addAttribute("message","비밀번호 확인이 일치하지 않았습니다");
-			return "member/joinForm";
+			return "member/join";
 		} else if(reid==null|| (reid!=null&& !reid.equals(membervo.getId() ))) {
 			model.addAttribute("message","아이디 중복확인을 하지 않았습니다");
-			return "member/joinForm";
+			return "member/join";
 		} 
 			membervo.setAddress(request.getParameter("addr1")+" "+request.getParameter("addr2"));
 			
 			ms.insertMember(membervo);
 			model.addAttribute("message", "회원가입이 완료되었어요. 로그인하세요");
-			//return "redirect:/loginForm";
-			return "member/login";
+			
+			 
+		      MemberVO mto = new MemberVO();
+		      mto.setId(request.getParameter("id"));
+		      mto.setPwd(request.getParameter("pwd"));
+		      mto.setName(request.getParameter("name"));
+		      mto.setEmail(request.getParameter("email"));
+		      mto.setZip_num(request.getParameter("zip_num"));
+		      mto.setAddress( request.getParameter("addr1") + " " + request.getParameter("addr2") );
+		      mto.setPhone(request.getParameter("phone"));
+		    HttpSession session=request.getSession();
+		    session.setAttribute("joinName", mto);
+			return "member/joinComplete";
 	}
 	
 	@RequestMapping(value="memeberEditForm")

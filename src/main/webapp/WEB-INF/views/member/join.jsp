@@ -16,8 +16,7 @@ input{border:#BEBBB9 solid 1px;}
 <!-- join테마 css -->
 
 <div style="width:865px; margin: 0 auto;">
-<form id="join" method="post" name="joinFrm"> 
-<input type="hidden" name="command"  value="join">
+<form id="join" method="post" name="joinFrm" action="joinComplete">
 		
 	<br><br>
 	<div class="joinTitle">기본입력</div>
@@ -49,7 +48,7 @@ input{border:#BEBBB9 solid 1px;}
 
 <!-- cont테마 css -->
 <div class="contButtons">
-	<input type="button" value="가입신청" class="joinButton" onclick="go_save();">
+	<input type="submit" value="가입신청" class="joinButton">
 </div>
 
 

@@ -32,4 +32,8 @@ public class MemberService {
 	public void updateMember(MemberVO membervo) {
 			mdao.updateMember(membervo);
 	}
+
+	public MemberVO confirmPhone(String name, String phone) {
+		return mdao.confirmPhone(name,phone);
+	}
 }
