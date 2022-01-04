@@ -22,6 +22,15 @@ import com.ezen.spg.service.MemberService;
 public class MemberController {
 	@Autowired
 	MemberService ms;
+	
+
+	@RequestMapping("/")
+	public ModelAndView index(Model model) {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("main");
+		return mav;
+	}
+	
 	@RequestMapping("loginForm")
 	public String login_form() {
 		return"member/login";
