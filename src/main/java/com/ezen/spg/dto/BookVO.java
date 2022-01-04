@@ -2,6 +2,8 @@ package com.ezen.spg.dto;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.Data;
 
 @Data
