@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.spg.dao.IMemberDao;
-import com.ezen.spm1.dto.AddressVO;
-import com.ezen.spm1.dto.MemberVO;
+import com.ezen.spg.dto.AddressVO;
+import com.ezen.spg.dto.MemberVO;
+
 
 @Service
 public class MemberService {
