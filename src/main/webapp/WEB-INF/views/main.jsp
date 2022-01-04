@@ -38,7 +38,7 @@
          },
          function(){
             time1 =  setInterval(function(){
-                 $('img').attr('src','images/jeju_hotel'+num+".JPEG");
+                 $('img').attr('src','static/images/jeju_hotel'+num+".JPEG");
                  num++;
                  if(num==4) num=1;
              },2500);
@@ -75,7 +75,7 @@ function days () {
 
 
 <div id="main_img">
-   <img id="img" src="images/jeju_hotel1.JPEG">     
+   <img id="img" src="static/images/jeju_hotel1.JPEG">     
 </div>
 
 
