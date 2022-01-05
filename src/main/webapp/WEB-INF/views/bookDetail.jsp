@@ -149,39 +149,23 @@ $(document).ready(function( $ ){
   
 </script>
 
-<!-- 임시 -->
-
-
 
 <div id="hotelview">
-	<!-- 용언씨 datepicker 아직 css 미적용 -->
-	
 	<div id="serch_bar_view">
-    <form method="post" name="formm" action="hotel.do">
-    <input type="hidden" name="command" value="bookForm">
-    <input type="hidden" id = "oldUsernum" name="oldUsernum" value="${oldUsernum }">
-    <input type="hidden" id = "oldRoomnum" name="oldRoomnum" value="${oldRoomnum }">
-    <input type="hidden" id = "oldCheckin" name="oldCheckin" value="${oldCheckin }">
-    <input type="hidden" id = "oldCheckout" name="oldCheckout" value="${oldCheckout }">
+    <form method="post" name="formm" action="bookForm">
     <input type="hidden" id = "kind" name="kind" value="">
            <div id="serch_bar">
                   <ul>
-                    <li >체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="20" value="${oldCheckin }"> </li>                  
-                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="20" value="${oldCheckout }">  </li>
+                    <li >체크인&nbsp;&nbsp;<input type="text"  name="checkin" id="datepicker1" size="20" value="${checkin }"> </li>                  
+                    <li >체크아웃&nbsp;&nbsp;<input type="text" name="checkout" id="datepicker2" size="20" value="${checkout }">  </li>
                             
-                    <li>객실&nbsp;&nbsp;<input type="text" name="roomnum" size="5" id="datepicker3" value="${oldRoomnum }"></li>
-                    <li>성인&nbsp;&nbsp;<input type="text" name="usernum" size="5" id="datepicker4" value="${oldUsernum }"></li>
+                    <li>객실&nbsp;&nbsp;<input type="text" name="roomnum" size="5" id="datepicker3" value="${roomnum }"></li>
+                    <li>성인&nbsp;&nbsp;<input type="text" name="usernum" size="5" id="datepicker4" value="${usernum }"></li>
                     <li><input type="submit" value="검색하기"id="serch_bar_button" onclick="return checkRoom();"></li>
                   </ul>
            </div></form>          
 	</div>
 	
-	
-	 
-	
-	
-
-
 	<hr> <!-- 방선택 뷰  Deluxe--> 
  
  <c:if test="${DBool == false && DBool == false && GCDBool == false && EBDBool == false}">
