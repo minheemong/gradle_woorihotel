@@ -21,18 +21,18 @@ input{border:#BEBBB9 solid 1px;}
 	<br><br>
 	<div class="joinTitle">기본입력</div>
 	<table class="joinBox">
-		<tr><th>이름</th><td><input type="text" size="20" name="name"> </td></tr>
-		<tr><th>이메일</th><td><input type="text" size="30" name="email"></td></tr>
-		<tr><th>전화번호</th><td><input type="text" size="20" name="phone"></td></tr>
-		<tr><th rowspan="3">주소</th><td><input type="text" name="zip_num" size="10" >      
+		<tr><th>이름</th><td><input type="text" size="20" name="name" value="${name}"> </td></tr>
+		<tr><th>이메일</th><td><input type="text" size="30" name="email" value="${email}"></td></tr>
+		<tr><th>전화번호</th><td><input type="text" size="20" name="phone" value="${phone}"></td></tr>
+		<tr><th rowspan="3">주소</th><td><input type="text" name="zip_num" size="10" value="${zip_num}">      
 	   		<input type="button" value="주소 찾기" class="dup_brown" onclick="post_zip();"></td></tr>
-		<tr><td><input type="text" name="addr1"   size="50"></td></tr>
-		<tr><td><input type="text" name="addr2"   size="25"></td></tr>
+		<tr><td><input type="text" name="addr1"   size="50" value="${addr1}"></td></tr>
+		<tr><td><input type="text" name="addr2"   size="25" value="${addr2}"></td></tr>
 	</table>
 	<br><br>
 	<div class="joinTitle">웹사이트 비밀번호 입력</div>
 	<table class="joinBox">	
-		<tr><th>아이디</th><td><input type="text" name="id" size="20"> 
+		<tr><th>아이디</th><td><input type="text" name="id" size="20" value="${id}"> 
 	    		<input type="button" value="중복 체크" class="dup_brown" onclick="idcheck();">
 				<input type="hidden" name="reid"></td></tr>
 				
@@ -44,12 +44,12 @@ input{border:#BEBBB9 solid 1px;}
 		<tr><th>비밀번호</th><td><input type="password" name="pwd" size="20">	</td></tr>
 		<tr><th>비밀번호 확인</th><td><input type="password" name="pwdCheck" size="20">  </td></tr>
 	</table>
-	
+	<center><div>${message}</div></center>
 
 <!-- cont테마 css -->
-<div class="contButtons">
+<center><div class="contButtons">
 	<input type="submit" value="가입신청" class="joinButton">
-</div>
+</div></center>
 
 
 </form>

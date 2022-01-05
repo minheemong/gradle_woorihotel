@@ -16,8 +16,7 @@ input{border:#BEBBB9 solid 1px;}
 </head>
 <body>
 <center><h3>Pwd 찾기</h3></center>
-<form method="post" name="frm" action="hotel.do">
-<input type="hidden" name="command" value="findPwStep1">
+<form method="post" name="frm" action="findPwStep1">
 <table align="center" bgcolor="black" cellspacing="1" width="400">
 	<tr align="center" bgcolor="white">
 		<th>아이디</th><td><input type="text" name="id" value="${id}"></td>

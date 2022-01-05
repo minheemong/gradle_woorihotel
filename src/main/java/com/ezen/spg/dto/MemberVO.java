@@ -20,7 +20,13 @@ public class MemberVO {
 	@NotNull(message="이메일을 입력하세요") 
 	@NotEmpty(message="이메일을 입력하세요")
     private String email;
+	@NotNull(message="전화번호를 입력하세요") 
+	@NotEmpty(message="전화번호를 입력하세요")
     private String phone;
+	@NotNull(message="주소를 입력하세요") 
+	@NotEmpty(message="주소를 입력하세요")
     private String zip_num;
+	@NotNull(message="주소를 입력하세요") 
+	@NotEmpty(message="주소를 입력하세요")
     private String address;
 }

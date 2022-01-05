@@ -18,7 +18,11 @@ public interface IMemberDao {
 
 	void updateMember(MemberVO membervo);
 
-	MemberVO confirmPhone(String name, String phone);
+	MemberVO confirmPhone1(String name, String phone);
+
+	MemberVO confirmPhone2(String id, String name, String phone);
+
+	void resetPw(MemberVO mvo);
 
 
 }

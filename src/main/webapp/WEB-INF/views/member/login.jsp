@@ -5,7 +5,7 @@
 <article>
 <div class="logtitle">로그인</div>
 
-<form method="post" action="hotel.do" name="loginFrm" action="login">
+<form method="post" name="loginFrm" action="login">
 	
 <div class="logview">
 	<div class="logbox1">
@@ -17,7 +17,7 @@
 	</div>	
 	<div class="logbox2">
 			<input type="button" value="회원가입" class="logbutton"	
-				onclick="location.href='hotel.do?command=contract'">
+				onclick="location.href='contract'">
 			<input type="button" value="아이디 비밀번호 찾기" class="logbutton" onclick="find_id()">	
 			<div>&nbsp;&nbsp;&nbsp;${message}</div>
 	</div>

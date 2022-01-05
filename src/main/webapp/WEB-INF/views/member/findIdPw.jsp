@@ -17,11 +17,11 @@ body{font-size:90%;}
 	<tr align="center" bgcolor="#faf1d0" height="150">
 		<td width="230"><h3>아이디 찾기</h3>
 			<input type="button" class="joinButton" value="이동"
-				onclick="location.href='hotel.do?command=findIdForm'">
+				onclick="location.href='findIdForm'">
 		</td>
 		<td width="230"><h3>비밀번호 찾기</h3>
 			<input type="button" class="joinButton" value="이동"
-				onclick="location.href='hotel.do?command=findPwForm'">
+				onclick="location.href='findPwForm'">
 		</td>
 	</tr>
 </table>

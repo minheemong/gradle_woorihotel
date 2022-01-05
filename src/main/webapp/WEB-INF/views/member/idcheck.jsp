@@ -6,7 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script src="script/script.js"></script>
+<script type="text/javascript">
+	function idok(userid){
+		opener.joinFrm.id.value="${id}";
+		opener.joinFrm.reid.value="${id}";
+		self.close();
+	}
+</script>
 <style type="text/css">
 body{font-family:Verdana; font-size:90%; text-align:center;}
 input{border:#BEBBB9 solid 1px;}
@@ -18,8 +24,7 @@ input{border:#BEBBB9 solid 1px;}
 <body>
 <div id="wrap" style="margin:20px 0">
 <h3>ID 중복확인</h3>
-	<form method="post" name="idCheckFrm" action="hotel.do">
-		<input type="hidden" name="command" value="idCheckForm">
+	<form method="post" name="idCheckFrm" action="idCheckForm">
 		User ID&nbsp;&nbsp;&nbsp;<input type="text" name="id" value="${id}">
 		<input type="submit" value="검색" class="dup_brown"><br>
 		

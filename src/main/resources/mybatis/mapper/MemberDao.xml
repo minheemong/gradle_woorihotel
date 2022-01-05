@@ -23,7 +23,15 @@
 		address=#{address},email=#{email},phone=#{phone} where id=#{id}
 	</update>
 	
-	<select id="confirmPhone" resultType="com.ezen.spg.dto.MemberVO">
+	<select id="confirmPhone1" resultType="com.ezen.spg.dto.MemberVO">
 		select * from hotelmember where name=#{param1} and phone=#{param2}
 	</select>
+	
+	<select id="confirmPhone2" resultType="com.ezen.spg.dto.MemberVO">
+		select * from hotelmember where id=#{param1} and name=#{param2} and phone=#{param3}
+	</select>
+	
+	<update id="resetPw" parameterType="com.ezen.spg.dto.MemberVO">
+		update hotelmember set pwd=#{pwd} where id=#{id}
+	</update>
 </mapper>

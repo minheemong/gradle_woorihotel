@@ -32,8 +32,7 @@ function result(zip_num, sido, gugun, dong){
 <body>
 <div id="popup">
 	<h3>우편번호 검색</h3>
-	<form method="post" name="formm" action="hotel.do">
-		<input type="hidden" name="command" value="findZipNum">
+	<form method="post" name="formm" action="findZipNum">
 		동이름 : <input name="dong" type="text">
 		<input type="submit" value="찾기" class="dup_brown">
 	</form>

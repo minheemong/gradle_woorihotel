@@ -31,9 +31,8 @@ input{border:#BEBBB9 solid 1px;}
 <body>
 
 <center><h3>비밀번호 재설정</h3></center>
-<form method="post" name="frm" action="hotel.do">
+<form method="post" name="frm" action="resetPw">
 <input type="hidden" name="id" value="${member.id}">
-<input type="hidden" name="command" value="resetPw">
 
 <table align="center" bgcolor="black" cellspacing="1" width="400">
 	<tr align="center" bgcolor="white">

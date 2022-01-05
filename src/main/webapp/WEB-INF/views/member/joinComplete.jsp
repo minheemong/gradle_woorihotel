@@ -13,8 +13,7 @@
 	<div class="contSelect">가입완료</div>
 </div>
 
-<form method="post" name="joinComFrm" action="../hotel.do">
-<input type="hidden" name="command" value="joinCom">
+<form method="post" name="joinComFrm" action="joinCom">
 
 	<div class="joinComView">
 	 	<c:choose> 

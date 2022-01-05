@@ -15,7 +15,7 @@ input{border:#BEBBB9 solid 1px;}
 .dup_brown_long{width:120px; height:22px; background:#9f876b; color:white; font-size:90%; border:0;}</style>
 <script type="text/javascript">
 function move_login(){
-	opener.location.href='hotel.do?command=loginForm';
+	opener.location.href='loginForm';
 	self.close();
 }
 </script>
@@ -26,8 +26,7 @@ function move_login(){
 
 <center><h3>비밀번호 재설정 완료</h3></center>
 
-<form method="post" name="frm" action="hotel.do">
-<input type="hidden" name="command" value="findPwStep2">
+<form method="post" name="frm">
 <table align="center" bgcolor="black" cellspacing="1" width="400">
 	<tr align="center" bgcolor="white">
 		<th>비밀번호 재설정이 완료되었습니다</th>

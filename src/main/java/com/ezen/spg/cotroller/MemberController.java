@@ -35,35 +35,7 @@ public class MemberController {
 	public String login_form() {
 		return"member/login";
 	}
-	
-	@RequestMapping("findIdPwd")
-	public String find_id_pwd() {
-		return"member/findIdPwd";
-	}
-	
-	@RequestMapping("findIdForm")
-	public String find_id_form() {
-		return"member/findIdForm";
-	}
-	
-	@RequestMapping(value="/findIdStep1", method=RequestMethod.POST)
-	public ModelAndView find_id_form(@RequestParam("name") String name,
-			@RequestParam("phone") String phone,
-			Model model, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		MemberVO mvo = ms.confirmPhone(name,phone);
-		if(mvo == null) {
-			mav.addObject("msg", "이름과 전화번호가 일치하는 회원이 없습니다.");
-			mav.addObject("name", name);
-			mav.addObject("phone", phone);
-			mav.setViewName("member/findIdForm");
-		}else {
-			// 인증번호 전송
-			mav.setViewName("member/findIdconfirmNumber"); // 인증번호 입력 화면으로 이동
-		}
-		return mav;	
-		}
-	
+
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String login(@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
 			Model model, HttpServletRequest request) {
@@ -95,6 +67,124 @@ public class MemberController {
 		}
 	}
 	
+	@RequestMapping("findIdPw")
+	public String find_id_pwd() {
+		return"member/findIdPw";
+	}
+	
+	@RequestMapping("findIdForm")
+	public String find_id_form() {
+		return"member/findIdForm";
+	}
+	
+	@RequestMapping(value="/findIdStep1", method=RequestMethod.POST)
+	public ModelAndView find_id_form1(@RequestParam("name") String name,
+			@RequestParam("phone") String phone,
+			Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		MemberVO mvo = ms.confirmPhone1(name,phone);
+		if(mvo == null) {
+			mav.addObject("msg", "이름과 전화번호가 일치하는 회원이 없습니다.");
+			mav.addObject("member", mvo);
+			mav.setViewName("member/findIdForm");
+		}else {
+			// 인증번호 전송
+			mav.setViewName("member/findIdConfirmNumber"); // 인증번호 입력 화면으로 이동
+			mav.addObject("member", mvo);
+		}
+		return mav;	
+		}
+	
+	@RequestMapping(value="/findIdStep2", method=RequestMethod.POST)
+	public ModelAndView find_id_form2(@RequestParam("name") String name,
+			@RequestParam("id") String id,
+			@RequestParam("phone") String phone,
+			@RequestParam("confirmNum") String confirmNum,
+			Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		MemberVO mvo = new MemberVO();
+		mvo.setId(id);
+		mvo.setName(name);
+		mvo.setPhone(phone);
+			
+		if(!confirmNum.equals("0000")) {
+			request.setAttribute("msg", "인증번호가 맞지 않습니다");
+			mav.setViewName("member/findIdConfirmNumber");
+		} else {
+			mav.setViewName("member/viewId");
+			request.setAttribute("msg", "조회한 회원의 아이디는 "+ mvo.getId()+ " 입니다");
+		}
+		mav.addObject("member", mvo);
+		return mav;
+	}
+	
+	@RequestMapping("findPwForm")
+	public String find_pw_form() {
+		return"member/findPwForm";
+	}
+	
+	
+	@RequestMapping(value="/findPwStep1", method=RequestMethod.POST)
+	public ModelAndView find_pw_form1(@RequestParam("name") String name,
+			@RequestParam("phone") String phone,
+			@RequestParam("id") String id,
+			Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		MemberVO mvo = ms.confirmPhone2(id,name,phone);
+		if(mvo == null) {
+			mav.addObject("msg", "아이디와 이름, 전화번호가 일치하는 회원이 없습니다.");
+			mav.addObject("member", mvo);
+			mav.setViewName("member/findPwForm");
+		}else {
+			// 인증번호 전송
+			mav.setViewName("member/findPwConfirmNumber"); // 인증번호 입력 화면으로 이동
+			mav.addObject("member", mvo);
+		}
+		return mav;	
+		}
+	
+	@RequestMapping(value="/findPwStep2", method=RequestMethod.POST)
+	public ModelAndView find_pw_form2(@RequestParam("name") String name,
+			@RequestParam("id") String id,
+			@RequestParam("phone") String phone,
+			@RequestParam("confirmNum") String confirmNum,
+			Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		MemberVO mvo = new MemberVO();
+		mvo.setId(id);
+		mvo.setName(name);
+		mvo.setPhone(phone);
+			
+		if(!confirmNum.equals("0000")) {
+			request.setAttribute("msg", "인증번호가 맞지 않습니다");
+			mav.setViewName("member/findIdConfirmNumber");
+		} else {
+			mav.setViewName("member/resetPw");
+		}
+		mav.addObject("member", mvo);
+		return mav;
+	}
+	
+	@RequestMapping(value="/resetPw", method=RequestMethod.POST)
+	public ModelAndView reset_pw(@RequestParam("pwd") String pwd,
+			@RequestParam("id") String id,
+			Model model, HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		
+		MemberVO mvo = new MemberVO();
+		mvo.setId(id);
+		mvo.setPwd(pwd);
+		
+		// 패스워드 수정
+		ms.resetPw(mvo);
+		
+		mav.addObject("member", mvo);
+		mav.setViewName("member/resetPwComplete");
+		return mav;
+	}
+	
 	@RequestMapping("logout")
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -107,7 +197,7 @@ public class MemberController {
 		return "member/contract";
 	}
 	
-	@RequestMapping(value="joinForm", method=RequestMethod.POST)
+	@RequestMapping(value="/joinForm", method=RequestMethod.POST)
 	public String joinForm() {
 		return "member/join";
 	}
@@ -137,28 +227,103 @@ public class MemberController {
 	}
 	
 	@RequestMapping("joinComplete")
-	public String join(@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
+	public String joinComplete(@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
 			Model model, HttpServletRequest request, @RequestParam(value="reid", required=false) String reid,
+			@RequestParam(value="pwd", required=false) String pwd,
+			@RequestParam(value="id", required=false) String id,
+			@RequestParam(value="name", required=false) String name,
+			@RequestParam(value="email", required=false) String email,
+			@RequestParam(value="addr1", required=false) String addr1,
+			@RequestParam(value="addr2", required=false) String addr2,
+			@RequestParam(value="zip_num", required=false) String zip_num,
+			@RequestParam(value="phone", required=false) String phone,
 			@RequestParam(value="pwdCheck", required=false) String pwdCheck) {
+		model.addAttribute("reid",reid);
 		if(result.getFieldError("id")!=null) {
 			model.addAttribute("message", result.getFieldError("id").getDefaultMessage());
-			model.addAttribute("reid",reid);
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("phone",phone);
 			return "member/join";
 		} else if(result.getFieldError("pwd")!=null) {
 			model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
-			model.addAttribute("reid",reid);
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("id",id);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("phone",phone);
 			return "member/join";
 		}  else if(result.getFieldError("name")!=null) {
 			model.addAttribute("message", result.getFieldError("name").getDefaultMessage());
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("id",id);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("phone",phone);
 			return "member/join";
 		} else if(result.getFieldError("email")!=null) {
 			model.addAttribute("message", result.getFieldError("email").getDefaultMessage());
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("id",id);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("phone",phone);
+			return "member/join";
+		} else if(result.getFieldError("phone")!=null) {
+			model.addAttribute("message", result.getFieldError("phone").getDefaultMessage());
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("id",id);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("email",email);
+			return "member/join";
+		} else if(result.getFieldError("zip_num")!=null) {
+			model.addAttribute("message", result.getFieldError("zip_num").getDefaultMessage());
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("id",id);
+			model.addAttribute("phone",phone);
+			model.addAttribute("email",email);
+			return "member/join";
+		} else if(result.getFieldError("addr1")!=null) {
+			model.addAttribute("message", result.getFieldError("addr1").getDefaultMessage());
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("phone",phone);
+			model.addAttribute("id",id);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("email",email);
 			return "member/join";
 		} else if(pwdCheck==null|| (pwdCheck!=null&& !pwdCheck.equals(membervo.getPwd() ))) {
 			model.addAttribute("message","비밀번호 확인이 일치하지 않았습니다");
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("id",id);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("phone",phone);
 			return "member/join";
 		} else if(reid==null|| (reid!=null&& !reid.equals(membervo.getId() ))) {
 			model.addAttribute("message","아이디 중복확인을 하지 않았습니다");
+			model.addAttribute("name",name);
+			model.addAttribute("email",email);
+			model.addAttribute("addr1",addr1);
+			model.addAttribute("addr2",addr2);
+			model.addAttribute("zip_num",zip_num);
+			model.addAttribute("phone",phone);
 			return "member/join";
 		} 
 			membervo.setAddress(request.getParameter("addr1")+" "+request.getParameter("addr2"));
@@ -168,16 +333,24 @@ public class MemberController {
 			
 			 
 		      MemberVO mto = new MemberVO();
-		      mto.setId(request.getParameter("id"));
-		      mto.setPwd(request.getParameter("pwd"));
-		      mto.setName(request.getParameter("name"));
-		      mto.setEmail(request.getParameter("email"));
-		      mto.setZip_num(request.getParameter("zip_num"));
-		      mto.setAddress( request.getParameter("addr1") + " " + request.getParameter("addr2") );
-		      mto.setPhone(request.getParameter("phone"));
+		      mto.setId(id);
+		      mto.setPwd(pwd);
+		      mto.setName(name);
+		      mto.setEmail(email);
+		      mto.setZip_num(zip_num);
+		      mto.setAddress( addr1 + " " + addr2 );
+		      mto.setPhone(phone);
 		    HttpSession session=request.getSession();
 		    session.setAttribute("joinName", mto);
 			return "member/joinComplete";
+	}
+	@RequestMapping("joinCom")
+	public String joinCom(Model model, HttpServletRequest request) {
+		
+		 HttpSession session = request.getSession();
+	      //session.invalidate();
+	      session.removeAttribute("joinName");
+	      return "redirect:/loginForm";
 	}
 	
 	@RequestMapping(value="memeberEditForm")

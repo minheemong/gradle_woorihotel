@@ -14,7 +14,7 @@
 </div>
 
 <div style="margin: 0 auto;  width: 870px;">
-<form id="join" method="post" name="contractFrm">
+<form id="join" method="post" name="contractFrm" action="joinForm">
 	
 <div class="contBox">
 <br>

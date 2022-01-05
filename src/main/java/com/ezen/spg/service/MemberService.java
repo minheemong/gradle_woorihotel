@@ -33,7 +33,16 @@ public class MemberService {
 			mdao.updateMember(membervo);
 	}
 
-	public MemberVO confirmPhone(String name, String phone) {
-		return mdao.confirmPhone(name,phone);
+	public MemberVO confirmPhone1(String name, String phone) {
+		return mdao.confirmPhone1(name,phone);
+	}
+
+	public MemberVO confirmPhone2(String id, String name, String phone) {
+		return mdao.confirmPhone2(id,name,phone);
+
+	}
+
+	public void resetPw(MemberVO mvo) {
+		mdao.resetPw(mvo);	
 	}
 }

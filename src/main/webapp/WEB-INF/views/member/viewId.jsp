@@ -17,7 +17,7 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <script type="text/javascript">
 function move_login(){
-	opener.location.href='hotel.do?command=loginForm';
+	opener.location.href='loginForm';
 	self.close();
 }
 </script>
@@ -35,12 +35,12 @@ function move_login(){
 </table>
 <div align="center" class="findIdFormbutton">
 	<br>
-	<center>조회한 회원의 아이디는 ${member.id}입니다</center>
+	<center>${msg}</center>
 	<br>
 	<input type="button" value="로그인 창으로" class="dup_brown" onclick="move_login();">
-	<input type="button" value="비밀번호 찾기" class="dup_darkbrown" onclick="location.href='hotel.do?command=findPwForm&id=${member.id}'">
+	<input type="button" value="비밀번호 찾기" class="dup_darkbrown" onclick="location.href='findPwForm?id=${member.id}'">
 	<br>
-	<center>${msg}</center>
+	
 </div>
 
 
