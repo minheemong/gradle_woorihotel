@@ -18,7 +18,7 @@
 <link href="static/css/admin.css" rel="stylesheet" type="text/css">
 <link href="static/css/admincss.css" rel="stylesheet" type="text/css">
 <link href="static/css/Hotel.css" rel="stylesheet" type="text/css">
-<script src="/css/adminHotel.js"></script>
+<script src="static/script/adminHotel.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,7 +69,7 @@ font-family: 'Nanum Myeongjo', serif;
  
  <div class="admin_header_gnb" >
            <ul >         
-                       <li><a class="admin_header_a" href="adminbookList?a=1"> 고객 예약 리스트</a></li>                              
+                       <li><a class="admin_header_a" href="adminbookchecklist?a=1"> 고객 예약 리스트</a></li>                              
                        <li><a class="admin_header_a" href="adminQnaList" >고객문의 리스트</a></li>
                        <li><a class="admin_header_a" href="adminMemberList" >회원  리스트</a></li>
                        

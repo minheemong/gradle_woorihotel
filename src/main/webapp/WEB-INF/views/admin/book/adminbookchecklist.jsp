@@ -90,7 +90,7 @@
 </form>
 
 	<br>
-<jsp:include page="/admin/book/paging.jsp">
+<jsp:include page="paging.jsp">
 	<jsp:param name="page" value="${paging.page}" />
 	<jsp:param name="beginPage" value="${paging.beginPage}" />
 	<jsp:param name="endPage" value="${paging.endPage}" />

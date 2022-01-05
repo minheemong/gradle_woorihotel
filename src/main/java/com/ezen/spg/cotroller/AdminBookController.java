@@ -23,7 +23,7 @@ public class AdminBookController {
 	
 	
 	
-	@RequestMapping("adminbookList")
+	@RequestMapping("adminbookchecklist")
 	public ModelAndView adminbookList(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		

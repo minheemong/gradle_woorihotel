@@ -21,31 +21,31 @@
 	</select>
 	
 	<select id="getAllCountWithIndateOutdate" resultType="_int">
-		select count(*) from book where to_char(checkin, 'YYYYMMDD')=#{param1} 
+		select count(*) from book_view where to_char(checkin, 'YYYYMMDD')=#{param1} 
 		and to_char(checkout, 'YYYYMMDD')=#{param2}
 	</select>
 	
 	<select id="getAllCountWithIndate" resultType="_int">
-		select count(*) from book where to_char(checkin, 'YYYYMMDD')=#{param1}
+		select count(*) from book_view where to_char(checkin, 'YYYYMMDD')=#{param1}
 	</select>
 	
 	<select id="getAllCountWithOutdate" resultType="_int">
-		select count(*) from book where to_char(checkout, 'YYYYMMDD')=#{param2}
+		select count(*) from book_view where to_char(checkout, 'YYYYMMDD')=#{param2}
 	</select>
 	
 	<select id="getAllCountWithIdIndateOutdate" resultType="_int">
-		select count(*) from book where id=#{param1} and 
+		select count(*) from book_view where id=#{param1} and 
 		to_char(checkin, 'YYYYMMDD')=#{param2} 
 		and to_char(checkout, 'YYYYMMDD')=#{param3}
 	</select>
 	
 	<select id="getAllCountWithIdIndate" resultType="_int">
-		select count(*) from book where id=#{param1} and 
+		select count(*) from book_view where id=#{param1} and 
 		to_char(checkin, 'YYYYMMDD')=#{param2}
 	</select>
 	
 	<select id="getAllCountWithIdOutdate" resultType="_int">
-		select count(*) from book where id=#{param1} and 
+		select count(*) from book_view where id=#{param1} and 
 		to_char(checkout, 'YYYYMMDD')=#{param2}
 	</select>
 	
@@ -105,7 +105,7 @@
 	<select id="getAllBookListWithIdIndate" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where id=#{param2} and 
-		to_char(checkin, 'YYYYMMDD')=#{param3} and 
+		to_char(checkin, 'YYYYMMDD')=#{param3} 
 		order by booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
@@ -113,7 +113,7 @@
 	<select id="getAllBookListWithIdOutdate" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where id=#{param2} and 
-		to_char(checkout, 'YYYYMMDD')=#{param3} and 
+		to_char(checkout, 'YYYYMMDD')=#{param3}  
 		order by booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
