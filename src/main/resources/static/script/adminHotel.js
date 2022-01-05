@@ -4,7 +4,7 @@ function go_search_booknum(){
 	document.frm.checkouts.value="";
 	document.frm.bookid.value="";
 	
-	var url = "hotel.do?command=adminbookList&page=1";
+	var url = "adminbookchecklist?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -15,7 +15,7 @@ function go_total_check(){
 	document.frm.checkins.value="";
 	document.frm.checkouts.value="";
 	document.frm.bookid.value="";
-	var url = "hotel.do?command=adminbookList&page=1";
+	var url = "adminbookchecklist?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -40,7 +40,7 @@ function go_search_checkdate(){
 		}
 	}
 	
-	var url = "hotel.do?command=adminbookList&page=1";
+	var url = "adminbookchecklist?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }
@@ -54,7 +54,7 @@ function go_search_bookid() {
 	document.frm.checkins.value="";
 	document.frm.checkouts.value="";
 	
-	var url = "hotel.do?command=adminbookList&page=1";
+	var url = "adminbookchecklist?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 	
@@ -82,7 +82,7 @@ function go_search_dateANDid() {
 		}
 	}
 	
-	var url = "hotel.do?command=adminbookList&page=1";
+	var url = "adminbookchecklist?page=1";
 	document.frm.action=url;
 	document.frm.submit();
 }

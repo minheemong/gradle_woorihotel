@@ -10,11 +10,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200&display=swap" rel="stylesheet">
-<link href="admin/css/admin.css" rel="stylesheet">
-<link href="css/Hotel.css" rel="stylesheet">
-<script src="css/adminHotel.js"></script>
+
+
 
 <title>Insert title here</title>
+
+<link href="static/css/admin.css" rel="stylesheet" type="text/css">
+<link href="static/css/admincss.css" rel="stylesheet" type="text/css">
+<link href="static/css/Hotel.css" rel="stylesheet" type="text/css">
+<script src="/css/adminHotel.js"></script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&f
@@ -54,7 +59,7 @@ font-family: 'Nanum Myeongjo', serif;
 <header class="admin_header">
 
   <div class="admin_header_logo">
-        <a href="hotel.do?command=adminMain ">
+        <a href="adminMain ">
             <h1>THE WOORI</h1>
             <p > HOTELS & RESORTS</p></a>
             <p> 관리자 페이지 </p>
@@ -64,7 +69,7 @@ font-family: 'Nanum Myeongjo', serif;
  
  <div class="admin_header_gnb" >
            <ul >         
-                       <li><a class="admin_header_a" href="hotel.do?command=adminbookList&a=1"> 고객 예약 리스트</a></li>                              
+                       <li><a class="admin_header_a" href="adminbookList?a=1"> 고객 예약 리스트</a></li>                              
                        <li><a class="admin_header_a" href="hotel.do?command=adminQnaList" >고객문의 리스트</a></li>
                        <li><a class="admin_header_a" href="hotel.do?command=adminMemberList" >회원  리스트</a></li>
                        
