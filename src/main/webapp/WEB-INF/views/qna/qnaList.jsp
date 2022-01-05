@@ -64,57 +64,42 @@ font-weight: bold; font-size: 140%;
            <th scope="col">등록번호</th><th scope="col">제목</th><th scope="col">아이디</th><th scope="col">등록일</th><th scope="col">답변 여부</th>
     </tr>
   
-	<c:forEach items="${qnaList}"  var="qnaDto"  varStatus="status"> 
-           <c:set var="size" value="${fn:length(qnaList)+1-(status.count)}"/>   
+	<c:forEach items="${qnaList}"  var="qnaVO"  varStatus="status"> 
+           <c:set var="size" value="${fn:length(qnaList)-(status.count)+1}"/>   
         		<tr style="height: 30px;  text-align:center;">
-                 
-                    <td id="qna_size"> <c:out value="${size}"/></td>
-                    <td id="qna_title"><a href="hotel.do?command=qnaView&qnaseq=${qnaDto.qnaseq}">${qnaDto.title}</a>
+               
+                    <td id="qna_size"><c:out value="${size}"/></td>
+                    <td id="qna_title"><a href="qnaView?qnaseq=${qnaVO.qnaseq}">${qnaVO.title}</a>
         <c:choose>
-           <c:when test="${qnaDto.rep==1}">
-                     <img width="10" height="9" id="new" src="images/ic_new.gif">  
+           <c:when test="${qnaVO.rep==1}">
+                     <img width="10" height="9" id="new" src="static/images/ic_new.gif">  
                 </c:when>
                 
-             <c:when test="${qnaDto.rep==2 }">
-            <br> <img  src="images/ic_reply.png"> &nbsp;&nbsp;${qnaDto.reply}
+             <c:when test="${qnaVO.rep==2 }">
+            <br> <img  src="images/ic_reply.png"> &nbsp;&nbsp;${qnaVO.reply}
               </c:when>
           </c:choose>    
                      
                      </td> 
-                    <td id="qna_id">  ${qnaDto.id} </td>   
-               		<td id="qna_date"><fmt:formatDate value="${qnaDto.indate}" type="date"/></td>
+                    <td id="qna_id">  ${qnaVO.id} </td>   
+               		<td id="qna_date"><fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
                		<td id="qna_rep">
                         <c:choose>
-                				<c:when test="${qnaDto.rep==1}"> no </c:when>
-                				<c:when test="${qnaDto.rep==2}"> yes </c:when>
+                				<c:when test="${qnaVO.rep==1}"> no </c:when>
+                				<c:when test="${qnaVO.rep==2}"> yes </c:when>
                		    </c:choose>
                    </td>    
            		</tr>
-       <%--       <c:choose>
-                  <c:when test="${qnaDto.rep==2 }">
-                      <tr>
-                      <td>
-                      </td>
-                        <td>
-                        <img  src="images/ic_reply.png"> &nbsp;&nbsp; (답변) ${qnaDto.reply} 
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        
-                      </tr>
-                      
-                  </c:when>
-             </c:choose> --%>
+
   	</c:forEach>
 </table>
 
 <div class="clear"></div>
 <div id="qna_buttons"  >
 	<input type="button"  value="1:1 질문하기"  class="submit" id="qna_button"
-	onClick="location.href='hotel.do?command=qnaWriteForm'"> 
+	onClick="location.href='qnaWriteForm'"> 
 	<input type="button"    value="되돌아가기"  class="cancel" id="qna_button"
-	onclick="location.href='hotel.do?command=mainForm'">  
+	onclick="location.href='mainForm'">  
 </div>
 </form>
 </article>

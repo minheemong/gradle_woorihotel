@@ -35,12 +35,13 @@ border:1px solid black;
 
 <div id="qnaview1">
   
-<form name="formm" method="post" action="hotel.do" >
-	<input type="hidden" name="command" value="qnaWrite">
+<form name="formm" method="post" action="qnaWrite" >
 <table id="qnawriteview">
+<h4>${message}</h4>
 <caption>
                <h2> 1:1질문하기</h2>
                <h3>고객님의 질문에 대해서 운영자가 답변을 드립니다</h3>
+               
 </caption>
    <tr height="25" >
              <td align="center" width="130 " style="font-weight: bold; ">제목</td>
@@ -49,14 +50,16 @@ border:1px solid black;
    </tr>
    <tr  >
             <td align="center" width="150" style="font-weight: bold; ">문의사항</td>
-            <td width="450"  ><textarea rows="11" cols="70" name="content"  style="background-color:white;"></textarea></td>
+            <td width="450"  >
+            <textarea rows="11" cols="70" name="content"  style="background-color:white;">
+            </textarea></td>
    </tr>
    <tr height="20">
              <td align="center" colspan="2">
                   <input type="submit"  value="저장하기"     class="submit" id="qna_button"> 
          		
          		  <input type="button"  value="취소"  class="submit"  id="qna_button"
-       							onclick="location.href='hotel.do?command=qnaList'"> 
+       							onclick="location.href='qnaList'"> 
               </td>
    </tr>
       

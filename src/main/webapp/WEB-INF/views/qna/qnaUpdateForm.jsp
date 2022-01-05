@@ -7,6 +7,8 @@
 #qnawriteview{
  margin-left: 570px; height:200px;
 position:relative; border:1px solid black;
+background-color:#9F876B;
+border-collapse:collapse;
 }
 article h2{
  margin:0 auto; margin-left: 800px; margin-top:20px;
@@ -27,16 +29,20 @@ height: 400px; margin-top:100px; margin :0 atuo;
 <article>
 <div id="qnaview1">
 <h3> 고객문의 수정하기</h3>
-<form name="formm"  method="post"  >
- <input type="hidden" name="qnaseq" value="${qnaDto.qnaseq}">
+	<div>${message}</div>
+<form name="formm"  method="post" >
+<input type="hidden" name="qnaseq" value="${qnaVO.qnaseq}">
+ 
  <table id="qnawriteview">
      <tr>
              <td align="center" width="150">제목</td>
-             <td width="450"><input type="text" name="title" size="60"/></td>
+             <td width="450"><input type="text" name="title" size="60" /></td>
    </tr>
    <tr>
             <td align="center" width="150">문의사항</td>
-            <td width="450"><textarea rows="10" cols="60" name="content"></textarea></td>
+            <td width="450">
+            <textarea rows="10" cols="60" name="content" ></textarea>
+            </td>
    </tr>
  
   </table>
@@ -44,7 +50,7 @@ height: 400px; margin-top:100px; margin :0 atuo;
  <div class="clear"></div>
 <div  id="qna_btn">
 <input type="reset"  value="취소">
-<input type="button"  value="저장" onclick="go_qna_update()"> 
+<input type="submit"  value="저장"  onclick="go_qna_update()"> 
 
  
 </div>
@@ -54,7 +60,7 @@ height: 400px; margin-top:100px; margin :0 atuo;
 <%@ include file="../footer.jsp" %> 
 <script type="text/javascript">
 function go_qna_update() {
-	 document.formm.action ="hotel.do?command=qnaUpdate";
+	 document.formm.action ="qnaUpdate";
     document.formm.submit();
 }
 </script>
