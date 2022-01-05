@@ -54,11 +54,11 @@
 					<div class="booknumclass_aa" id="chklistcontent2_aa">
 					<c:choose>
 						<c:when test='${list.result=="0"}'>
-						<a href="adminbooklistdetail&bdseq=${list.bdseq}&gotonum=1">
+						<a href="adminbooklistdetail?bdseq=${list.bdseq}&gotonum=1">
 						${list.booknum}(<input type="checkbox" name="result" value="${list.bdseq}">예약대기)</a></c:when>
    
 						<c:otherwise>
-						<a href="adminbooklistdetail&bdseq=${list.bdseq}&gotonum=1">
+						<a href="adminbooklistdetail?bdseq=${list.bdseq}&gotonum=1">
 						${list.booknum}(<input type="checkbox" checked="checked" disabled="disabled">처리)</a></c:otherwise>
 					</c:choose>	
 					</div>

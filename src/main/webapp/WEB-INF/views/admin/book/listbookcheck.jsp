@@ -2,7 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/admin/adminheader.jsp" %>
+<%@ include file="../adminheader.jsp" %>
 
 
 <article  class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
@@ -13,48 +13,48 @@
 	<div id="bigctextbox_aa">
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa"> &nbsp;아이디</div>
-			<div class="ctexttext_aa">${bookcheck.id}</div>
+			<div class="ctexttext_aa">${booklist.id}</div>
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa"> &nbsp;이름</div>
-			<div class="ctexttext_aa">${bookcheck.name}</div>
-			<input type="hidden" id="bookdetailname" value="${bookcheck.name }">
+			<div class="ctexttext_aa">${booklist.name}</div>
+			<input type="hidden" id="bookdetailname" value="${booklist.name }">
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;예약 번호</div>
-			<div class="ctexttext_aa">${bookcheck.booknum}</div>
-			<input type="hidden" id="bookdetailnum" value="${bookcheck.bdseq }">
+			<div class="ctexttext_aa">${booklist.booknum}</div>
+			<input type="hidden" id="bookdetailnum" value="${booklist.bdseq }">
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;객실</div>
-			<div class="ctexttext_aa">${bookcheck.kind}</div>
+			<div class="ctexttext_aa">${booklist.kind}</div>
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;객실 번호</div>
-			<div class="ctexttext_aa">${bookcheck.hotelnum}</div>
+			<div class="ctexttext_aa">${booklist.hotelnum}</div>
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;인원</div>
-			<div class="ctexttext_aa">${bookcheck.usernum}</div>
+			<div class="ctexttext_aa">${booklist.usernum}</div>
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;체크인</div>
-			<div class="ctexttext_aa"><fmt:formatDate value="${bookcheck.checkin}"/></div>
+			<div class="ctexttext_aa"><fmt:formatDate value="${booklist.checkin}"/></div>
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;체크아웃</div>
-			<div class="ctexttext_aa"><fmt:formatDate value="${bookcheck.checkout}"/></div>
+			<div class="ctexttext_aa"><fmt:formatDate value="${booklist.checkout}"/></div>
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;결제 금액</div>
-			<div class="ctexttext_aa">${bookcheck.price}</div>
+			<div class="ctexttext_aa">${booklist.price}</div>
 		</div>
 		
 	</div>
 	
 	<div id="buttons_aa">
 	<input type="button" value="목록으로" class="btn_aa" id="checkmain_aa"
-		onclick="location.href='hotel.do?command=adminbookList'">
+		onclick="location.href='adminbookchecklist'">
 	<input type="button" value="예약 취소" class="btn_aa" id="checkmain_aa"
 		onclick="confirmbookcancel();">
 	<input type="hidden" id="gotonum" value="${gotonum}">
@@ -68,4 +68,4 @@
 </div>
 </form>
 </article>
-<%@ include file="/admin/adminfooter.jsp" %>
+<%@ include file="../adminfooter.jsp" %>

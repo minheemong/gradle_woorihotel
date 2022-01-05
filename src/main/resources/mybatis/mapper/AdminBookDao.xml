@@ -117,5 +117,16 @@
 		order by booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
+	
+	
+	
+	
+	<select id="getBookDetail" resultType="com.ezen.spg.dto.BookVO">
+		select * from book_view where bdseq=#{param1}
+	</select>
+	
+	<update id="adminBookCancel">
+		update bookdetail set result='3' where bdseq=#{param1}
+	</update>
 
 </mapper>

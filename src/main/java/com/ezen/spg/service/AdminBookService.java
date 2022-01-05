@@ -74,7 +74,22 @@ public class AdminBookService {
 				booklist = abao.getAllBookListWithIdOutdate(paging,id,outdate);
 		}
 		
+		for(BookVO bvo : booklist) {
+			bvo.days();
+		}
+		
 		
 		return booklist;
+	}
+
+	public BookVO getBookDetail(int bdseq) {
+		BookVO bvo=abao.getBookDetail(bdseq);
+		bvo.days();
+		return bvo;
+	}
+
+	public void adminBookCancel(int bdseq) {
+		abao.adminBookCancel(bdseq);
+		
 	}
 }

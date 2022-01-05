@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.spg.dto.BookVO;
@@ -122,6 +123,35 @@ public class AdminBookController {
 		mav.setViewName("admin/book/adminbookchecklist");
 		
 		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping("/adminbooklistdetail")
+	public ModelAndView adminbooklistdetail(@RequestParam("bdseq") int bdseq,
+			@RequestParam("gotonum") int gotonum) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("gotonum",gotonum);
+		mav.addObject("booklist",abs.getBookDetail(bdseq));
+		mav.setViewName("admin/book/listbookcheck");
+		
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping("/adminbookcancel")
+	public String adminbookcancel(@RequestParam("bdseq") int bdseq,
+			@RequestParam("gotonum") int gotonum) {
+		
+		String url = "redirect:/adminbookchecklist";
+		abs.adminBookCancel(bdseq);
+		
+		if(gotonum==2) url="";
+		
+		return url;
 	}
 
 }

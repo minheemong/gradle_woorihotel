@@ -93,11 +93,11 @@ function go_search_dateANDid() {
 function confirmbookcancel(){
 	var url="";
 	if(document.frm.gotonum.value=="1"){
-		url = "hotel.do?command=adminbookcancel&bdseq="
+		url = "adminbookcancel?bdseq="
 		+document.frm.bookdetailnum.value+"&gotonum="+document.frm.gotonum.value;
 		/*alert(document.frm.gotonum.value);*/
 	} else if(document.frm.gotonum.value=="2"){
-		url="hotel.do?command=adminbookcancel&bdseq="
+		url="adminbookcancel?bdseq="
 		+document.frm.bookdetailnum.value+"&gotonum="+document.frm.gotonum.value;
 	}
 	

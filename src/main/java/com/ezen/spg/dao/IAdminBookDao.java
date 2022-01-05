@@ -52,4 +52,12 @@ public interface IAdminBookDao {
 
 	ArrayList<BookVO> getAllBookListWithIdOutdate(Paging paging, String id, String outdate);
 
+	
+	
+	
+	
+	BookVO getBookDetail(int bdseq);
+
+	void adminBookCancel(int bdseq);
+
 }

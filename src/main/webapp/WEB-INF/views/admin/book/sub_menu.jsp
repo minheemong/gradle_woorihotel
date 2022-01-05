@@ -6,6 +6,6 @@
 	<ul>
 		<li id="tab_aa">고객예약</li>
 		<li><a href="adminbookchecklist?a=1">예약확인</a></li><!--  -->
-		<li><a href="hotel.do?command=adminbookcancelpage&page=1">취소확인</a></li>
+		<li><a href="adminbookcancelpage?page=1">취소확인</a></li>
 	</ul>
 </nav>
