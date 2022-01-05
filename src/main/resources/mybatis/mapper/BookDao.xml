@@ -4,4 +4,18 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.ezen.spg.dao.IBookDao">
+
+	<select id="bookedCount" resultType="_int">
+		select count(*) from book_view where checkout > to_date(#{param1},'yyyy-mm-dd') 
+		and checkin &lt; to_date(#{param2},'yyyy-mm-dd') and kind = #{param3}
+	</select>
+	
+	<select id="maxPeopleNumber" resultType="_int">
+		select distinct persons from hotel where kind = #{param1}	
+	</select>
+	
+	<select id="maxRoomNumber" resultType="_int">
+		select count(*) from hotel where kind = #{param1}
+	</select>
+	
 </mapper>
