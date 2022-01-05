@@ -38,7 +38,7 @@ function workerCheck(){
 <body>
 
 <div id="admin_login_title"> 관리자페이지 로그인</div>
-<form method="post" action="hotel.do" name="loginFrm">
+<form method="post" action="adminlogin" name="loginFrm">
  <input type="hidden" name="command" value="adminlogin">
  
 <div id="admin_login_view">
@@ -49,7 +49,7 @@ function workerCheck(){
           <input name="workId" type="text" id="admin_idPwd" placeholder="&nbsp;&nbsp; 관리자 아이디 입력"><br>
           <input name="workPwd" type="password" id="admin_idPwd"  placeholder="&nbsp;&nbsp; 비밀번호 입력"><br>
      </div>
-         <input type="submit" value="로그인" id="admin_login" onclick="return workerCheck()">
+         <input type="submit" value="로그인" id="admin_login">
          <div>&nbsp;&nbsp;&nbsp;${message}</div>
     </div> 
 
