@@ -35,3 +35,5 @@
 		update hotelmember set pwd=#{pwd} where id=#{id}
 	</update>
 </mapper>
+
+<!-- 완료 -->

@@ -51,4 +51,4 @@ function result(zip_num, sido, gugun, dong){
 	</table>
 </div>
 </body>
-</html>
+</html><!-- 완료 -->

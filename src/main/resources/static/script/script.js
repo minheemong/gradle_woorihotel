@@ -146,6 +146,8 @@ function find_id(){
    window.open(url, "Find Id/Pw", opt);
 }
 
+/*완료*/ 
+
 
 
 

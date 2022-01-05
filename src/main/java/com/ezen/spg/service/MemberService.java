@@ -46,3 +46,5 @@ public class MemberService {
 		mdao.resetPw(mvo);	
 	}
 }
+
+//완료
