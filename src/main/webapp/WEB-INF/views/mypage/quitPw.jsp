@@ -9,8 +9,7 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <article>
 
-<form method="post" action="hotel.do" name="quitPw">
-	<input type="hidden" name="command" value="quitCheck">
+<form method="post" name="quitPw" action="quitCheck">
 	
 <div id="abox_aa">
 	<div id="sum_aa">탈회 요청</div>

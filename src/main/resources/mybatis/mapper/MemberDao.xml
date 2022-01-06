@@ -34,6 +34,10 @@
 	<update id="resetPw" parameterType="com.ezen.spg.dto.MemberVO">
 		update hotelmember set pwd=#{pwd} where id=#{id}
 	</update>
+	
+	<delete id="deleteMember">
+		delete hotelmember where id=#{param1}
+	</delete>
 </mapper>
 
 <!-- 완료 -->

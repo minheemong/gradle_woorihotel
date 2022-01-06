@@ -47,7 +47,10 @@ public class MemberController {
 		}
 		
 		MemberVO mvo = ms.getMember(membervo.getId());
-		if(mvo.getId()==null) {
+		if(mvo==null) {
+		model.addAttribute("message","가입하지 않으셨습니다");
+		return "member/login";
+		}else if(mvo.getId()==null) {
 			model.addAttribute("message","아이디가 없습니다");
 			return "member/login";
 		} else if(mvo.getPwd()==null) {
@@ -483,13 +486,13 @@ public class MemberController {
 			 @RequestParam(value="newpwd_re") String newpwd_re) {
 		ModelAndView mav = new ModelAndView();
 		
-		String url = "pwUpdateForm";
+		String url = "mypage/pwUpdateForm";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if( mvo == null) { 
 			mav.addObject("message", "다시 로그인해주세요");
-		}else if(pwd.equals(null)){ 
 	// 현재 비밀번호 확인
+		}else if(pwd.equals(null)){ 
 			mav.addObject("message", "현재 비밀번호를 입력해주세요");
 		}else if(!mvo.getPwd().equals(pwd)){
 			mav.addObject("message", "현재 비밀번호가 틀립니다");
@@ -513,4 +516,50 @@ public class MemberController {
 		return mav;
 	}
 	
+	@RequestMapping("quitPw")
+	public String quitPw(Model model, HttpServletRequest request) {
+		String url = "mypage/quitPw";
+		
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); 
+		if(mvo==null) {
+			url = "login";
+		} else {
+	    	session.setAttribute("loginUser", mvo);
+ 		}
+		return url;
+	}
+	
+	@RequestMapping(value="/quitCheck", method=RequestMethod.POST)
+	public ModelAndView quitCheck(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String url = "quitPw";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		String pwd = request.getParameter("pwd");
+		if( mvo == null) { 
+			mav.addObject("message", "다시 로그인해주세요");
+		}else if(pwd==""){
+			mav.addObject("message", "비밀번호를 입력해주세요");
+		}else if(!mvo.getPwd().equals(pwd)){
+			mav.addObject("message", "비밀번호가 틀립니다");
+		}else {
+			url = "mypage/quitOk";
+			session.setAttribute("loginUser", mvo);
+		}
+		mav.setViewName(url);
+		return mav;
+	}
+	
+	@RequestMapping(value="/quit", method=RequestMethod.POST)
+	public String quit(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		ms.deleteMember(mvo.getId());
+		
+		session.removeAttribute("loginUser");
+		
+		return "redirect:/";
+	}
 }

@@ -53,7 +53,7 @@ font-family: 'Nanum Myeongjo', serif;
 <header class="header"><!-- 로고, 주메뉴, 카테고리 메뉴 등이 표시되는 영역 -->
  <!-- 상단 메뉴 시작 : 로그인 CART MyPage 등-->
    <div class="header_logo">
-        <a href="mainForm">
+        <a href="/">
             <h1 >THE WOORI</h1>
             <p> HOTELS &RESORTS</p>
         </a>

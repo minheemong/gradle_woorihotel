@@ -45,6 +45,10 @@ public class MemberService {
 	public void resetPw(MemberVO mvo) {
 		mdao.resetPw(mvo);	
 	}
+
+	public void deleteMember(String id) {
+		mdao.deleteMember(id);
+	}
 }
 
 //완료

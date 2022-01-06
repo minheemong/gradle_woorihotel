@@ -11,4 +11,4 @@
 		<li><a href="qnaList">문의 내역</a></li>
 		<li><a href="quitPw">탈회 요청</a></li>
 	</ul>
-</nav>
+</nav> 

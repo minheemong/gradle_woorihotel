@@ -24,6 +24,7 @@ public interface IMemberDao {
 
 	void resetPw(MemberVO mvo);
 
+	void deleteMember(String id);
 
 }
 //완료
