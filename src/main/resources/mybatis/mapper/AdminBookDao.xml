@@ -16,6 +16,10 @@
 		select count(*) from book_view where id=#{param1}
 	</select>
 	
+	<select id="getAllCountWithIdBooknums" resultType="_int">
+		select count(*) from book_view where id=#{param1} and booknum=#{param2}
+	</select>
+	
 	<select id="getAllCountWithBooknum" resultType="_int">
 		select count(*) from book_view where booknum=#{param1}
 	</select>
@@ -69,6 +73,13 @@
 	<select id="getAllBookListWithId" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where id=#{param2} order by result asc, booknum desc) b )) 
+		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getAllBookListWithIdBooknum" resultType="com.ezen.spg.dto.BookVO">
+		select * from (select * from ( select rownum as rn, b.* from 
+		( ( select * from book_view where id=#{param2} and booknum=#{param3}
+		order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	

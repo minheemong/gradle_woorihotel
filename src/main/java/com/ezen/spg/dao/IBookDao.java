@@ -47,5 +47,11 @@ public interface IBookDao {
 
 	int getAllCount5(String id, String indate);
 
+	ArrayList<BookVO> getbooklistWithIndateOutdate(Paging paging, String id, String indate, String outdate);
+
+	ArrayList<BookVO> getbooklistWithIndate(Paging paging, String id, String indate);
+
+	ArrayList<BookVO> getbooklistWithOutdate(Paging paging, String id, String outdate);
+
 
 }
