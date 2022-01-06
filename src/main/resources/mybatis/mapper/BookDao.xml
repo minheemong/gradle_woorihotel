@@ -91,4 +91,17 @@
 		) where rn&lt;=#{param2.endNum}
 	</select>
 	
+	<insert id="insertRoom">
+		insert into bookdetail (usernum,checkin,checkout,bdseq,booknum,hotelnum) 
+		values(#{param3},to_date(#{param4},'yyyy-mm-dd'),to_date(#{param5},'yyyy-mm-dd'),seq_bookdetail_bdseq.nextval,#{param1},#{param2})
+	</insert>
+	
+	<insert id="insertBook">
+		insert into book values (seq_book_booknum.nextval, #{param1})
+	</insert>
+	
+	<select id="LookupMaxBooknum" resultType="_int">
+		select max(booknum) from book
+	</select>	
+	
 </mapper>

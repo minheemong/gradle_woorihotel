@@ -20,7 +20,12 @@ public interface IBookDao {
 
 	ArrayList<Integer> selectRoomNum(String kind);
 
+	void insertBook(String id);
 
+	int LookupMaxBooknum();
+
+	void insertRoom(int booknum, int hotelnum, int usernum, String checkin, String checkout);
+	
 	
 	ArrayList<BookVO> getbooklist1(String id, Paging paging);
 
