@@ -75,7 +75,7 @@ function days () {
 #main_video{
 position: relative; text-align: center; margin:0 auto; font-weight: bold;
     font-size: 30px; 
-    margin-top: 10px;
+    margin-top: 50px;
     
 }
 </style>
@@ -102,11 +102,11 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 </form>
 <script type="text/javascript"></script>
 <div id="main_video">
-<div style="text-style">  제주 우리 호텔 소개 영상 </div>
+<div style="text-style">  갤러리 <br>  GALLERY </div>
 <div>
-<iframe width="800" height="330" src="https://www.youtube.com/embed/wphai3v-SXE?autoply=1&mute=1" 
-title="YouTube video player" frameborder="0" allow="accelerometer; autoplay=; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe>
+<iframe width="1200" height="678" src="https://www.youtube.com/embed/81xxCLvADlU?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 </div>
 </div>
 

@@ -64,15 +64,15 @@ public class AdminController {
 		
 		if( adminvo == null) {
 				mav.addObject("message","없는아이디입니다");
-				mav.setViewName("/admin/adminloginForm");
+				mav.setViewName("admin/adminloginForm");
 		} else  if (adminvo.getPwd() == null) {
 			
 				mav.addObject("message","DB 오류. 관리자에게 문의하세요");
-				mav.setViewName("/adminloginForm");
+				mav.setViewName("admin/adminloginForm");
 		} else if (!adminvo.getPwd().equals(workPwd)) {
 			
 			mav.addObject("message","암호가 다릅니다");
-			mav.setViewName("admin/adminLoginForm");
+			mav.setViewName("admin/adminloginForm");
     	
 		}else {
 			HttpSession session = request.getSession();
