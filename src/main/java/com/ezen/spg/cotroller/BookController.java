@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ezen.spg.dto.BookVO;
 import com.ezen.spg.dto.MemberVO;
 import com.ezen.spg.dto.Paging;
+import com.ezen.spg.service.AdminBookService;
 import com.ezen.spg.service.BookService;
 
 @Controller
@@ -22,6 +23,9 @@ public class BookController {
 	
 	@Autowired
 	BookService bs;
+	
+	@Autowired
+	AdminBookService abs;
 	
 	@RequestMapping(value="bookForm", method=RequestMethod.POST)
 	public ModelAndView bookForm(@RequestParam("roomnum") int roomnum,
@@ -84,6 +88,9 @@ public class BookController {
 		
 		String indate="";
 		String outdate="";
+		
+		System.out.println("예약 번호 : "+booknums+", 체크인 : "+checkins+", 체크아웃 : "+checkouts+", ");
+		
 		if(mvo==null) url="loginForm";
 		else {
 			if(booknums!=null) {
@@ -142,15 +149,16 @@ public class BookController {
 			Paging paging = new Paging();
 			paging.setPage(page);
 
-			int count = bs.getAllCount(mvo.getId(), booknums, indate, outdate);
+			System.out.println("아이디 : "+mvo.getId()+", 예약 번호 : "+booknums);
+			int count=abs.getAllCount(mvo.getId(), booknums, indate, outdate);
 			paging.setTotalCount(count);
 			paging.paging();
+			System.out.println("count : "+count);
 
-			ArrayList<BookVO> list = bs.getbooklist(mvo.getId(),paging, booknums, indate, outdate);
-			System.out.println("getbooklist size : "+list.size());
-			int total=count;
-			mav.addObject("booklist",list);
-			mav.addObject("total",total);
+			ArrayList<BookVO> booklist = abs.getAllBookList(paging,mvo.getId(),booknums,indate,outdate);
+			System.out.println("booklist : "+booklist.size());
+			mav.addObject("booklist",booklist);
+			mav.addObject("total",count);
 			mav.addObject("paging",paging);
 			mav.addObject("booknums",booknums);
 			mav.addObject("checkins",checkins);
@@ -161,94 +169,64 @@ public class BookController {
 		return mav;
 	}
 	
-	@RequestMapping(value="bookChecklistSerch", method=RequestMethod.POST)
-	public ModelAndView bookChecklistSerch(@RequestParam(value="booknums", required=false) String booknums,
-			@RequestParam(value="checkins", required=false) String checkins,
-			@RequestParam(value="checkouts", required=false) String checkouts, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-
-		String url="mypage/bookchecklist";
-		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-		
-		String indate="";
-		String outdate="";
-		if(mvo==null) url="loginForm";
-		else {
-			if(booknums!=null) {
-				session.setAttribute("booknums", booknums);
-			} else if(session.getAttribute("booknums")!=null) {
-				booknums=(String)session.getAttribute("booknums");
-			} else {
-				session.removeAttribute("booknums");
-				booknums="";
-			}
-			
-			int page = 1;
-			if(request.getParameter("page")!=null) {
-				page = Integer.parseInt(request.getParameter("page"));
-				session.setAttribute("page", page);
-			} else if(session.getAttribute("page")!=null) {
-				page = (int)session.getAttribute("page");
-			} else {
-				page = 1;
-				session.removeAttribute("page");
-			}
-			
-			
-			if(checkins!=null) {
-				indate=checkins;
-				session.setAttribute("checkins", indate);
-			} else if(session.getAttribute("checkins")!=null) {
-				indate=(String)session.getAttribute("checkins");
-			} else {
-				session.removeAttribute("checkins");
-				indate="";
-			}
-			
-			
-			if(checkouts!=null) {
-				outdate=checkouts;
-				session.setAttribute("checkouts", outdate);
-			} else if(session.getAttribute("checkouts")!=null) {
-				outdate=(String)session.getAttribute("checkouts");
-			} else {
-				session.removeAttribute("checkouts");
-				outdate="";
-			}
-			
-			if(request.getParameter("a")!=null) {
-				System.out.println("파라미터 a 값 : "+request.getParameter("a"));
-				session.removeAttribute("checkins");
-				indate="";
-				session.removeAttribute("checkouts");
-				outdate="";
-				session.removeAttribute("booknums");
-				booknums="";
-			}
-			
-			
-			Paging paging = new Paging();
-			paging.setPage(page);
-
-			int count = bs.getAllCount(mvo.getId(), booknums, indate, outdate);
-			paging.setTotalCount(count);
-			paging.paging();
-
-			ArrayList<BookVO> list = bs.getbooklist(mvo.getId(),paging, booknums, indate, outdate);
-			System.out.println("getbooklist size : "+list.size());
-			int total=count;
-			mav.addObject("booklist",list);
-			mav.addObject("total",total);
-			mav.addObject("paging",paging);
-			mav.addObject("booknums",booknums);
-			mav.addObject("checkins",checkins);
-			mav.addObject("checkouts",checkouts);
-		}
-		
-		mav.setViewName(url);
-		return mav;
-	}
+	/*
+	 * @RequestMapping(value="bookChecklistSerch", method=RequestMethod.POST) public
+	 * ModelAndView bookChecklistSerch(@RequestParam(value="booknums",
+	 * required=false) String booknums,
+	 * 
+	 * @RequestParam(value="checkins", required=false) String checkins,
+	 * 
+	 * @RequestParam(value="checkouts", required=false) String checkouts,
+	 * HttpServletRequest request) { ModelAndView mav = new ModelAndView();
+	 * 
+	 * String url="mypage/bookchecklist"; HttpSession session =
+	 * request.getSession(); MemberVO mvo =
+	 * (MemberVO)session.getAttribute("loginUser");
+	 * 
+	 * String indate=""; String outdate=""; if(mvo==null) url="loginForm"; else {
+	 * if(booknums!=null) { session.setAttribute("booknums", booknums); } else
+	 * if(session.getAttribute("booknums")!=null) {
+	 * booknums=(String)session.getAttribute("booknums"); } else {
+	 * session.removeAttribute("booknums"); booknums=""; }
+	 * 
+	 * int page = 1; if(request.getParameter("page")!=null) { page =
+	 * Integer.parseInt(request.getParameter("page")); session.setAttribute("page",
+	 * page); } else if(session.getAttribute("page")!=null) { page =
+	 * (int)session.getAttribute("page"); } else { page = 1;
+	 * session.removeAttribute("page"); }
+	 * 
+	 * 
+	 * if(checkins!=null) { indate=checkins; session.setAttribute("checkins",
+	 * indate); } else if(session.getAttribute("checkins")!=null) {
+	 * indate=(String)session.getAttribute("checkins"); } else {
+	 * session.removeAttribute("checkins"); indate=""; }
+	 * 
+	 * 
+	 * if(checkouts!=null) { outdate=checkouts; session.setAttribute("checkouts",
+	 * outdate); } else if(session.getAttribute("checkouts")!=null) {
+	 * outdate=(String)session.getAttribute("checkouts"); } else {
+	 * session.removeAttribute("checkouts"); outdate=""; }
+	 * 
+	 * if(request.getParameter("a")!=null) {
+	 * System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+	 * session.removeAttribute("checkins"); indate="";
+	 * session.removeAttribute("checkouts"); outdate="";
+	 * session.removeAttribute("booknums"); booknums=""; }
+	 * 
+	 * 
+	 * Paging paging = new Paging(); paging.setPage(page);
+	 * 
+	 * int count = bs.getAllCount(mvo.getId(), booknums, indate, outdate);
+	 * paging.setTotalCount(count); paging.paging();
+	 * 
+	 * ArrayList<BookVO> list = bs.getbooklist(mvo.getId(),paging, booknums, indate,
+	 * outdate); System.out.println("getbooklist size : "+list.size()); int
+	 * total=count; mav.addObject("booklist",list); mav.addObject("total",total);
+	 * mav.addObject("paging",paging); mav.addObject("booknums",booknums);
+	 * mav.addObject("checkins",checkins); mav.addObject("checkouts",checkouts); }
+	 * 
+	 * mav.setViewName(url); return mav; }
+	 */
 	
 	
 	

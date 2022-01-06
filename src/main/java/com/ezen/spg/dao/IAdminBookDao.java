@@ -17,6 +17,8 @@ public interface IAdminBookDao {
 	int getAllCountWithId(String id);
 
 	int getAllCountWithBooknum(String booknums);
+	
+	int getAllCountWithIdBooknums(String id, String booknums);
 
 	int getAllCountWithIndateOutdate(String indate, String outdate);
 
@@ -39,6 +41,8 @@ public interface IAdminBookDao {
 	ArrayList<BookVO> getAllBookListWithBooknum(Paging paging, String booknums);
 
 	ArrayList<BookVO> getAllBookListWithId(Paging paging, String id);
+	
+	ArrayList<BookVO> getAllBookListWithIdBooknum(Paging paging, String id, String booknums);
 
 	ArrayList<BookVO> getAllBookListWithIndateOutdate(Paging paging, String indate, String outdate);
 
@@ -68,6 +72,10 @@ public interface IAdminBookDao {
 	int getCancelAllCount();
 
 	void updateBookResult(int parseInt);
+
+	
+
+	
 
 
 

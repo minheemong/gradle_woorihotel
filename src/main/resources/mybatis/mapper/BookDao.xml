@@ -102,6 +102,6 @@
 	
 	<select id="LookupMaxBooknum" resultType="_int">
 		select max(booknum) from book
-	</select>	
+	</select>
 	
 </mapper>

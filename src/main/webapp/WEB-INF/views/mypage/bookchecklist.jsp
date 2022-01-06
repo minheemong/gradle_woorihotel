@@ -48,7 +48,7 @@ function go_search_checkdate(){
 <br>
 <span id="chklisttxt_aa">객실 및 예약 내역을 확인하실 수 있습니다.</span>
 <br><br>
-<form name="frm" method="post" action="bookChecklistSerch?page=1">
+<form name="frm" method="post" action="bookChecklist">
 <div id="chklistbox_aa">
 <div id="chkselectbox_aa"><!-- 검색 -->
 	<span class="chkselect_aa">예약 번호 검색</span>

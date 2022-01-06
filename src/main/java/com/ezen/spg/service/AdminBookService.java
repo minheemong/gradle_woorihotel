@@ -23,6 +23,8 @@ public class AdminBookService {
 			count=abao.getAllCount();
 		else if(id!="" && booknums=="" && indate=="" && outdate=="")
 			count=abao.getAllCountWithId(id);
+		else if(id!="" && booknums=="" && indate=="" && outdate=="")
+			count=abao.getAllCountWithIdBooknums(id,booknums);
 		else if(id=="" && booknums!="" && indate=="" && outdate=="")
 			count=abao.getAllCountWithBooknum(booknums);
 		else if((id=="" && booknums=="" && indate!="") ||
@@ -56,6 +58,8 @@ public class AdminBookService {
 			booklist = abao.getAllBookListWithBooknum(paging,booknums);
 		else if(id!="" && booknums=="" && indate=="" && outdate=="")
 			booklist = abao.getAllBookListWithId(paging,id);
+		else if(id!="" && booknums!="" && indate=="" && outdate=="")
+			booklist = abao.getAllBookListWithIdBooknum(paging,id,booknums);
 		else if((id=="" && booknums=="" && indate!="") || 
 				(id=="" && booknums=="" && outdate!="")) {
 			if(indate!="" && outdate!="")
@@ -104,9 +108,5 @@ public class AdminBookService {
 
 	public int getCancelAllCount() {
 		return abao.getCancelAllCount();
-	}
-
-	public void updateBookResult(String bdseq) {
-		abao.updateBookResult(Integer.parseInt(bdseq));
 	}
 }
