@@ -5,6 +5,7 @@
 <style type="text/css">
 input{border:#BEBBB9 solid 1px;}
 </style>
+<script src="mypage/mypage.js"></script>
 
 <article>
 

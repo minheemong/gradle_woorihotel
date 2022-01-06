@@ -15,7 +15,7 @@
 <div id="paging" align="center" >
 	<c:url var="action" value="${param.command}" />
 	<c:if test="${param.prev}">
-		<a href="${action}&page=${param.beginPage-1}">◀</a>&nbsp;
+		<a href="${action}?page=${param.beginPage-1}">◀</a>&nbsp;
 	</c:if>
 	<c:forEach begin="${param.beginPage}" end="${param.endPage}" var="index">
 		<c:choose>

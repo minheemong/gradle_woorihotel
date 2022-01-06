@@ -24,8 +24,8 @@ input{border:#BEBBB9 solid 1px;}
 		<div id="profText">&nbsp;&nbsp;&nbsp;${message}</div>
 		
 		<div id="profButton">
-			<input type="button" value="비밀번호 찾기" class="findPwButton" onclick="findPw()">
 			<input type="submit" value="확인" class="okButton">
+			<input type="button" value="비밀번호 찾기" class="findPwButton" onclick="findPw()">
 		</div>
 	</div>
 </div>

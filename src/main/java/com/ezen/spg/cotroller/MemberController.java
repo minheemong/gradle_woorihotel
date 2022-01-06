@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ezen.spg.dto.MemberVO;
 import com.ezen.spg.service.MemberService;
 
-
 @Controller
 public class MemberController {
 	@Autowired
@@ -109,11 +108,11 @@ public class MemberController {
 		mvo.setPhone(phone);
 			
 		if(!confirmNum.equals("0000")) {
-			request.setAttribute("msg", "인증번호가 맞지 않습니다");
+			mav.addObject("msg", "인증번호가 맞지 않습니다");
 			mav.setViewName("member/findIdConfirmNumber");
 		} else {
 			mav.setViewName("member/viewId");
-			request.setAttribute("msg", "조회한 회원의 아이디는 "+ mvo.getId()+ " 입니다");
+			mav.addObject("msg", "조회한 회원의 아이디는 "+ id + " 입니다");
 		}
 		mav.addObject("member", mvo);
 		return mav;
@@ -158,8 +157,8 @@ public class MemberController {
 		mvo.setPhone(phone);
 			
 		if(!confirmNum.equals("0000")) {
-			request.setAttribute("msg", "인증번호가 맞지 않습니다");
-			mav.setViewName("member/findIdConfirmNumber");
+			mav.addObject("msg", "인증번호가 맞지 않습니다");
+			mav.setViewName("member/findPwConfirmNumber");
 		} else {
 			mav.setViewName("member/resetPw");
 		}
@@ -367,7 +366,7 @@ public class MemberController {
 		String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
 		String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
 		
-		request.setAttribute("dto", mvo);
+		mav.addObject("dto", mvo);
 		mav.addObject("addr1",addr1);
 		mav.addObject("addr2",addr2);
 		mav.setViewName("member/meberUpdateForm");
@@ -375,34 +374,36 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="memberUpdate", method=RequestMethod.POST)
-	public String memberUpdate(@ModelAttribute("dto") @Valid MemberVO membervo,
-			BindingResult result, Model model, HttpServletRequest request) {
-		request.setAttribute("addr1", request.getParameter("addr1"));
-		request.setAttribute("addr2", request.getParameter("addr2"));
+	public ModelAndView memberUpdate(@ModelAttribute("dto") @Valid MemberVO membervo,
+			BindingResult result, Model model, HttpServletRequest request,
+			@RequestParam(value="addr1", required=false) String addr1,
+			@RequestParam(value="addr2", required=false) String addr2) {
+		ModelAndView mav = new ModelAndView();
 		String pwdCheck = request.getParameter("pwdCheck");
 		
 		if(result.getFieldError("pwd")!=null) {
-			request.setAttribute("message", result.getFieldError("pwd").getDefaultMessage());
-			return "member/memberUpdateForm";
+			mav.addObject("message", result.getFieldError("pwd").getDefaultMessage());
+			mav.setViewName("member/memberUpdateForm");
 		} else if(result.getFieldError("name")!=null) {
-			request.setAttribute("message", result.getFieldError("name").getDefaultMessage());
-			return "member/memberUpdateForm";
+			mav.addObject("message", result.getFieldError("name").getDefaultMessage());
+			mav.setViewName("member/memberUpdateForm");
 		} else if(result.getFieldError("email")!=null) {
-			request.setAttribute("message", result.getFieldError("email").getDefaultMessage());
-			return "member/memberUpdateForm";
+			mav.addObject("message", result.getFieldError("email").getDefaultMessage());
+			mav.setViewName("member/memberUpdateForm");
 		} else if(pwdCheck!=null && (!pwdCheck.equals(membervo.getPwd()))) {
-			request.setAttribute("message", "비밀번호 확인이 일치하지 않습니다");
-			return "member/memberUpdateForm";
+			mav.addObject("message", "비밀번호 확인이 일치하지 않습니다");
+			mav.setViewName("member/memberUpdateForm");
 		} else {
 			membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
 			ms.updateMember(membervo);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", membervo);
-			return "redirect:/";
+			mav.setViewName("redirect:/");
 		}
+		return mav;
 	}
 	
-	@RequestMapping(value="/profilePw", method=RequestMethod.POST)
+	@RequestMapping(value="/profilePw")
 	public String profilePw(HttpServletRequest request) {
 		
 		HttpSession session = request.getSession();
@@ -417,21 +418,99 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/profileForm", method=RequestMethod.POST)
-	public String profileForm(HttpServletRequest request) {
-		String url = "mypage/profilePw";
+	public ModelAndView profileForm(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String url = "mypage/profileForm";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		String pwd = request.getParameter("pwd");
 		if( mvo == null) { 
-			request.setAttribute("message", "다시 로그인해주세요");
+			mav.addObject("message", "다시 로그인해주세요");
 		}else if(pwd==""){
-			request.setAttribute("message", "비밀번호를 입력해주세요");
+			mav.addObject("message", "비밀번호를 입력해주세요");
 		}else if(!mvo.getPwd().equals(pwd)){
-			request.setAttribute("message", "비밀번호가 틀립니다");
+			mav.addObject("message", "비밀번호가 틀립니다");
 		}else {
 	    	url = "mypage/profileForm";
 			session.setAttribute("loginUser", mvo);
-		}  return url;
+		}  mav.setViewName(url);
+		return mav;
 	}
+	
+	@RequestMapping(value="/profileUpdate", method=RequestMethod.POST)
+	public String pwUpdateForm(HttpServletRequest request,
+			 @RequestParam(value="email", required=false) String email,
+			 @RequestParam(value="phone", required=false) String phone) {
+		String url = "mypage/profileForm";
+		
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); 
+		if(mvo==null) {
+			url = "redirect:/loginForm";
+		} else {
+			mvo.setEmail(email);
+			mvo.setPhone(phone);
+		
+			ms.updateMember(mvo);
+			
+			session.setAttribute("loginUser", mvo);
+			request.setAttribute("message", "정상적으로 수정되었습니다");
+		}
+		return url;
+		
+	}
+	
+
+	@RequestMapping(value="/pwUpdateForm")
+	public String pwUpdateForm(HttpServletRequest request) {
+		
+		String url = "mypage/pwUpdateForm";
+		
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); 
+		if(mvo==null) {
+			url = "redirect:/loginForm";
+		} else {
+	    	session.setAttribute("loginUser", mvo);
+		}
+		return url;
+	}
+	
+	@RequestMapping(value="/pwUpdate", method=RequestMethod.POST)
+	public ModelAndView pwUpdate(HttpServletRequest request,
+			 @RequestParam(value="pwd") String pwd,
+			 @RequestParam(value="newpwd") String newpwd,
+			 @RequestParam(value="newpwd_re") String newpwd_re) {
+		ModelAndView mav = new ModelAndView();
+		
+		String url = "pwUpdateForm";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		if( mvo == null) { 
+			mav.addObject("message", "다시 로그인해주세요");
+		}else if(pwd.equals(null)){ 
+	// 현재 비밀번호 확인
+			mav.addObject("message", "현재 비밀번호를 입력해주세요");
+		}else if(!mvo.getPwd().equals(pwd)){
+			mav.addObject("message", "현재 비밀번호가 틀립니다");
+		}else {
+	// 새 비밀번호 확인
+			if(newpwd.equals(null)) {
+				mav.addObject("message", "새 비밀번호를 입력해주세요");
+			} else if(newpwd_re.equals(null)) {
+				mav.addObject("message", "새 비밀번호 확인을 입력해주세요");
+			} else if(!newpwd_re.equals(newpwd)) {
+				mav.addObject("message", "새 비밀번호 확인이 일치하지 않습니다");
+			} else {
+				mvo.setPwd(newpwd);
+				ms.updateMember(mvo);
+				mav.addObject("message", "정상적으로 수정되었습니다");
+			}
+		}  
+		session.setAttribute("loginUser", mvo);
+		mav.setViewName(url);
+		
+		return mav;
+	}
+	
 }
-// 완료

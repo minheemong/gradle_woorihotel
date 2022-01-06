@@ -9,8 +9,7 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <article>
 
-<form method="post" action="hotel.do" name="pwUpdateForm">
-	<input type="hidden" name="command" value="pwUpdate">
+<form method="post" name="pwUpdateForm" action="pwUpdate">
 	
 <div id="abox_aa">
 	<div id="sum_aa">비밀번호 변경</div>
@@ -29,7 +28,7 @@ input{border:#BEBBB9 solid 1px;}
 		
 		<div id="profButton">
 			<input type="submit" value="변경" class="okButton">
-			<input type="reset" value="취소" class="cancleButton">
+			<input type="reset" value="다시쓰기" class="cancleButton">
 		</div>
 	</div>
 </div>
