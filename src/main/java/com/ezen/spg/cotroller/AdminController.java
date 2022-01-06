@@ -67,9 +67,7 @@ public class AdminController {
 		if( adminvo == null) {
 				mav.addObject("message","관리자 정보가 없습니다");
 				mav.setViewName("admin/adminloginForm");
-		} else  if (adminvo.getId() == null) {
-			mav.addObject("message","아이디가 없습니다");
-			mav.setViewName("admin/adminloginForm");
+
 		} else  if (adminvo.getPwd() == null) {
 				mav.addObject("message","비밀번호가 없습니다");
 				mav.setViewName("admin/adminloginForm");
