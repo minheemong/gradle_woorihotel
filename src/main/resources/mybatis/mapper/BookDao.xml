@@ -22,4 +22,73 @@
 		select hotelnum from hotel where kind=#{param1}
 	</select>
 	
+	<select id="getAllCount1" resultType="_int">
+		select count(*) as cnt from book_view where id=#{param1}
+	</select>
+	<select id="getAllCount2" resultType="_int">
+		select count(*) as cnt from book_view where id=#{param1} and booknum=#{param2}
+	</select>
+	<select id="getAllCount3" resultType="_int">
+		select count(*) as cnt from book_view where id=#{param1} 
+		and to_char(checkin, 'YYYYMMDD')=#{param2} 
+		and to_char(checkout, 'YYYYMMDD')=#{param3}
+	</select>
+	<select id="getAllCount4" resultType="_int">
+		select count(*) as cnt from book_view where id=#{param1} 
+		and to_char(checkout, 'YYYYMMDD')=#{param2}
+
+	</select>
+	<select id="getAllCount5" resultType="_int">
+		select count(*) as cnt from book_view where id=#{param1} 
+		and to_char(checkin, 'YYYYMMDD')=#{param2}
+	</select>
+	
+	<select id="getbooklist1" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( (select * from book_view where id=#{param1} order by booknum desc) b ) 
+		) where rn&gt;=#{param2.startNum} 
+		) where rn&lt;=#{param2.endNum}
+	</select>
+	<select id="getbooklist2" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( (select * from book_view where id=#{param1} 
+		and to_char(checkin, 'YYYYMMDD')=#{param3} 
+		and to_char(checkout, 'YYYYMMDD')=#{param4} order by booknum desc) b ) 
+		) where rn&gt;=#{param2.startNum} 
+		) where rn&lt;=#{param2.endNum}
+	</select>
+	<select id="getbooklist3" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( (select * from book_view where id=#{param1} 
+		and to_char(checkout, 'YYYYMMDD')=#{param3} 
+		order by booknum desc) b ) 
+		) where rn&gt;=#{param2.startNum} 
+		) where rn&lt;=#{param2.endNum}
+	</select>
+	<select id="getbooklist4" resultType="com.ezen.spg.dto.BookVO">
+		select * from(
+		select * from(
+		select rownum as rn, b.* from 
+		( (select * from book_view where id=#{param1} 
+		and to_char(checkin, 'YYYYMMDD')=#{param3} 
+		order by booknum desc) b )
+		) where rn&gt;=#{param2.startNum}
+		) where rn&lt;=#{param2.endNum}
+	</select>
+	<select id="getbooklist5" resultType="com.ezen.spg.dto.BookVO">
+		select * from(
+		select * from(
+		select rownum as rn, b.* from 
+		( (select * from book_view where id=#{param1} 
+		and booknum=#{param3} order by booknum desc) b )
+		) where rn&gt;=#{param2.startNum}
+		) where rn&lt;=#{param2.endNum}
+	</select>
+	
 </mapper>

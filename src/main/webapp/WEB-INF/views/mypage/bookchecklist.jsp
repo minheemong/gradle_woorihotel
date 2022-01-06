@@ -2,6 +2,45 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 
+<script type="text/javascript">
+function go_search_booknum(){
+	document.frm.checkins.value="";
+	document.frm.checkouts.value="";
+	
+	if(document.frm.booknums.value=="") return;
+
+	document.frm.submit();
+}
+
+
+function go_total_check(){
+	document.frm.booknums.value="";
+	document.frm.checkins.value="";
+	document.frm.checkouts.value="";
+
+	document.frm.submit();
+}
+
+
+function go_search_checkdate(){
+	document.frm.booknums.value="";
+	if(document.frm.checkins.value==null && document.frm.checkouts.value==null) return;
+	if(document.frm.checkins.value.length!=null && document.frm.checkouts.value==null){
+		if(document.frm.checkins.value.length!=8){
+			alert("날짜 형식이 잘못되었습니다.");
+			alert(document.frm.checkins.value.length);
+			return;
+		}
+	} else if(document.frm.checkins.value==null && document.frm.checkouts.value.length!=null){
+		if(document.frm.checkouts.value.length!=8){
+			alert("날짜 형식이 잘못되었습니다.");
+			alert(document.frm.checkouts.value.length);
+			return;
+		}
+	}
+	document.frm.submit();
+}
+</script>
 
 <article class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
 <div id="abox_aa">
@@ -9,7 +48,7 @@
 <br>
 <span id="chklisttxt_aa">객실 및 예약 내역을 확인하실 수 있습니다.</span>
 <br><br>
-<form name="frm" method="post">
+<form name="frm" method="post" action="bookChecklistSerch?page=1">
 <div id="chklistbox_aa">
 <div id="chkselectbox_aa"><!-- 검색 -->
 	<span class="chkselect_aa">예약 번호 검색</span>
@@ -44,7 +83,7 @@
 				<c:forEach items="${booklist}" var="list">
 				<div id="chklistcontent_aa">
 					<div class="booknumclass_aa" id="chklistcontent2_aa">
-						<a href="hotel.do?command=listbookcheck&bdseq=${list.bdseq}">
+						<a href="listbookcheck&bdseq=${list.bdseq}">
 						${list.booknum}</a></div>
 					<div class="kindclass_aa" id="chklistcontent2_aa">${list.kind}</div>
 					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.usernum}명</div>
@@ -72,13 +111,13 @@
 </form>
 
 	<br>
-<jsp:include page="/mypage/paging.jsp">
+<jsp:include page="../mypage/paging.jsp">
 	<jsp:param name="page" value="${paging.page}" />
 	<jsp:param name="beginPage" value="${paging.beginPage}" />
 	<jsp:param name="endPage" value="${paging.endPage}" />
 	<jsp:param name="prev" value="${paging.prev}" />
 	<jsp:param name="next" value="${paging.next}" />
-	<jsp:param name="command" value="hotel.do?command=bookChecklist" />
+	<jsp:param name="command" value="bookChecklist" />
 </jsp:include>
 
 </div>

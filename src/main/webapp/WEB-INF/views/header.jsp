@@ -45,10 +45,7 @@ font-family: 'Nanum Myeongjo', serif;
 <link href="css/Hotel.css" rel="stylesheet">
 <link href="script/script.js" rel="stylesheet"> -->
 <script src="static/script/script.js"></script>
-<script src="static/css/hotel.js"></script>
-<!-- <script src="css/hotel.js"></script>
-<script src="member/member.js"></script> -->
-
+<script src="static/script/mypage.js"></script>
 
 </head>
 <body>
