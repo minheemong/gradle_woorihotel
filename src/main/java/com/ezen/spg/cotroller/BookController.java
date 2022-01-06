@@ -243,4 +243,41 @@ public class BookController {
 	public String seoulHotel() {
 		return "Info/Seoul";
 	}
+	
+	
+	
+	
+	@RequestMapping("/listbookcheck")
+	public ModelAndView listbookcheck(@RequestParam("bdseq") int bdseq,
+			HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if(mvo.getId()==null) mav.setViewName("member/login");
+		else {
+			mav.addObject("bookcheck",abs.getBookDetail(bdseq));
+			mav.setViewName("mypage/listbookcheck");
+		}
+		
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping("/bookcancel")
+	public String bookcancel(@RequestParam("bdseq") int bdseq,
+			HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		
+		if(mvo.getId()==null) return ("member/login");
+		else {
+			bs.requestBookCancel(bdseq);
+			
+			return "redirect:/bookChecklist";
+		}
+		
+		
+	}
 }

@@ -104,4 +104,8 @@
 		select max(booknum) from book
 	</select>
 	
+	<update id="requestBookCancel">
+		update bookdetail set result='2' where bdseq=#{param1}
+	</update>
+	
 </mapper>

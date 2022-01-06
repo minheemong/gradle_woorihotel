@@ -83,7 +83,7 @@ function go_search_checkdate(){
 				<c:forEach items="${booklist}" var="list">
 				<div id="chklistcontent_aa">
 					<div class="booknumclass_aa" id="chklistcontent2_aa">
-						<a href="listbookcheck&bdseq=${list.bdseq}">
+						<a href="listbookcheck?bdseq=${list.bdseq}">
 						${list.booknum}</a></div>
 					<div class="kindclass_aa" id="chklistcontent2_aa">${list.kind}</div>
 					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.usernum}명</div>
