@@ -109,4 +109,9 @@ public class AdminBookService {
 	public int getCancelAllCount() {
 		return abao.getCancelAllCount();
 	}
+
+	public void updateBookResult(String bdseq) {
+		abao.updateBookResult(Integer.parseInt(bdseq));
+		
+	}
 }
