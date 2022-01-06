@@ -76,7 +76,7 @@ font-weight: bold; font-size: 140%;
                 </c:when>
                 
              <c:when test="${qnaVO.rep==2 }">
-            <br> <img  src="images/ic_reply.png"> &nbsp;&nbsp;${qnaVO.reply}
+            <br> <img  src="static/images/ic_reply.png"> &nbsp;&nbsp;${qnaVO.reply}
               </c:when>
           </c:choose>    
                      

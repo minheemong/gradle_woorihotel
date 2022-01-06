@@ -37,11 +37,11 @@ border:1px solid black;
 <script type="text/javascript">
 
 function go_rep(qnaseq){
-	document.frm.action="hotel.do?command=adminQnaRepsave";
+	document.frm.action="adminQnaRepsave";
 	document.frm.submit();
 }d
 function go_list() {
-	document.frm.action="hotel.do?command=adminQnaList";
+	document.frm.action="adminQnaList";
 	document.frm.submit();
 }
 </script>
@@ -61,13 +61,13 @@ function go_list() {
             
            <c:choose>
              <c:when test='${qnaDto.rep=="1" }'>
-           <tr>
+           	<tr>
               <td colspan="2"><textarea name="reply" rows="7" cols="82.5"style="border: 2px solid black"></textarea></td>
             </tr>
             </table>
            
               <div style="margin:0 auto; width:200px;">
-                <input type="button" class="btn" value="저장" onclick="go_rep()"id="qna_button">
+                <input type="button" class="btn" value="저장" onclick="go_rep('${qnaDto.qnaseq}')"id="qna_button">
                <input  type="button" value="목록" onClick="go_list()" id="qna_button">
               </div>
              
@@ -82,33 +82,8 @@ function go_list() {
            
            </c:choose> 
             <tr></tr>
+
 </table>
-<!-- 관리자가 쓴 답글 또는 답글 쓰는 입력란 표시 -->
-<%-- <c:choose>
-	<c:when test='${qnaDto.rep=="1" }'><!-- 관리자 답변전 표시 -->
-		<table id="admin_qnaList">		
-			<tr>
-       <td colspan="2"><textarea name="reply" rows="5" cols="70"></textarea></td>
-            </tr>
-			
-    <tr>   
-          <td>	
-                 <input type="button" class="btn" value="저장" onclick="go_rep()"id="qna_button">
-                 <input  type="button" value="목록" onClick="go_list()" id="qna_button">
-    
-          </td>
-   </tr>
-   
-   
-		</table>
-	</c:when>
-	<c:otherwise> <!-- 관리자 답변 완료 후 표시 -->
-		<table id="admin_qnaList"><tr>
-       <th>답변</th><td style="float:left">${qnaDto.reply}</td>
-  </tr>
-  </table>
-	</c:otherwise>
-</c:choose> --%>
 
 </form>
 </article>

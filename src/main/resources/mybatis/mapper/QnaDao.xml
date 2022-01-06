@@ -23,4 +23,7 @@ delete from qna where qnaseq=#{param1}
 <update id="updateQna" parameterType="com.ezen.spg.dto.QnaVO">
 	update qna set title=#{title}, content=#{content}   where qnaseq=#{qnaseq}
 </update>
+<update id="updateQnaReply"  parameterType="com.ezen.spg.dto.QnaVO">
+update qna set reply=#{reply}, rep='2' where qnaseq=#{qnaseq}
+</update>
 </mapper>

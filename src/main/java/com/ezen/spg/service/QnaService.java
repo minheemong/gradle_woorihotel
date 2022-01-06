@@ -38,5 +38,10 @@ public class QnaService {
 		qdao.updateQna(qnavo);
 		
 	}
+
+	public void updateQnaReply(QnaVO qvo) {
+		qdao.updateQnaReply(qvo);
+		
+	}
 	
 }

@@ -12,11 +12,17 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.spg.dto.AdminVO;
+
+import com.ezen.spg.dto.Paging;
+import com.ezen.spg.dto.QnaVO;
 import com.ezen.spg.service.AdminService;
+import com.ezen.spg.service.QnaService;
+
 
 
 @Controller
@@ -24,6 +30,8 @@ public class AdminController {
 	
 	@Autowired
 	AdminService as;
+	@Autowired
+	QnaService qs;
 	
 	@RequestMapping("/a")
 	public String adminmain() {
@@ -76,11 +84,113 @@ public class AdminController {
 		
 		return mav;
 	}
+	
 	@RequestMapping("adminlogout")
 	public String adminlogout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("loginAdmin");
 		return "redirect:/a"; 
 	}
+	
+	
+	
+	
+	@RequestMapping("adminQnaList")
+	public ModelAndView adminQnaList(HttpServletRequest request){
+		ModelAndView mav= new ModelAndView();
+		HttpSession session=request.getSession();
+		
+		AdminVO avo=(AdminVO)session.getAttribute("loginAdmin");
+	
+		
+		if(avo == null)
+			mav.setViewName("admin/adminloginForm");
+		else {
 
+			if( request.getParameter("first") != null ) {
+				session.removeAttribute("page");
+				session.removeAttribute("key");
+			}
+			int page = 1;
+			if( request.getParameter("page") != null) {
+				page = Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if( session.getAttribute("page")!= null ) {
+				page = (int) session.getAttribute("page");
+			} else {
+				page = 1;
+				session.removeAttribute("page");
+			}
+		
+		
+			String key = "";
+			if( request.getParameter("key") != null ) {
+				key = request.getParameter("key");
+				session.setAttribute("key", key);
+			} else if( session.getAttribute("key")!= null ) {
+				key = (String)session.getAttribute("key");
+			} else {
+				session.removeAttribute("key");
+				key = "";
+			}
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+			
+			int count = as.getAllCount(key);
+			paging.setTotalCount(count);
+			paging.paging();
+		
+
+
+		
+			
+			mav.addObject("qnaList" , as.listQna(paging, key));
+			mav.addObject("paging", paging);
+			mav.addObject("key", key);
+			mav.setViewName("admin/qna/adminqnaList");		
+	}
+		return mav;
+}
+	
+	@RequestMapping("adminQnaDetail")
+	public ModelAndView admin_qna_detail(HttpServletRequest request,
+			@RequestParam("qnaseq") String qnaseq) {
+		ModelAndView mav= new ModelAndView();
+		HttpSession session = request.getSession();
+	    AdminVO mvo = (AdminVO) session.getAttribute("loginAdmin");
+	    System.out.println(1);
+	    if(mvo==null) mav.setViewName("admin/adminloginForm");
+	    else {
+	        System.out.println(2);
+	    	mav.addObject("qnaDto", qs.getQna(Integer.parseInt(qnaseq)));
+	        System.out.println(3);
+			mav.setViewName("admin/qna/adminqnaDetail");
+		    System.out.println(4);
+		
+	    }
+		return mav;
+	}
+	@RequestMapping("adminQnaRepsave")
+	public ModelAndView admin_qna_repsave(HttpServletRequest request
+	,@RequestParam("qnaseq") String qnaseq) {
+		ModelAndView mav= new ModelAndView();
+
+		HttpSession session = request.getSession();
+	    AdminVO mvo = (AdminVO) session.getAttribute("loginAdmin");
+
+	    
+	    if(mvo==null) mav.setViewName("admin/adminloginForm");
+	    else {
+	    			QnaVO qvo= new QnaVO();
+	    	
+	    			qvo.setQnaseq(Integer.parseInt(qnaseq));
+	    			 qvo.setReply(request.getParameter("reply"));
+	    			qs.updateQnaReply(qvo);
+	    			
+	    			mav.setViewName("redirect:/adminQnaList");
+	    }
+		return mav;
+	
+}
 }

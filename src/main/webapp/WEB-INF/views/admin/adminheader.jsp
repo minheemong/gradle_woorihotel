@@ -59,7 +59,7 @@ font-family: 'Nanum Myeongjo', serif;
 <header class="admin_header">
 
   <div class="admin_header_logo">
-        <a href="adminMain">
+        <a href="a">
             <h1>THE WOORI</h1>
             <p > HOTELS & RESORTS</p></a>
             <p> 관리자 페이지 </p>
@@ -70,7 +70,7 @@ font-family: 'Nanum Myeongjo', serif;
  <div class="admin_header_gnb" >
            <ul >         
                        <li><a class="admin_header_a" href="adminbookchecklist?a=1"> 고객 예약 리스트</a></li>                              
-                       <li><a class="admin_header_a" href="adminQnaList" >고객문의 리스트</a></li>
+                       <li><a class="admin_header_a" href="adminQnaList?page=1&key=">고객문의 리스트</a></li>
                        <li><a class="admin_header_a" href="adminMemberList" >회원  리스트</a></li>
                        
                        

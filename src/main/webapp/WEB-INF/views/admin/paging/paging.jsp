@@ -22,12 +22,12 @@
         		<span style="color:red;font-weight:bold">${index}&nbsp;</span>
         	</c:when>
 	        <c:otherwise>
-				<a href="${action}&page=${index}">${index}</a>&nbsp;
+				<a href="${action}?page=${index}">${index}</a>&nbsp;
 			</c:otherwise>
 		</c:choose>
 	</c:forEach>
 	<c:if test="${param.next}">
-			<a href="${action}&page=${param.endPage+1}">▶</a>&nbsp;
+			<a href="${action}?page=${param.endPage+1}">▶</a>&nbsp;
 	</c:if>	
 </div>
 </body>
