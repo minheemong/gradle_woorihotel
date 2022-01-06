@@ -249,4 +249,20 @@ public class BookController {
 		mav.setViewName(url);
 		return mav;
 	}
+	
+	
+	
+	
+	@RequestMapping("/goInfo")
+	public String goInfo() {
+		return "Info/sum";
+	}
+	
+	
+	
+	
+	@RequestMapping("/seoulHotel")
+	public String seoulHotel() {
+		return "Info/Seoul";
+	}
 }
