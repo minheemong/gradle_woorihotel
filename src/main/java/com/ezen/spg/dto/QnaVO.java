@@ -18,4 +18,5 @@ public class QnaVO {
 	private String reply;
 	private String rep;
 	private Integer qnaseq;
+	/* //dd */
 }

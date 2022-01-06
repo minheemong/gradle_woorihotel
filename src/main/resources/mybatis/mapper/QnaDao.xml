@@ -27,3 +27,4 @@ delete from qna where qnaseq=#{param1}
 update qna set reply=#{reply}, rep='2' where qnaseq=#{qnaseq}
 </update>
 </mapper>
+<!-- dd -->

@@ -9,7 +9,7 @@ article h1{
 #admin_qnaList{ margin:0 auto;
  width:1000px; border:1px soloid black; text-align: center;
  padding:10 10 10px;
- 
+ /* //dd */
 border-collapse:collapse;
 
 width:600px; text-align: center;      

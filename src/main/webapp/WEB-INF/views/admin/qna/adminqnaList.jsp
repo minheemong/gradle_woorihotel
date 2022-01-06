@@ -3,7 +3,7 @@
 <%@ include file="../adminheader.jsp" %>
    
  <style>
-article h1{
+article h1{/* //dd */
  text-align: center; margin-top: 50px;
 }
 
