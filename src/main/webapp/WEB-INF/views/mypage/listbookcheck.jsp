@@ -43,9 +43,9 @@
 	
 	<div id="buttons_aa">
 	<input type="button" value="목록으로" class="btn_aa" id="checkmain_aa"
-		onclick="location.href='hotel.do?command=bookChecklist'">
+		onclick="history.go(-1)">
 	<input type="button" value="예약 취소" class="btn_aa" id="checkmain_aa"
-		onclick="location.href='hotel.do?command=bookcancel&bdseq=${bookcheck.bdseq}'">
+		onclick="location.href='bookcancel?bdseq=${bookcheck.bdseq}'">
 </div> 
 	
 </div>

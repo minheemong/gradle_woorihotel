@@ -86,6 +86,11 @@ public class BookService {
 	 * 
 	 * }
 	 */
+
+	public void requestBookCancel(int bdseq) {
+		bdao.requestBookCancel(bdseq);
+		
+	}
 	
 	
 }
