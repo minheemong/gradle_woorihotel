@@ -92,4 +92,17 @@ public class AdminBookService {
 		abao.adminBookCancel(bdseq);
 		
 	}
+
+	public ArrayList<BookVO> getAdminCancelList(Paging paging) {
+		ArrayList<BookVO> list = abao.getAdminCancelList(paging);
+		
+		for(BookVO bvo : list)
+			bvo.days();
+		
+		return list;
+	}
+
+	public int getCancelAllCount() {
+		return abao.getCancelAllCount();
+	}
 }

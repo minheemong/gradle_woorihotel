@@ -149,9 +149,43 @@ public class AdminBookController {
 		String url = "redirect:/adminbookchecklist";
 		abs.adminBookCancel(bdseq);
 		
-		if(gotonum==2) url="";
+		if(gotonum==2) url="redirect:/adminbookcancelpage";
 		
 		return url;
+	}
+	
+	
+	
+	
+	@RequestMapping("/adminbookcancelpage")
+	public ModelAndView adminbookcancelpage(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		int page = 1;
+		
+		if(request.getParameter("page")!=null) {
+			page=Integer.parseInt(request.getParameter("page"));
+			session.setAttribute("page", page);
+		} else if(session.getAttribute("page")!=null) {
+			page = (int)session.getAttribute("page");
+		} else {
+			page= 1;
+			session.removeAttribute("page");
+		}
+		
+		int count =abs.getCancelAllCount();
+		Paging paging = new Paging();
+		paging.setPage(page);
+		paging.setTotalCount(count);
+		paging.paging();
+		
+		mav.addObject("booklist",abs.getAdminCancelList(paging));
+		mav.addObject("total",count);
+		mav.addObject("paging",paging);
+		
+		mav.setViewName("admin/book/adminbookcancelpage");
+		
+		return mav;
 	}
 
 }

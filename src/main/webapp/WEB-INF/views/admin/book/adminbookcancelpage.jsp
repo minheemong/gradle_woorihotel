@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="/admin/adminheader.jsp" %>
+<%@ include file="../adminheader.jsp" %>
 
 
 <article class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
@@ -53,7 +53,7 @@
 				<c:forEach items="${booklist}" var="list">
 				<div id="chklistcontent_aa">
 					<div class="booknumclass_aa" id="chklistcontent2_aa">
-						<a href="hotel.do?command=adminbooklistdetail&bdseq=${list.bdseq}&gotonum=2">
+						<a href="adminbooklistdetail?bdseq=${list.bdseq}&gotonum=2">
 						${list.booknum}</a></div>
 					<div class="kindclass_aa" id="chklistcontent2_aa">${list.id}</div>
 					<div class="usernumclass_aa" id="chklistcontent2_aa">${list.usernum}명</div>
@@ -81,13 +81,13 @@
 </form>
 
 	<br>
-<jsp:include page="/admin/book/paging.jsp">
+<jsp:include page="paging.jsp">
 	<jsp:param name="page" value="${paging.page}" />
 	<jsp:param name="beginPage" value="${paging.beginPage}" />
 	<jsp:param name="endPage" value="${paging.endPage}" />
 	<jsp:param name="prev" value="${paging.prev}" />
 	<jsp:param name="next" value="${paging.next}" />
-	<jsp:param name="command" value="hotel.do?command=adminbookList" />
+	<jsp:param name="command" value="adminbookcancelpage" />
 </jsp:include>
 
 </div>
@@ -96,4 +96,4 @@
 
 
 
-<%@ include file="/admin/adminfooter.jsp" %>
+<%@ include file="../adminfooter.jsp" %>
