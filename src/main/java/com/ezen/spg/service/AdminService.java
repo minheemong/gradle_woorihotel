@@ -10,7 +10,7 @@ import com.ezen.spg.dao.IAdminDao;
 import com.ezen.spg.dto.AdminVO;
 import com.ezen.spg.dto.Paging;
 import com.ezen.spg.dto.QnaVO;
-
+  
 @Service
 public class AdminService {
 

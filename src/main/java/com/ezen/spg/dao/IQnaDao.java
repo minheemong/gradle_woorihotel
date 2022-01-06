@@ -17,5 +17,5 @@ public interface IQnaDao {
 	void deleteQna(int qnaseq);
 	void updateQna(QnaVO qnavo);
 	void updateQnaReply(QnaVO qvo);
-
+  
 }

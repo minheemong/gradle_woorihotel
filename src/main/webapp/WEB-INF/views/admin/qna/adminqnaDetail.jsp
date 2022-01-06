@@ -14,7 +14,7 @@ border-collapse:collapse;
 
 width:600px; text-align: center;      
 table-layout:fixed;
- 
+  
 }
 #admin_qnaList tr th{
 background-color:  #9F876B;

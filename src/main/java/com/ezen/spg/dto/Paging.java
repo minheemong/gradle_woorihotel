@@ -1,7 +1,7 @@
 package com.ezen.spg.dto;
 
 import lombok.Data;
-
+  
 @Data
 public class Paging {
 	private int page =1;

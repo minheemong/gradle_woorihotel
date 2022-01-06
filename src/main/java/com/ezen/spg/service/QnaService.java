@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.spg.dao.IQnaDao;
 import com.ezen.spg.dto.QnaVO;
-
+  
 @Service
 public class QnaService {
 	

@@ -22,7 +22,7 @@ import com.ezen.spg.service.QnaService;
 
 @Controller
 public class QnaController {
-
+	
 	@Autowired
 	QnaService qs;
 	

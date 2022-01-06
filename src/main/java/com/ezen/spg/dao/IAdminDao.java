@@ -17,6 +17,6 @@ public interface IAdminDao {
 
 	ArrayList<QnaVO> listQna(Paging paging, String key);
 
-	
+	  
 
 }

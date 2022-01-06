@@ -191,6 +191,6 @@ public class AdminController {
 	    			mav.setViewName("redirect:/adminQnaList");
 	    }
 		return mav;
-	
+	   
 }
 }
