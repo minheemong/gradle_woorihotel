@@ -27,4 +27,3 @@ public interface IMemberDao {
 	void deleteMember(String id);
 
 }
-//완료

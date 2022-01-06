@@ -39,5 +39,3 @@
 		delete hotelmember where id=#{param1}
 	</delete>
 </mapper>
-
-<!-- 완료 -->

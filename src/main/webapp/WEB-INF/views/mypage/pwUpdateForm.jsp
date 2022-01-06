@@ -38,4 +38,4 @@ input{border:#BEBBB9 solid 1px;}
 
 
 
-<%@ include file="../footer.jsp" %> 
+<%@ include file="../footer.jsp" %>  

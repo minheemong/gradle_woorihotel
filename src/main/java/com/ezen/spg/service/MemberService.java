@@ -50,5 +50,3 @@ public class MemberService {
 		mdao.deleteMember(id);
 	}
 }
-
-//완료
