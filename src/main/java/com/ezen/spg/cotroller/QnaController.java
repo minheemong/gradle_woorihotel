@@ -27,6 +27,11 @@ public class QnaController {
 	QnaService qs;
 	
 	
+	@RequestMapping("map")
+	public String map() {
+		return"Info/map";
+	}
+	
 	@RequestMapping("qnaList")
 	public ModelAndView qna_list(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
