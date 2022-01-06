@@ -80,7 +80,7 @@ public class AdminController {
 			HttpSession session = request.getSession();
 	    	session.setAttribute("loginAdmin", adminvo);
 	    	mav.setViewName("admin/adminmain");
-		}
+		}  
 		
 		
 		

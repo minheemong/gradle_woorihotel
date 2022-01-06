@@ -6,7 +6,7 @@
 <mapper namespace="com.ezen.spg.dao.IAdminDao">
 
  	<select id="workerCheck" resultType="com.ezen.spg.dto.AdminVO">
-		select pwd from worker where id=#{param1}
+		select * from worker where id=#{param1}
 	</select>
 	
 		<select id="getAllCount" resultType="_int">
