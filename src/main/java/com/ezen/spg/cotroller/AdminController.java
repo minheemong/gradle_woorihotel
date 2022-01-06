@@ -167,7 +167,7 @@ public class AdminController {
 	        System.out.println(3);
 			mav.setViewName("admin/qna/adminqnaDetail");
 		    System.out.println(4);
-		
+		    
 	    }
 		return mav;
 	}

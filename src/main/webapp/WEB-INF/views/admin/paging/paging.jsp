@@ -25,7 +25,7 @@
 	        <c:otherwise>
 				<a href="${action}?page=${index}">${index}</a>&nbsp;
 			</c:otherwise>
-		</c:choose>
+		</c:choose>  
 	</c:forEach>
 	<c:if test="${param.next}">
 			<a href="${action}?page=${param.endPage+1}">▶</a>&nbsp;

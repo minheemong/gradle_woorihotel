@@ -19,7 +19,7 @@ public class QnaService {
 	public ArrayList<QnaVO> listQna(String id) {
 		return qdao.listQna(id);
 	}
-
+    
 	public void insertQna(QnaVO qnavo) {
 		qdao.insertQna(qnavo);
 		

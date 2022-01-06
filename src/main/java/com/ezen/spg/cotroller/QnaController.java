@@ -18,7 +18,7 @@ import com.ezen.spg.dto.MemberVO;
 import com.ezen.spg.dto.QnaVO;
 import com.ezen.spg.service.QnaService;
 
-
+    
 
 @Controller
 public class QnaController {
