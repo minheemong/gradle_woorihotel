@@ -54,26 +54,28 @@ public class AdminController {
 			mav.setViewName("admin/adminloginForm");
 			return mav;
 		}else if( workPwd == null || workPwd.equals("") ) {
-			mav.addObject("message" , "패쓰워드를 입력하세요");
+			mav.addObject("message" , "비밀번호를 입력하세요");
 			mav.setViewName("admin/adminloginForm");
 			return mav;
 		}
+		
+		
 
 		
 		adminvo=as.workerCheck(workId);
 		
 		if( adminvo == null) {
-				mav.addObject("message","없는아이디입니다");
+				mav.addObject("message","관리자 정보가 없습니다");
 				mav.setViewName("admin/adminloginForm");
+		} else  if (adminvo.getId() == null) {
+			mav.addObject("message","아이디가 없습니다");
+			mav.setViewName("admin/adminloginForm");
 		} else  if (adminvo.getPwd() == null) {
-			
-				mav.addObject("message","DB 오류. 관리자에게 문의하세요");
+				mav.addObject("message","비밀번호가 없습니다");
 				mav.setViewName("admin/adminloginForm");
 		} else if (!adminvo.getPwd().equals(workPwd)) {
-			
-			mav.addObject("message","암호가 다릅니다");
+			mav.addObject("message","비밀번호가 다릅니다");
 			mav.setViewName("admin/adminloginForm");
-    	
 		}else {
 			HttpSession session = request.getSession();
 	    	session.setAttribute("loginAdmin", adminvo);
