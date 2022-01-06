@@ -154,7 +154,7 @@
 	</select>
 	
 	<update id="updateBookResult">
-		update bookdetail set result='1' where bdseq=#{param1}
+		update bookdetail set result='3' where bdseq=#{param1}
 	</update>
 
 </mapper>
