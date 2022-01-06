@@ -35,7 +35,17 @@ public class BookService {
 		
 		return remainRoomList;
 	}
-
+	
+	public void insertRoom(ArrayList<Integer> remainList, String id,
+			ArrayList<Integer> userNumList, String checkin, String checkout) {
+		bdao.insertBook(id);
+		int booknum = bdao.LookupMaxBooknum();
+		
+		for(int i = 0 ; i<userNumList.size(); i++) {
+			bdao.insertRoom(booknum,remainList.get(i), userNumList.get(i), checkin, checkout);
+		}
+		
+	}
 
 	public ArrayList<BookVO> getbooklist(String id, Paging paging, String booknums, String indate, String outdate) {
 		if(booknums.equals("") && indate.equals("") && outdate.equals("")){

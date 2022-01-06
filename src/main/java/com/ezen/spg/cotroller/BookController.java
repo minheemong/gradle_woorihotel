@@ -63,20 +63,11 @@ public class BookController {
 			int a = usernum / roomnum ;  
 			int b = usernum % roomnum; 
 			
-			for(int i = 0 ; i<roomnum ; i++) { 
-				userNumList.add(a);
-			}
-			for(int i = 0 ; i<b ; i ++) {
-				userNumList.set(i, userNumList.get(i)+1);
-			}
-			
-			// 주석
-			for(Integer i : remainList) {
-				System.out.println("2번째 : " + i);
-			}
-			
-			// bs.insertRoom(remainList,roomnum,usernum,mvo.getId(),userNumList,checkin,checkout);
-			return "";
+			for(int i = 0 ; i<roomnum ; i++) userNumList.add(a);
+			for(int i = 0 ; i<b ; i ++) userNumList.set(i, userNumList.get(i)+1);
+
+			bs.insertRoom(remainList,mvo.getId(),userNumList,checkin,checkout);
+			return "redirect:/bookChecklist";
 		}
 		
 		
