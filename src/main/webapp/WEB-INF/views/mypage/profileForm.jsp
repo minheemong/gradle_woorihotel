@@ -5,12 +5,10 @@
 <style type="text/css">
 input{border:#BEBBB9 solid 1px;}
 </style>
-<script src="mypage/mypage.js"></script>
 
 <article>
 
-<form method="post" action="hotel.do" name="profileForm">
-	<input type="hidden" name="command" value="profileUpdate">
+<form method="post" name="profileForm" action="profileUpdate">
 	
 <div id="abox_aa">
 	<div id="sum_aa">프로필 수정</div>

@@ -2,15 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 <%@ include file="sub_menu.jsp" %>
-
-<script src="mypage/mypage.js"></script>
 <style type="text/css">
 input{border:#BEBBB9 solid 1px;}
 </style>
 <article>
 
-<form method="post" action="hotel.do" name="profilePw">
-	<input type="hidden" name="command" value="profileForm">
+<form method="post" name="profilePw" action="profileForm">
 	
 <div id="abox_aa">
 	<div id="sum_aa">프로필 수정</div>

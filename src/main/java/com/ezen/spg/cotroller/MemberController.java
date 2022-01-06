@@ -401,5 +401,37 @@ public class MemberController {
 			return "redirect:/";
 		}
 	}
+	
+	@RequestMapping(value="/profilePw", method=RequestMethod.POST)
+	public String profilePw(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); 
+		if(mvo==null) {
+			return "redirect:/loginForm";
+		} else {
+	    	session.setAttribute("loginUser", mvo);
+	    	return "mypage/profilePw";
+ 		}
+
+	}
+	
+	@RequestMapping(value="/profileForm", method=RequestMethod.POST)
+	public String profileForm(HttpServletRequest request) {
+		String url = "mypage/profilePw";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		String pwd = request.getParameter("pwd");
+		if( mvo == null) { 
+			request.setAttribute("message", "다시 로그인해주세요");
+		}else if(pwd==""){
+			request.setAttribute("message", "비밀번호를 입력해주세요");
+		}else if(!mvo.getPwd().equals(pwd)){
+			request.setAttribute("message", "비밀번호가 틀립니다");
+		}else {
+	    	url = "mypage/profileForm";
+			session.setAttribute("loginUser", mvo);
+		}  return url;
+	}
 }
 // 완료
