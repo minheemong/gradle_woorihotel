@@ -187,5 +187,10 @@ public class AdminBookController {
 		
 		return mav;
 	}
-
+	
+	@RequestMapping("adminBookSave")
+	public String adminBookSave(@RequestParam("result") String [] resultArr) {
+		for(String bdseq : resultArr) abs.updateBookResult(bdseq);
+		return "redirect:/adminbookchecklist";
+	}
 }

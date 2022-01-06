@@ -56,40 +56,40 @@
 	
 	<select id="getAllBookList" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
-		( ( select * from book_view order by booknum desc) b )) 
+		( ( select * from book_view order by result asc, booknum desc) b )) 
 		where rn&gt;=#{startNum}) where rn&lt;=#{endNum}
 	</select>
 	
 	<select id="getAllBookListWithBooknum" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
-		( ( select * from book_view where booknum=#{param2} order by booknum desc) b )) 
+		( ( select * from book_view where booknum=#{param2} order by result asc,  booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
 	<select id="getAllBookListWithId" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
-		( ( select * from book_view where id=#{param2} order by booknum desc) b )) 
+		( ( select * from book_view where id=#{param2} order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
 	<select id="getAllBookListWithIndateOutdate" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where to_char(checkin, 'YYYYMMDD')=#{param2} 
-		and to_char(checkout,'YYYYMMDD')=#{param3} order by booknum desc) b )) 
+		and to_char(checkout,'YYYYMMDD')=#{param3} order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
 	<select id="getAllBookListWithIndate" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where to_char(checkin, 'YYYYMMDD')=#{param2} 
-		order by booknum desc) b )) 
+		order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
 	<select id="getAllBookListWithOutdate" resultType="com.ezen.spg.dto.BookVO">
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where to_char(checkout, 'YYYYMMDD')=#{param2} 
-		order by booknum desc) b )) 
+		order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
@@ -98,7 +98,7 @@
 		( ( select * from book_view where id=#{param2} and 
 		to_char(checkin, 'YYYYMMDD')=#{param3} and
 		to_char(checkout, 'YYYYMMDD')=#{param4} 
-		order by booknum desc) b )) 
+		order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
@@ -106,7 +106,7 @@
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where id=#{param2} and 
 		to_char(checkin, 'YYYYMMDD')=#{param3} 
-		order by booknum desc) b )) 
+		order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
@@ -114,7 +114,7 @@
 		select * from (select * from ( select rownum as rn, b.* from 
 		( ( select * from book_view where id=#{param2} and 
 		to_char(checkout, 'YYYYMMDD')=#{param3}  
-		order by booknum desc) b )) 
+		order by result asc, booknum desc) b )) 
 		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
 	</select>
 	
@@ -141,5 +141,9 @@
 	<select id="getCancelAllCount" resultType="_int">
 		select count(*) from book_view where result='2'
 	</select>
+	
+	<update id="updateBookResult">
+		update bookdetail set result='1' where bdseq=#{param1}
+	</update>
 
 </mapper>

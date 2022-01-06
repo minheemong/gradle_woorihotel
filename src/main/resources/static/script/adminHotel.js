@@ -122,7 +122,7 @@ function go_order_save(){
 	if(count ==0){
 		alert("주문처리할 항목을 선택해 주세요.");
 	}else{
-		document.frm.action ="hotel.do?command=adminBookSave";
+		document.frm.action ="adminBookSave";
 		document.frm.submit();
 	}
 }

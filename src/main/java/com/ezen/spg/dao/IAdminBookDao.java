@@ -67,4 +67,8 @@ public interface IAdminBookDao {
 	// 예약 취소 대기 명단 카운트
 	int getCancelAllCount();
 
+	void updateBookResult(int parseInt);
+
+
+
 }
