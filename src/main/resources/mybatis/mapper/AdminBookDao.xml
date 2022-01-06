@@ -120,13 +120,26 @@
 	
 	
 	
-	
+	<!-- 예약 상세 정보 -->
 	<select id="getBookDetail" resultType="com.ezen.spg.dto.BookVO">
 		select * from book_view where bdseq=#{param1}
 	</select>
 	
+	<!-- 예약 취소하기 -->
 	<update id="adminBookCancel">
 		update bookdetail set result='3' where bdseq=#{param1}
 	</update>
+	
+	<!-- 예약 취소 대기자 명단 검색 -->
+	<select id="getAdminCancelList" resultType="com.ezen.spg.dto.BookVO">
+		select * from (select * from ( select rownum as rn, b.* from 
+		( ( select * from book_view where result='2' order by booknum desc) b )) 
+		where rn&gt;=#{startNum}) where rn&lt;=#{endNum}
+	</select>
+	
+	<!-- 예약 취소 대기 명단 count -->
+	<select id="getCancelAllCount" resultType="_int">
+		select count(*) from book_view where result='2'
+	</select>
 
 </mapper>

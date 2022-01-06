@@ -55,9 +55,16 @@ public interface IAdminBookDao {
 	
 	
 	
-	
+	// 예약 상세 보기
 	BookVO getBookDetail(int bdseq);
 
+	// 예약 취소하기
 	void adminBookCancel(int bdseq);
+
+	// 예약 취소 대기 명단 가져오기
+	ArrayList<BookVO> getAdminCancelList(Paging paging);
+
+	// 예약 취소 대기 명단 카운트
+	int getCancelAllCount();
 
 }

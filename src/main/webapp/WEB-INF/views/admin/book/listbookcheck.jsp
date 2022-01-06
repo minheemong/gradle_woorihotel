@@ -54,7 +54,7 @@
 	
 	<div id="buttons_aa">
 	<input type="button" value="목록으로" class="btn_aa" id="checkmain_aa"
-		onclick="location.href='adminbookchecklist'">
+		onclick="history.go(-1)">
 	<input type="button" value="예약 취소" class="btn_aa" id="checkmain_aa"
 		onclick="confirmbookcancel();">
 	<input type="hidden" id="gotonum" value="${gotonum}">
