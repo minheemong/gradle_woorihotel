@@ -71,7 +71,14 @@ function days () {
 
   
 </script>
-
+<style>
+#main_video{
+position: relative; text-align: center; margin:0 auto; font-weight: bold;
+    font-size: 30px; 
+    margin-top: 10px;
+    
+}
+</style>
 
 
 <div id="main_img">
@@ -93,6 +100,15 @@ function days () {
            </div>           
 </div>
 </form>
+<script type="text/javascript"></script>
+<div id="main_video">
+<div style="text-style">  제주 우리 호텔 소개 영상 </div>
+<div>
+<iframe width="800" height="330" src="https://www.youtube.com/embed/wphai3v-SXE?autoply=1&mute=1" 
+title="YouTube video player" frameborder="0" allow="accelerometer; autoplay=; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe>
+</div>
+</div>
 
 
 <%@ include file="footer.jsp" %>
