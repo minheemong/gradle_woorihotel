@@ -5,7 +5,7 @@
 	
 <mapper namespace="com.ezen.spg.dao.IQnaDao">
 
-
+ 
 <select id="listQna" resultType="com.ezen.spg.dto.QnaVO">
  select *from qna where id=#{param1} order by qnaseq desc
 </select>

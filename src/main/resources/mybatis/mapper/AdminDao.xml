@@ -4,7 +4,7 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.ezen.spg.dao.IAdminDao">
-
+ 
  	<select id="workerCheck" resultType="com.ezen.spg.dto.AdminVO">
 		select * from worker where id=#{param1}
 	</select>
