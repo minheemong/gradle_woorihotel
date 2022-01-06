@@ -9,15 +9,15 @@
 	<!-- count -->
 	
 	<select id="getAllCount" resultType="_int">
-		select count(*) from book
+		select count(*) from book_view
 	</select>
 	
 	<select id="getAllCountWithId" resultType="_int">
-		select count(*) from book where id=#{param1}
+		select count(*) from book_view where id=#{param1}
 	</select>
 	
 	<select id="getAllCountWithBooknum" resultType="_int">
-		select count(*) from book where booknum=#{param1}
+		select count(*) from book_view where booknum=#{param1}
 	</select>
 	
 	<select id="getAllCountWithIndateOutdate" resultType="_int">
