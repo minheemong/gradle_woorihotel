@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.ezen.spg.dto.BookVO;
 import com.ezen.spg.dto.QnaVO;
 
 @Mapper

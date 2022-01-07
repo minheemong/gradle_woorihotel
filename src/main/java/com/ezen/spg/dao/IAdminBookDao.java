@@ -73,7 +73,26 @@ public interface IAdminBookDao {
 
 	void updateBookResult(int parseInt);
 
+	BookVO getbooklist(String id);
+
+	ArrayList<BookVO> getMemberBook(Paging paging);
+
+	ArrayList<BookVO> getMemberBookWithId(Paging paging, String id);
+
+	ArrayList<BookVO> getMemberBookWithBooknum(Paging paging, String booknums);
 	
+	ArrayList<BookVO> getMemberBookWithIndateOutdate(Paging paging, String indate, String outdate);
+
+	ArrayList<BookVO> getMemberBookWithOutdate(Paging paging, String outdate);
+
+	ArrayList<BookVO> getMemberBookWithIndate(Paging paging, String indate);
+
+	ArrayList<BookVO> getMemberBookWithIdIndateOudate(Paging paging, String id, String indate, String outdate);
+
+	ArrayList<BookVO> getMemberBookWithIdOutdate(Paging paging, String id, String outdate);
+
+	ArrayList<BookVO> getMemberBookWithIdIndate(Paging paging, String id, String indate);
+
 
 	
 

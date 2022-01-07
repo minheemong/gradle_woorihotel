@@ -156,5 +156,101 @@
 	<update id="updateBookResult">
 		update bookdetail set result='3' where bdseq=#{param1}
 	</update>
-
+	
+	<select id="getMemberBook" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum}  
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithId" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where id=#{param2} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithBooknum" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view where booknum=#{param2} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithIndateOutdate" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view 
+		to_char(checkin, 'YYYYMMDD')=#{param2} 
+		and to_char(checkout, 'YYYYMMDD')=#{param3} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithOutdate" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view 
+		to_char(checkout, 'YYYYMMDD')=#{param2} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithIndate" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from 
+		( ( select * from book_view 
+		to_char(checkin, 'YYYYMMDD')=#{param2} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithIdIndateOudate" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from  
+		( ( select * from book_view where id=#{param2} 
+		to_char(checkin, 'YYYYMMDD')=#{param3} 
+		and to_char(checkout, 'YYYYMMDD')=#{param4} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithIdOutdate" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from  
+		( ( select * from book_view where id=#{param2} 
+		and to_char(checkout, 'YYYYMMDD')=#{param3} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getMemberBookWithIdIndate" resultType="com.ezen.spg.dto.BookVO">
+		select * from( 
+		select * from( 
+		select rownum as rn, b.* from  
+		( ( select * from book_view where id=#{param2} 
+		and to_char(checkin, 'YYYYMMDD')=#{param3} 
+		order by result asc ,booknum desc ) b ) 
+		) where rn&gt;=#{param1.startNum} 
+		) where rn&lt;=#{param1.endNum}
+	</select>
 </mapper>

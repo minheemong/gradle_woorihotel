@@ -12,14 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.spg.dto.AdminVO;
-
 import com.ezen.spg.dto.Paging;
 import com.ezen.spg.dto.QnaVO;
+import com.ezen.spg.service.AdminBookService;
 import com.ezen.spg.service.AdminService;
 import com.ezen.spg.service.QnaService;
 
@@ -30,6 +29,8 @@ public class AdminController {
 	
 	@Autowired
 	AdminService as;
+	@Autowired
+	AdminBookService abs;
 	@Autowired
 	QnaService qs;
 	
@@ -67,7 +68,9 @@ public class AdminController {
 		if( adminvo == null) {
 				mav.addObject("message","관리자 정보가 없습니다");
 				mav.setViewName("admin/adminloginForm");
-
+		} else  if (adminvo.getId() == null) {
+			mav.addObject("message","아이디가 없습니다");
+			mav.setViewName("admin/adminloginForm");
 		} else  if (adminvo.getPwd() == null) {
 				mav.addObject("message","비밀번호가 없습니다");
 				mav.setViewName("admin/adminloginForm");
@@ -137,7 +140,7 @@ public class AdminController {
 			Paging paging = new Paging();
 			paging.setPage(page);
 			
-			int count = as.getAllCount(key);
+			int count = as.getAllCount(key,"qna", "content");
 			paging.setTotalCount(count);
 			paging.paging();
 		
@@ -191,6 +194,101 @@ public class AdminController {
 	    			mav.setViewName("redirect:/adminQnaList");
 	    }
 		return mav;
-	   
-}
+	}	   
+
+	@RequestMapping("adminMemberList")
+	public ModelAndView adminMemberList(HttpServletRequest request){
+		ModelAndView mav= new ModelAndView();
+		HttpSession session=request.getSession();
+		
+		AdminVO avo=(AdminVO)session.getAttribute("loginAdmin");
+	
+		
+		if(avo == null)
+			mav.setViewName("admin/adminloginForm");
+		else {
+			int page = 1;
+			if( request.getParameter("page") != null) {
+				page = Integer.parseInt(request.getParameter("page"));
+				session.setAttribute("page", page);
+			} else if( session.getAttribute("page")!= null ) {
+				page = (int) session.getAttribute("page");
+			} else {
+				page = 1;
+				session.removeAttribute("page");
+			}
+		
+		
+			String key = "";
+			if( request.getParameter("key") != null ) {
+				key = request.getParameter("key");
+				session.setAttribute("key", key);
+			} else if( session.getAttribute("key")!= null ) {
+				key = (String)session.getAttribute("key");
+			} else {
+				session.removeAttribute("key");
+				key = "";
+			}
+			
+			Paging paging = new Paging();
+			paging.setPage(page);
+			
+			int count = as.getAllCount(key,"hotelmember","name");
+			paging.setTotalCount(count);
+			paging.paging();
+		
+
+
+		
+			
+			mav.addObject("memberList" , as.listMember(paging, key));
+			mav.addObject("paging", paging);
+			mav.addObject("key", key);
+			mav.setViewName("admin/member/adminMemberList");		
+		}
+		return mav;
+	}
+	
+	@RequestMapping("adminMemberDetailBook")
+	public ModelAndView adminMemberDetailBook(HttpServletRequest request,
+			@RequestParam("id") String id) {
+		ModelAndView mav= new ModelAndView();
+
+		String url = "admin/member/adminMemberDetailBook";
+		HttpSession session = request.getSession();
+	    AdminVO mvo = (AdminVO) session.getAttribute("loginAdmin");
+		
+	    int page=1;
+	    if( request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+			session.setAttribute("page", page);
+			session.setAttribute("id",id);
+		} else if( session.getAttribute("page")!= null ) {
+			page = (int) session.getAttribute("page");
+			session.setAttribute("id",id);
+		} else {
+			page = 1;
+			session.removeAttribute("page");
+			session.setAttribute("id",id);
+		}
+	
+	    String booknums="";
+		String indate="";
+		String outdate="";
+	    if(mvo==null) mav.setViewName("admin/adminloginForm");
+		Paging paging = new Paging();
+		paging.setPage(page);
+		
+		int count=abs.getAllCount(id, booknums, indate, outdate);
+		paging.setTotalCount(count);
+		paging.paging();
+		
+		mav.addObject("paging", paging);
+		mav.addObject("action", "adminMemberDetailBook?id="+id);
+		mav.addObject("list", abs.getMemberBook(id, paging, booknums, indate, outdate));
+		mav.setViewName("admin/member/adminMemberDetailBook");
+		
+	    return mav;
+	}
+	
 }

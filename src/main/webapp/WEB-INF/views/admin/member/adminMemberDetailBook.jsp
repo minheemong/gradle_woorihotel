@@ -36,7 +36,8 @@ line-height: 30px;
     <td>${list.booknum}</td>
     <td>${list.kind}</td>
     
-    <td><fmt:formatDate value="${list.checkin}"/>&nbsp;-&nbsp;<fmt:formatDate value="${list.checkout}"/></td>
+    <td><fmt:formatDate value="${list.checkin}"/>&nbsp;-&nbsp;
+    	<fmt:formatDate value="${list.checkout}"/></td>
     <td>
 	<c:choose>
 						<c:when test='${list.result=="1"}'>예약 완료</c:when>
@@ -53,6 +54,14 @@ line-height: 30px;
 
 </table>
 
-
+<br>
+ <jsp:include page="../paging/paging_memberbook.jsp">
+  <jsp:param name="page" value="${paging.page}" />
+  <jsp:param name="beginPage" value="${paging.beginPage}" />
+  <jsp:param name="endPage" value="${paging.endPage}" />
+  <jsp:param name="prev" value="${paging.prev}" />
+  <jsp:param name="next" value="${paging.next}" />
+  <jsp:param name="command" value="adminMemberList" />
+</jsp:include> 
 
 </article>

@@ -9,20 +9,27 @@
 		select * from worker where id=#{param1}
 	</select>
 	
-		<select id="getAllCount" resultType="_int">
-		select count(*) as cnt from qna where id like '%'||#{param1}||'%' or content like '%'||#{param1}||'%'
-		</select>
+	<select id="getAllCount" resultType="_int">
+		select count(*) as cnt from ${param2} where id like '%'||#{param1}||'%' or ${param3} like '%'||#{param1}||'%'
+	</select>
 		
 	<select id="listQna" resultType="com.ezen.spg.dto.QnaVO">
-	
-			select * from (
-			select * from (
-				select rownum as rn, o.* from ( (select * from qna where id like '%'||#{param2}||'%' 
-				order by qnaseq desc) o)
-			 ) where rn &gt;= #{param1.startNum}
-			 ) where  rn &lt;= #{param1.endNum} 
+		select * from (
+		select * from (
+			select rownum as rn, o.* from ( (select * from qna where id like '%'||#{param2}||'%' 
+			order by qnaseq desc) o)
+		 ) where rn &gt;= #{param1.startNum}
+		 ) where rn &lt;= #{param1.endNum} 
 	</select>
 	
-		
+	<select id="listMember" resultType="com.ezen.spg.dto.MemberVO">
+		select * from (
+		select * from (
+			select rownum as rn, m.* from ( (select * from hotelmember where id like '%'||#{param2}||'%' 
+			or name like '%'||#{param2}||'%') m)
+		 ) where rn &gt;= #{param1.startNum}
+		 ) where rn &lt;= #{param1.endNum} 
+	</select>
+	
 </mapper>
 <!-- dd -->

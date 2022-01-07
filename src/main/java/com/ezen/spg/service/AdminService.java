@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.spg.dao.IAdminDao;
 import com.ezen.spg.dto.AdminVO;
+import com.ezen.spg.dto.BookVO;
+import com.ezen.spg.dto.MemberVO;
 import com.ezen.spg.dto.Paging;
 import com.ezen.spg.dto.QnaVO;
   
@@ -22,9 +24,9 @@ public class AdminService {
 		return adao.workerCheck(workId);
 	}
 
-	public int getAllCount(String key) {
+	public int getAllCount(String key, String tablename, String fieldname) {
 		
-		return adao.getAllCount(key);
+		return adao.getAllCount(key,tablename,fieldname);
 	}
 
 	public ArrayList<QnaVO> listQna(Paging paging, String key) {
@@ -32,5 +34,7 @@ public class AdminService {
 		return adao.listQna(paging,key);
 	}
 
-
+	public ArrayList<MemberVO> listMember(Paging paging, String key) {
+		return adao.listMember(paging,key);
+	}
 }

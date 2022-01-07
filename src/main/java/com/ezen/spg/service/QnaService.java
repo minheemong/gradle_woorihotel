@@ -2,12 +2,11 @@ package com.ezen.spg.service;
 
 import java.util.ArrayList;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.spg.dao.IQnaDao;
+import com.ezen.spg.dto.BookVO;
 import com.ezen.spg.dto.QnaVO;
   
 @Service
