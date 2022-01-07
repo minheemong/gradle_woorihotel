@@ -16,7 +16,7 @@ function go_view_detail_book(id) {
 
 	 var url="adminMemberDetailBook?id="+id;
 	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=800,";
-		opt = opt + "height=500, top=300, left=300";
+		opt = opt + "height=800, top=300, left=300";
 		window.open(url, "예약 정보", opt); 
 }
 
@@ -45,9 +45,10 @@ margin:0 auto; margin-right:400px;
 border:1
 
 }
+
 #adminmemebrlist tr th{
 padding:5px 0 6px;  border-top: solid 1px #999;   border-bottom: solid 1px #b2b2b2; background-color:#9F876B; color: #333; font-weight: bold;  
-line-height: 10px;
+line-height: 10px width:300px;
 }
 #adminmemebrlist tr td{
 padding: 8px 0 6px; border-top:solid 1px #999; background-color:white; color:#333; font-weight: bold; vertical-align: top;

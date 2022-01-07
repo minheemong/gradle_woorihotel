@@ -2,6 +2,8 @@ package com.ezen.spg.dao;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.ezen.spg.dto.AddressVO;

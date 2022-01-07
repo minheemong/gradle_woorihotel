@@ -393,16 +393,19 @@ public class MemberController {
 		} else if(result.getFieldError("email")!=null) {
 			mav.addObject("message", result.getFieldError("email").getDefaultMessage());
 			mav.setViewName("member/memberUpdateForm");
+		} else if(result.getFieldError("phone")!=null) {
+			mav.addObject("message", result.getFieldError("phone").getDefaultMessage());
+			mav.setViewName("member/memberUpdateForm");
 		} else if(pwdCheck!=null && (!pwdCheck.equals(membervo.getPwd()))) {
 			mav.addObject("message", "비밀번호 확인이 일치하지 않습니다");
 			mav.setViewName("member/memberUpdateForm");
 		} else {
-			membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
 			ms.updateMember(membervo);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", membervo);
 			mav.setViewName("redirect:/");
-		}
+		}	membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
+		
 		return mav;
 	}
 	
