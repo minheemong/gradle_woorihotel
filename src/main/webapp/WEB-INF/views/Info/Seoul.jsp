@@ -4,7 +4,7 @@
 
 <article class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
 <div id="sbox_aa">
-	<div id="sum_aa">서울 호텔</div>
+	<div id="sum_aa">제주 호텔</div>
 	<div class="box_aa" id="simg_aa"></div>
 	<div class="box_aa" id="box2_aa">
 		<div id="libox_aa" id="first_aa">
@@ -23,9 +23,9 @@
 			<li>홈페이지</li>
 		</ul>
 		<ul class="add_aa" id="content_aa">
-			<li>서울특별시 중구 동호로 249</li>
-			<li>02 2233 3131</li>
-			<li>www.woori.net/seoul</li>
+			<li>제주특별자치도 서귀포시 중문 관광로 72번길  75</li>
+			<li>064 2233 3131</li>
+			<li>www.woori.net/jeju</li>
 		</ul>
 	</div>
 </div>

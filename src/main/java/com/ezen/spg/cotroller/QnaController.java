@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,12 +27,21 @@ public class QnaController {
 	QnaService qs;
 	
 	
+	@RequestMapping("g")
+	public String gallery() {
+		return "gallery/gallery";
+	}
+	@RequestMapping("v")
+	public String video() {
+		return "gallery/video";
+	}
+	
 	@RequestMapping("map")
 	public String map() {
 		return"Info/map";
 	}
 	
-	@RequestMapping("qnaList")
+	@RequestMapping("qnaList") 
 	public ModelAndView qna_list(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 	    MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
@@ -58,7 +67,8 @@ public class QnaController {
 	
 	
 	
-	@RequestMapping("qnaWrite")
+	
+	@RequestMapping(value="qnaWrite", method=RequestMethod.POST)
 	public ModelAndView qna_write( @ModelAttribute("dto") @Valid QnaVO qnavo,
 			BindingResult result,  HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -101,6 +111,7 @@ public class QnaController {
 	}
 	
 	
+	
 	@RequestMapping("contact")
 	public String qna_contact(Model model, HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -128,7 +139,8 @@ public class QnaController {
 	
 	
 }
-	@RequestMapping("qnaUpdate")
+
+	@RequestMapping(value="qnaUpdate", method=RequestMethod.POST)
 	public ModelAndView qna_update(@ModelAttribute("dto") @Valid QnaVO qnavo,
 			BindingResult result, Model model, HttpServletRequest request,
 			@RequestParam("qnaseq") String qnaseq){

@@ -38,7 +38,7 @@
          },
          function(){
             time1 =  setInterval(function(){
-                 $('img').attr('src','static/images/jeju_hotel'+num+".JPEG");
+                 $('img').attr('src','static/images/main_images'+num+".jpg");
                  num++;
                  if(num==4) num=1;
              },2500);
@@ -82,7 +82,7 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 
 
 <div id="main_img">
-   <img id="img" src="static/images/jeju_hotel1.JPEG">     
+   <img id="img" src="static/images/main_images1.jpg">     
 </div>
 
 
@@ -104,7 +104,7 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 <div id="main_video">
 <div style="text-style">  갤러리 <br>  GALLERY </div>
 <div>
-<iframe width="1200" height="678" src="https://www.youtube.com/embed/81xxCLvADlU?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+<iframe width="1200" height="678" src="https://www.youtube.com/embed/81xxCLvADlU?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
 encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 </div>

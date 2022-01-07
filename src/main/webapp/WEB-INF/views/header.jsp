@@ -64,6 +64,7 @@ font-family: 'Nanum Myeongjo', serif;
   <ul>         
               <li><a href="goInfo">호텔 우리 소개</a></li>                              
               <li><a href="qnaList" >고객문의</a></li>
+              <li><a href="g">갤러리</a></li>
 
   <c:choose> 
 
