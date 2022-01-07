@@ -5,13 +5,13 @@
 	
 <mapper namespace="com.ezen.spg.dao.IQnaDao">
 
-
+ 
 <select id="listQna" resultType="com.ezen.spg.dto.QnaVO">
  select *from qna where id=#{param1} order by qnaseq desc
 </select>
 <insert id="insertQna" parameterType="com.ezen.spg.dto.QnaVO">
 insert into qna(qnaseq,title,content,id) 
-				values(seq_qna_qnaseq.nextval, #{title}, #{content}, #{id})
+				values(SEQ_qna_qnaseq.nextval, #{title}, #{content}, #{id})
 </insert>
 <select id="getQna" parameterType="_int" resultType="com.ezen.spg.dto.QnaVO">
 select * from qna where qnaseq =#{param1}
