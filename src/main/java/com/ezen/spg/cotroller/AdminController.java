@@ -359,9 +359,29 @@ public class AdminController {
 	    
 	    if(result.getFieldError("email")!=null) {
 			mav.addObject("message", result.getFieldError("email").getDefaultMessage());
+			String addr = membervo.getAddress(); //주소 추출
+			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+			int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+			// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+			String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+			String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+			
+			mav.addObject("addr1",addr1);
+			mav.addObject("addr2",addr2);
 			mav.setViewName("admin/member/adminMemberDetail");
 		} else if(result.getFieldError("phone")!=null) {
 			mav.addObject("message", result.getFieldError("phone").getDefaultMessage());
+			String addr = membervo.getAddress(); //주소 추출
+			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+			int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+			// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+			String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+			String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+			
+			mav.addObject("addr1",addr1);
+			mav.addObject("addr2",addr2);
 			mav.setViewName("admin/member/adminMemberDetail");
 		}  else if(request.getParameter("addr1").equals("") || result.getFieldError("zip_num")!=null) {
 			mav.addObject("message", "주소를 입력해주세요");
@@ -372,9 +392,18 @@ public class AdminController {
 			membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
 			
 			ms.updateMember(membervo);
+			String addr = membervo.getAddress(); //주소 추출
+			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+			int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+			// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+			String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+			String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
 			
+			mav.addObject("addr1",addr1);
+			mav.addObject("addr2",addr2);
 			mav.setViewName("admin/member/adminMemberDetail");
-		}	membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
-		return mav;
+		}
+	    return mav;
 	}
 }

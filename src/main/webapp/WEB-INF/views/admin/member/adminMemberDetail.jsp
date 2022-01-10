@@ -4,14 +4,14 @@
 
 <script type="text/javascript">
 function go_memberlist_member(){
-	document.adminmemberDetail.action = "adminMemberList?page=1";
-	document.adminmemberDetail.submit();
+	document.formm.action = "adminMemberList?page=1";
+	document.formm.submit();
 }
 
 function okButton_member(id){
 	 var url="adminMemberUpdate?id=" + id;
-	 document.adminmemberDetail.action=url;
-	 document.adminmemberDetail.submit();
+	 document.formm.action=url;
+	 document.formm.submit();
 }
 </script>
 <style>
@@ -47,7 +47,7 @@ border:1px solid black;
 <article>
 
 
-<form method="post" name="adminmemberDetail" action="adminMemberUpdate">
+<form method="post" name="formm" action="adminMemberUpdate">
 
 <table  id="adminmemebrlist" style="center; width: 500px;">
 

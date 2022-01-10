@@ -355,8 +355,10 @@ public class MemberController {
 	      return "redirect:/loginForm";
 	}
 	
-	@RequestMapping(value="memeberEditForm")
-	public ModelAndView memeber_edit_form(Model model, HttpServletRequest request) {
+	/*@RequestMapping(value="memberEditForm")
+	public ModelAndView member_edit_form(Model model, 
+			@ModelAttribute("dto") @Valid MemberVO membervo,
+			BindingResult result, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
@@ -399,15 +401,21 @@ public class MemberController {
 		} else if(pwdCheck!=null && (!pwdCheck.equals(membervo.getPwd()))) {
 			mav.addObject("message", "비밀번호 확인이 일치하지 않습니다");
 			mav.setViewName("member/memberUpdateForm");
+		} else if(request.getParameter("addr1").equals("") || result.getFieldError("zip_num")!=null) {
+			mav.addObject("message", "주소를 입력해주세요");
+			mav.setViewName("admin/member/adminMemberDetail");
 		} else {
+			
+			membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
 			ms.updateMember(membervo);
+			
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", membervo);
 			mav.setViewName("redirect:/");
-		}	membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
-		
+			
+		}	
 		return mav;
-	}
+	}*/
 	
 	@RequestMapping(value="/profilePw")
 	public String profilePw(HttpServletRequest request) {
@@ -438,32 +446,81 @@ public class MemberController {
 			mav.addObject("message", "비밀번호가 틀립니다");
 		}else {
 	    	url = "mypage/profileForm";
+	    	String addr = mvo.getAddress(); //주소 추출
+			int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+			int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+			int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+			// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+			String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+			String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+			
+			mav.addObject("addr1",addr1);
+			mav.addObject("addr2",addr2);
 			session.setAttribute("loginUser", mvo);
 		}  mav.setViewName(url);
 		return mav;
 	}
 	
 	@RequestMapping(value="/profileUpdate", method=RequestMethod.POST)
-	public String pwUpdateForm(HttpServletRequest request,
-			 @RequestParam(value="email", required=false) String email,
-			 @RequestParam(value="phone", required=false) String phone) {
-		String url = "mypage/profileForm";
-		
+	public ModelAndView pwUpdateForm(HttpServletRequest request,
+			@ModelAttribute("loginUser") @Valid MemberVO membervo, BindingResult result) {
+		ModelAndView mav= new ModelAndView();
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); 
+		
 		if(mvo==null) {
-			url = "redirect:/loginForm";
+			mav.setViewName("redirect:/loginForm");
 		} else {
-			mvo.setEmail(email);
-			mvo.setPhone(phone);
-		
-			ms.updateMember(mvo);
-			
-			session.setAttribute("loginUser", mvo);
-			request.setAttribute("message", "정상적으로 수정되었습니다");
+			  if(result.getFieldError("email")!=null) {
+					mav.addObject("message", result.getFieldError("email").getDefaultMessage());
+					String addr = mvo.getAddress(); //주소 추출
+					int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+					int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+					int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+					// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+					String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+					String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+					mav.addObject("addr1",addr1);
+					mav.addObject("addr2",addr2);
+
+					mav.setViewName("mypage/profileForm");
+				} else if(result.getFieldError("phone")!=null) {
+					mav.addObject("message", result.getFieldError("phone").getDefaultMessage());
+					String addr = mvo.getAddress(); //주소 추출
+					int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+					int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+					int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+					// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+					String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+					String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+					mav.addObject("addr1",addr1);
+					mav.addObject("addr2",addr2);
+					
+					mav.setViewName("mypage/profileForm");
+				}  else if(request.getParameter("addr1").equals("") || result.getFieldError("zip_num")!=null) {
+					mav.addObject("message", "주소를 입력해주세요");
+					mav.setViewName("mypage/profileForm");
+				} else {
+					mav.addObject("message", "정상적으로 수정되었습니다");
+					
+					membervo.setAddress(request.getParameter("addr1") + " " + request.getParameter("addr2"));
+					ms.updateMember(membervo);
+					session.setAttribute("loginUser", membervo);
+					String addr = membervo.getAddress(); //주소 추출
+					int k1 = addr.indexOf(" "); // 첫 번째 공백의 위치 찾음
+					int k2 = addr.indexOf(" ",k1+1); // 첫 번째 공백 위치의 다음위치부터 두 번째 공백 위치 찾음
+					int k3 = addr.indexOf(" ",k2+1); // 두 번째 공백 위치의 다음위치부터 세 번째 공백 위치 찾음
+					// 서울시 마포구 대현동 115-15 세 번째 공백 위치 k3값 ->11 (0부터 시작)
+					String addr1 =addr.substring(0,k3); // 맨 앞부터 세 번째 공백 위치 바로 전까지 - 주소 앞부분
+					String addr2 =addr.substring(k3+1); // 세 번째 공백 뒷글자부터 맨 끝까지 - 주소 뒷부분
+					mav.addObject("addr1",addr1);
+					mav.addObject("addr2",addr2);
+					
+					mav.setViewName("mypage/profileForm");
+				}
 		}
-		return url;
-		
+		return mav;
+	
 	}
 	
 

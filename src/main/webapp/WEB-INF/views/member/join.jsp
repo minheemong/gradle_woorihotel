@@ -16,7 +16,7 @@ input{border:#BEBBB9 solid 1px;}
 <!-- join테마 css -->
 
 <div style="width:865px; margin: 0 auto;">
-<form id="join" method="post" name="joinFrm" action="joinComplete">
+<form id="join" method="post" name="formm" action="joinComplete">
 		
 	<br><br>
 	<div class="joinTitle">기본입력</div>

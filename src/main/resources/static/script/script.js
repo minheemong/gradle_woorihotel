@@ -76,12 +76,12 @@ function go_next(){
 
 
 function idcheck(){
-   if( document.joinFrm.id.value=="" ){
+   if( document.formm.id.value=="" ){
       alert("아이디를 입력하세요" );
-      documnet.joinFrm.id.focus();
+      documnet.formm.id.focus();
       return;
    }
-   var url = "idCheckForm?id=" + document.joinFrm.id.value;
+   var url = "idCheckForm?id=" + document.formm.id.value;
    var opt = "toolbar=no, menubar=no, resizable=no, width=500, height=200";
    window.open(url, "IdCheck", opt);
 }
@@ -100,36 +100,12 @@ function post_zip(){
 
 
 function result(zip_num, sido, gugun, dong){
-	opener.document.joinFrm.zip_num.value=zip_num;
-	opener.document.joinFrm.addr1.value=sido+" "+gugun+" "+dong;
+	opener.document.formm.zip_num.value=zip_num;
+	opener.document.formm.addr1.value=sido+" "+gugun+" "+dong;
 	self.close();
-}//완료
-
-
-
-
-
-
-
-
-function go_update(){
-	if (document.joinFrm.pwd.value == "") {
-	    alert("비밀번호를 입력해 주세요.");
-	    document.joinFrm.pwd.focus();
-	}else if ((document.joinFrm.pwd.value != document.joinFrm.pwdCheck.value)) {
-	    alert("비밀번호가 일치하지 않습니다.");
-	    document.joinFrm.pwd.focus();
-	}else if (document.joinFrm.name.value == "") {
-	    alert("이름을 입력해 주세요.");
-	    document.joinFrm.name.focus();
-	} else if (document.joinFrm.email.value == "") {
-	    alert("이메일을 입력해 주세요.");
-	    document.joinFrm.email.focus();
-	}else {
-	    document.joinFrm.action = "hotel.do";
-	    document.joinFrm.submit();
-	}
 }
+
+
 
 
 function move_login(){

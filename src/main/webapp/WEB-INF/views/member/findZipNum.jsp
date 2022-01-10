@@ -23,8 +23,8 @@ input{border:#BEBBB9 solid 1px;}
 </style>
 <script type="text/javascript">
 function result(zip_num, sido, gugun, dong){
-	opener.document.joinFrm.zip_num.value=zip_num;
-	opener.document.joinFrm.addr1.value=sido+" "+gugun+" "+dong;
+	opener.document.formm.zip_num.value=zip_num;
+	opener.document.formm.addr1.value=sido+" "+gugun+" "+dong;
 	self.close();
 }
 </script>
