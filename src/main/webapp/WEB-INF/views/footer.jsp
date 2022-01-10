@@ -37,7 +37,7 @@ font-family: 'Nanum Myeongjo', serif;
             <li> 고객센터 02-3333-3333</li><br>
             <li><a>우리 신라 소개</a></li>
             <li><a>고객문의 </a></li>
-            <li><a>사이트맵  </a></li>
+            <li><a href="sitemap">사이트맵  </a></li>
          </ul>
       </div>  
       <div id="footer_3">All contents Copyright 2021  HJKang.co  Inc. all rights 

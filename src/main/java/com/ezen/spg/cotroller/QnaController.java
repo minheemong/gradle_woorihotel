@@ -35,6 +35,10 @@ public class QnaController {
 	public String video() {
 		return "gallery/video";
 	}
+	@RequestMapping("sitemap")
+	public String sitemap() {
+		return "Info/sitemap";
+	}
 	
 	@RequestMapping("map")
 	public String map() {
