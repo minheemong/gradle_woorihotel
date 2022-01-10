@@ -13,14 +13,7 @@
 		select count(*) as cnt from ${param2} where id like '%'||#{param1}||'%' or ${param3} like '%'||#{param1}||'%'
 	</select>
 		
-	<select id="listQna" resultType="com.ezen.spg.dto.QnaVO">
-		select * from (
-		select * from (
-			select rownum as rn, o.* from ( (select * from qna where id like '%'||#{param2}||'%' 
-			order by qnaseq desc) o)
-		 ) where rn &gt;= #{param1.startNum}
-		 ) where rn &lt;= #{param1.endNum} 
-	</select>
+	
 	
 	<select id="listMember" resultType="com.ezen.spg.dto.MemberVO">
 		select * from (
@@ -31,5 +24,20 @@
 		 ) where rn &lt;= #{param1.endNum} 
 	</select>
 	
+	<select id="listQna" resultType="com.ezen.spg.dto.QnaVO">
+		select * from (
+		select * from (
+			select rownum as rn, o.* from ( (select * from qna where id like '%'||#{param3}||'%' 
+			order by <choose>
+							<when test="param2==1 or param2==null">qnaseq desc</when>
+							<when test="param2==2">qnaseq asc</when>						
+							<when test="param2==3">rep desc</when>			
+							<otherwise>rep asc	</otherwise>					
+						</choose>	) o)
+		 ) where rn &gt;= #{param1.startNum}
+		 ) where rn &lt;= #{param1.endNum} 
+	</select>
+
+
+
 </mapper>
-<!-- dd -->

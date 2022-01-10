@@ -16,9 +16,13 @@ public interface IAdminDao {
 	AdminVO workerCheck(String workId);
 
 	int getAllCount(String key, String tablename, String fieldname);
-
-	ArrayList<QnaVO> listQna(Paging paging, String key);
-
+	
 	ArrayList<MemberVO> listMember(Paging paging, String key);
+
+	ArrayList<QnaVO> listQna(Paging paging,  String order,String key);
+
+
+
+
 
 }

@@ -6,7 +6,7 @@
 <article>
 
 <div id="main_img">
-   <img id="img" src="static/images/jeju_hotel1.JPEG" style=" width: 1890px;" >     
+   <img id="img" src="static/images/main_images3.jpg" style=" width: 1890px;" >     
 </div>
   
 

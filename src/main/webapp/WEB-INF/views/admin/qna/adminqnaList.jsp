@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../adminheader.jsp" %>
    
  <style>
@@ -39,7 +41,6 @@ border:1px solid black;
 
 <script type="text/javascript">
 
-
  function go_view(qnaseq){
  	var url="adminQnaDetail?qnaseq="+qnaseq; 
 	document.formm.action=url;
@@ -63,12 +64,35 @@ function go_total_qna(){
 	document.formm.submit();
 	
 }
+function go_order_qna(){
+	document.form.action="adminQnaList?page=1";
+	document.form.submit();
 
+}
 
 </script>
 
 <article>
-<h1>Q&amp;A게시글 리스트</h1>
+<div style="margin: auto;">
+<h1>Q&amp;A게시글 리스트 ${order}</h1>
+<div style="    height: 30px;
+    width: 200px;
+    margin-bottom: -32px;
+    margin-left: 450px;">
+<form name="form"  method="post">
+		<select name="tag" >		
+
+			<option value ="1" <c:if test="${order eq '1'}">selected</c:if> >최신순</option>
+			<option value ="2" <c:if test="${order eq '2'}">selected</c:if>>오래된순</option>
+			<option value ="3" <c:if test="${order eq '3'}">selected</c:if> >답변완료</option>
+			<option value ="4" <c:if test="${order eq '4'}">selected</c:if>>미답변</option>			
+		
+		</select> 
+	<input  type = "button" value = "검색" onClick="go_order_qna();" style="    font-weight: bold; border: 1px solid black;
+    background: #9F876B;">
+	
+</form>
+</div>
 <form name="formm" method="post">
 <table style=" margin:0 auto;
 	width:1000px; border:1px soloid black; text-align: center;  margin-right: 100px;font-weight:bold;">
@@ -76,6 +100,7 @@ function go_total_qna(){
      <td> 아이디<input type="text" name="key" value="${key}">
            <input class="btn" type="button"  value="검색"  onClick="go_serch_qna();" id="qna_button">
            <input class="btn" type="button" name="btb_total" value="전체보기" onClick="go_total_qna();"id="qna_button">
+       
     </td>
     
   </tr>
@@ -86,8 +111,12 @@ function go_total_qna(){
 <table  id="qnaList123" style="center;">
     <tr><th>번호</th><th >제목</th><th>작성자</th><th>작성일</th><th>답변여부</th></tr>
        <c:forEach items="${qnaList}" var ="qnaDto">
+       <c:set var="size" value="${fn:length(qnaList)-(status.count)+1}"/>
              <tr>
-                   <td>${qnaDto.qnaseq}</td>                
+             
+         <%--  <td><c:out value="${size}"/></td --%>
+             
+                    <td>${qnaDto.qnaseq}</td>         
                     <td><a  href="adminQnaDetail?qnaseq=${qnaDto.qnaseq}">${qnaDto.title}</a>
         <c:choose>
         
@@ -108,7 +137,7 @@ function go_total_qna(){
               </tr>
        </c:forEach>
 </table>
-
+</div>
 <br>
  <jsp:include page="../paging/paging.jsp">
 		  <jsp:param name="page" value="${paging.page}" />
@@ -116,7 +145,8 @@ function go_total_qna(){
 		  <jsp:param name="endPage" value="${paging.endPage}" />
 		  <jsp:param name="prev" value="${paging.prev}" />
 		  <jsp:param name="next" value="${paging.next}" />
-		  <jsp:param name="command" value="adminQnaList" />
+		  <jsp:param name="command" value="adminQnaList"/>
+		
 </jsp:include> 
 
 </article>

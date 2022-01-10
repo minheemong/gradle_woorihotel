@@ -29,12 +29,16 @@ public class AdminService {
 		return adao.getAllCount(key,tablename,fieldname);
 	}
 
-	public ArrayList<QnaVO> listQna(Paging paging, String key) {
-	
-		return adao.listQna(paging,key);
-	}
+
 
 	public ArrayList<MemberVO> listMember(Paging paging, String key) {
 		return adao.listMember(paging,key);
 	}
+
+	public ArrayList<QnaVO>  listQna(Paging paging, String key, String order) {
+	;
+		return adao.listQna(paging,order,key);
+	}
+
+
 }

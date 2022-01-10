@@ -1,4 +1,21 @@
 
+select *from qna;
+
+	select * from qna order by qnaseq asc ;
+	select * from  qna order by REP desc
+	select *from qna order by rep asc , qnaseq asc;
+	
+	
+	
+		select * from (
+		select * from (
+			select rownum as rn, o.* from ( (select * from qna where id like '%'||#{param2}||'%' 
+			order by qnaseq desc) o)
+		 ) where rn &gt;= #{param1.startNum}
+		 ) where rn &lt;= #{param1.endNum} 
+			
+	
+
 /* Drop Triggers */
 
 DROP TRIGGER TRI_bookdetail_bdseq;
@@ -32,6 +49,7 @@ DROP SEQUENCE SEQ_qna_qnaseq;
 CREATE SEQUENCE SEQ_bookdetail_bdseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_book_booknum INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_qna_qnaseq INCREMENT BY 1 START WITH 1;
+
 
 
 

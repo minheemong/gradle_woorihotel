@@ -105,10 +105,13 @@ public class AdminController {
 	
 	@RequestMapping("adminQnaList")
 	public ModelAndView adminQnaList(HttpServletRequest request){
+
+		
 		ModelAndView mav= new ModelAndView();
 		HttpSession session=request.getSession();
 		
 		AdminVO avo=(AdminVO)session.getAttribute("loginAdmin");
+	
 	
 		
 		if(avo == null)
@@ -131,7 +134,7 @@ public class AdminController {
 			}
 		
 		
-			String key = "";
+			String key ="";
 			if( request.getParameter("key") != null ) {
 				key = request.getParameter("key");
 				session.setAttribute("key", key);
@@ -142,6 +145,19 @@ public class AdminController {
 				key = "";
 			}
 			
+			String order="";
+			if(request.getParameter("tag") != null ) {
+				order = request.getParameter("tag");
+				session.setAttribute("order", order);
+			} else if( session.getAttribute("order")!= null ) {
+				order = (String)session.getAttribute("order");
+			} else {
+				session.removeAttribute("order");
+				order = "";
+			}
+			
+			
+			
 			Paging paging = new Paging();
 			paging.setPage(page);
 			
@@ -149,15 +165,18 @@ public class AdminController {
 			paging.setTotalCount(count);
 			paging.paging();
 		
-
-
+			System.out.println("pagig order :"+ order);
 		
-			
-			mav.addObject("qnaList" , as.listQna(paging, key));
+				
+			mav.addObject("qnaList" , as.listQna(paging, key, order));		
+			mav.addObject("order",order);
 			mav.addObject("paging", paging);
 			mav.addObject("key", key);
-			mav.setViewName("admin/qna/adminqnaList");		
+			mav.setViewName("admin/qna/adminqnaList");
+
+					
 	}
+		
 		return mav;
 }
 	
