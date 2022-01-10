@@ -275,6 +275,7 @@ public class AdminController {
 	
 	@RequestMapping("adminMemberDetailBook")
 	public ModelAndView adminMemberDetailBook(HttpServletRequest request,
+			@ModelAttribute("dto") @Valid MemberVO membervo, BindingResult result,
 			@RequestParam("id") String id) {
 		ModelAndView mav= new ModelAndView();
 
@@ -309,6 +310,7 @@ public class AdminController {
 		
 		mav.addObject("paging", paging);
 		mav.addObject("action", "adminMemberDetailBook?id="+id);
+		mav.addObject("dto", ms.getMember(id));
 		mav.addObject("list", abs.getMemberBook(id, paging, booknums, indate, outdate));
 		mav.setViewName("admin/member/adminMemberDetailBook");
 		

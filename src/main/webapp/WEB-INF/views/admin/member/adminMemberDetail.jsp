@@ -18,16 +18,17 @@ function okButton_member(id){
 #adminmemebrlist{
     border: 2px solid #9F876B;
     margin: 0 auto;
-    width: 400px;
+    width: 1000px;
     height:200px;
-    border-collapse: collapse;
     
 }
 #adminmemebrlist tr th{
 border-bottom:1px solid black;
+width:400px;
 }
 #adminmemebrlist td{
 border-bottom:1px solid black;
+width:600px;
 }
 #adminmemebrlist tr td input{
 text-align: left;
@@ -48,12 +49,12 @@ border:1px solid black;
 
 <form method="post" name="adminmemberDetail" action="adminMemberUpdate">
 
-<table  id="adminmemebrlist" style="center;">
+<table  id="adminmemebrlist" style="center; width: 500px;">
 
 <caption>
    <h1>우리 호텔 ${dto.name}(${dto.id})님 회원 정보</h1>
 </caption>
-           <tr><th>아이디&nbsp;&nbsp;:</th><td style="text-align: left;">${dto.id}</td></tr>
+           <tr><th style="width: 200px;">아이디&nbsp;&nbsp;:</th><td style="text-align: left;">${dto.id}</td></tr>
 			<tr><th>이름&nbsp;&nbsp;:</th><td>${dto.name}</td></tr>
 			<tr><th>이메일&nbsp;&nbsp;:</th><td><input type="text" size="30" name="email" value="${dto.email}"></td></tr>
 			<tr><th>전화번호&nbsp;&nbsp;:</th><td><input type="text" size="20" name="phone" value="${dto.phone}"></td></tr>	

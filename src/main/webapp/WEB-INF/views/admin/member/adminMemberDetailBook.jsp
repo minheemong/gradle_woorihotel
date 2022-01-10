@@ -18,21 +18,17 @@ line-height: 30px;
 
 </style>
 <article>
-
+<h1>우리 호텔 ${dto.name}(${dto.id})님 예약 정보</h1>
 <table id="book_detail">
       <tr>
-         <th>id</th>
-         <th>이름</th>
          <th>예약번호</th>
          <th>클래스</th>
          <th>체크인/체크아웃</th>
          <th>진행상태</th>
          <th>금액</th>           
      </tr>
-<c:forEach items="${list}" var ="list">
   <tr>
-    <td>${list.id}</td>
-    <td>${list.name}</td>
+  <c:forEach items="${list}" var ="list">
     <td>${list.booknum}</td>
     <td>${list.kind}</td>
     

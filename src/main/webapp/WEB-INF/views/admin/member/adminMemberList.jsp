@@ -16,7 +16,7 @@ function go_view_detail_book(id) {
 
 	 var url="adminMemberDetailBook?id="+id;
 	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=800,";
-		opt = opt + "height=800, top=300, left=300";
+		opt = opt + "height=700, top=300, left=300";
 		window.open(url, "예약 정보", opt); 
 }
 
