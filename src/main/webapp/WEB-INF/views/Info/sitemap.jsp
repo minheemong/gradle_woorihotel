@@ -1,69 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+
 <%@ include file="../header.jsp" %>
 <style>
 article {width: 920px; margin: 0 auto;
 }
 #top{
-
 }
 #top div{
-width:920px;  height:30px; border-bottom:3px solid #3a3125;    font-weight:bold; 
+width:920px;  height:30px; border-bottom:3px solid #3a3125;    font-weight:bold; }
 #content a { text-decoration:none; }
 #content a:link, visited, hover {color: }
 #content ul {
-float:  left;    padding-left: 0;
+float:  left;   padding-left: 0;
 color: #9F876B;
-    }
+   }
 #content li { 
-     list-style:none; text-indent:10px; color: #9F876B;
-     font-weight:bold;
-      padding-bottom: 10px;
-     }
+   list-style:none; text-indent:10px; color: #9F876B;
+  font-weight:bold;
+  padding-bottom: 10px;
+  }
 #content{
-    top: 30px;
-    position: relative;
-    height: 500px;
-       font-size: 90%;
-   
- 	   width: 920px;
+  top: 30px;
+  position: relative;
+ height: 500px;
+ font-size: 90%;  
+width: 920px;
 }
+
 #m_left{
-    width: 200px;
-    float: left;
-    padding-right: 30px;
+  width: 200px;
+ float: left;
+ padding-right: 30px;
 }
 #m_left_menu{
-    border-bottom: 2px solid;
-    height: 50px;
-    }
+border-bottom: 2px solid;
+ height: 50px;
+  }
 #m_center{
-  width: 200px;
-    float: left;
-     padding-right: 30px;
+ width: 200px;
+  float: left;
+  padding-right: 30px;
 }
 #m_center_menu{
-    border-bottom: 2px solid;
-    height: 50px;
+ border-bottom: 2px solid;
+ height: 50px;
     }
 #m_right{
-  width: 200px;
-    float: left;
-     padding-right: 30px;
+ width: 200px;
+ float: left;
+  padding-right: 30px;
 }
 #m_right_menu{
-    border-bottom: 2px solid;
-    height: 50px;
+  border-bottom: 2px solid;
+  height: 50px;
     }
 #b_left{
-  width: 200px;
-    float: left;
-     padding-right: 30px;
+ width: 200px;
+  float: left;
+   padding-right: 30px;
 }
 #b_left_menu{
-    border-bottom: 2px solid;
-    height: 50px;
+border-bottom: 2px solid;
+ height: 50px;
     }
   
 </style>
