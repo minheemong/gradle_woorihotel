@@ -6,6 +6,12 @@
 
 
 <article  class="rightarticle_aa"><%@ include file="sub_menu.jsp" %>
+<form action="bookcancel" name="frm">
+<input type="hidden" name="bdseq" value="${bookcheck.bdseq }">
+<input type="hidden" id="result" value="${bookcheck.result }">
+<input type="hidden" name="checkin" value="${bookcheck.checkin }">
+<input type="hidden" name="checkout" value="${bookcheck.checkout }">
+<input type="hidden" name="price" value="${bookcheck.price }">
 <div class="bbox_aa">
 <div id="bboxb_aa">
 	<div id="bcheck_aa">예약 확인</div>
@@ -42,15 +48,24 @@
 	</div>
 	
 	<div id="buttons_aa">
-	<input type="button" value="목록으로" class="btn_aa" id="checkmain_aa"
+	<input type="button" value="목록으로" class="btn_aa" 
 		onclick="history.go(-1)">
-	<input type="button" value="예약 취소" class="btn_aa" id="checkmain_aa"
-		onclick="location.href='bookcancel?bdseq=${bookcheck.bdseq}'">
+	<c:choose>
+		<c:when test='${bookcheck.result=="0"}'>
+			<input type="submit" value="예약 취소" class="btn_aa" name="bookCancelBtn"
+				onclick="return bookCancelCheck();">
+		</c:when>
+		<c:when test='${bookcheck.result=="1"}'>
+			<input type="submit" value="예약 취소" class="btn_aa" name="bookCancelBtn"
+				onclick="return bookCancelCheck();">
+		</c:when>
+	</c:choose>
 </div> 
 	
 </div>
 
 
 </div>
+</form>
 </article>
 <%@ include file="../footer.jsp" %>

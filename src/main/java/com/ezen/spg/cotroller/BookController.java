@@ -312,17 +312,17 @@ public class BookController {
 	
 	@RequestMapping("/bookcancel")
 	public String bookcancel(@RequestParam("bdseq") int bdseq,
-			HttpServletRequest request) {
+			@RequestParam("checkin") String checkin, @RequestParam("checkout") String checkout,
+			@RequestParam("price") int price, HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		
 		if(mvo.getId()==null) return ("member/login");
 		else {
-			bs.requestBookCancel(bdseq);
+			
+			bs.requestBookCancel(bdseq, checkin , checkout,price);
 			
 			return "redirect:/bookChecklist";
 		}
-		
-		
 	}
 }

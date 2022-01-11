@@ -55,5 +55,7 @@ public interface IBookDao {
 
 	void requestBookCancel(int bdseq);
 
+	void bookCancel(int bdseq);
+
 
 }

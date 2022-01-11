@@ -23,3 +23,19 @@ function quit(){
 	document.quitOk.action ="quit";
 	document.quitOk.submit(); 
 }
+
+
+function bookCancelCheck(){
+	var result =  document.frm.result.value;
+	if(result == 0){
+		var con = confirm("취소하시겠습니까?");
+		if(con == true) return true;	
+		else return false;
+	}else if(result == 1){
+		var con = confirm("약관에 의하여 취소시 위약금이 발생할 수 있습니다.\n취소하시겠습니까?");
+		if(con == true) return true;
+		else return false;	
+	}else {
+		return false;
+	}
+}

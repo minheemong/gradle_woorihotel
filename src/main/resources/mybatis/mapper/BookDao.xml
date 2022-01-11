@@ -108,4 +108,8 @@
 		update bookdetail set result='2' where bdseq=#{param1}
 	</update>
 	
+	<update id="bookCancel">
+		update bookdetail set result='3' where bdseq=#{param1}
+	</update>
+	
 </mapper>

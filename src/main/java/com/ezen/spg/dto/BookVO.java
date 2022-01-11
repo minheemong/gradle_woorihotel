@@ -4,8 +4,6 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
-
 import lombok.Data;
 
 @Data
@@ -34,8 +32,8 @@ public class BookVO {
 	public int days() {
 		Date day = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-		System.out.println(sdf.format(checkin));
-		System.out.println(sdf.format(checkout));
+		//System.out.println(sdf.format(checkin));
+		//System.out.println(sdf.format(checkout));
 		String indayS = sdf.format(checkin);
 		String outdayS = sdf.format(checkout);
 		int inday = Integer.parseInt(indayS);
@@ -46,7 +44,7 @@ public class BookVO {
 		String outmonthS = outdayS.substring(4, 6); int outmonth = Integer.parseInt(outmonthS);
 		String indateS = indayS.substring(6, 8); int indate = Integer.parseInt(indateS);
 		String outdateS = outdayS.substring(6, 8); int outdate = Integer.parseInt(outdateS);
-		System.out.println("년 : "+inyear+", 월 : "+inmonth+"일 : "+indate);
+		//System.out.println("년 : "+inyear+", 월 : "+inmonth+"일 : "+indate);
 		int days = 0;
 		if(inyear==outyear && inmonth==outmonth) {
 			days=outday-inday;
@@ -67,7 +65,7 @@ public class BookVO {
 		
 		
 		
-		System.out.println("하루 가격 : "+this.price+", 일수 : "+days+", 총 가격 : "+price);
+		//System.out.println("하루 가격 : "+this.price+", 일수 : "+days+", 총 가격 : "+price);
 		this.price=price;
 		
 		return price;
