@@ -46,13 +46,13 @@ public class QnaController {
 		String kind ="";
 		
 		if(num.equals("1")) {
-			 kind="deluxe";	 
+			 kind="Deluxe";	 
 		}else if(num.equals("2")) {
-			kind="businessdeluxe";
+			kind="BusinessDeluxe";
 		}else if(num.equals("3")) {
-			kind="grandcornerdeluxe";
+			kind="GrandCornerDeluxe";
 		}else{
-			kind="executicebusinessdeluxe";
+			kind="ExecuticeBusinessDeluxe";
 		}
 		
 		HotelImgVO hvo= new HotelImgVO();

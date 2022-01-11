@@ -10,7 +10,38 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<style type="text/css">
+#gotobook_view{
+    border: 1px solid black;
+    width: 400px;
+    margin: auto;
+        height: 256px;
+    
+}
+#gotobook_table{
+    width: 316px;
+    margin: 0 auto;
+}
+#gotobook_table th{
+width: 116px;
+  background: #faf1d0;
+ text-align: left;
+}
 
+#gotobook_table caption{
+    width: 100px;
+    margin: 0 auto;
+}
+#book_btn{
+width: 70px;
+    height: 40px;
+    position: relative;
+    margin: 0 auto;
+    background: #3a3125;
+    color: white;
+    border: 0;
+}
+</style>
 
 <script>
   $.datepicker.setDefaults({
@@ -82,22 +113,26 @@
 </head>
 <body>
 <form name="formm" method="post" action="gotobookdetail" >
-<div id="serch_bar_view"  style="border:1px solid black;">
-<table>
+<div id="gotobook_view"  style="border:1px solid black;">
+<table id="gotobook_table">
 <caption>
 		<h2>${kind}</h2>
 </caption>
-<tr><td>방 클래스</td>          <td><input type="text"  name="kind" size="" value="${kind}" ></td>
-<tr> <td>체크인 날짜</td> <td><input type="text"  name="checkin" id="datepicker1" size="20" ></td></tr>
-<tr> <td>체크아웃 날짜</td><td><input type="text"  name="checkout" id="datepicker2" size="20" ></td></tr>
-<tr> <td>객실 수</td>      <td><input type="text" name="roomnum" size="5" id="datepicker3" ></td></tr>
-<tr> <td>인원  </td >      <td><input type="text" name="usernum" size="5" id="datepicker4">	</td></tr>
-<tr><td><input type="submit" value="검색하기" id="" onclick="return checkRoom();"></td></tr>
-
-
-
+<tr><th>방 클래스</th>          <td><input type="text"  name="kind" size="" value="${kind}" ></td>
+<tr> <th>체크인 날짜</th> <td><input type="text"  name="checkin" id="datepicker1" size="20" ></td></tr>
+<tr> <th>체크아웃 날짜</th><td><input type="text"  name="checkout" id="datepicker2" size="20" ></td></tr>
+<tr> <th>객실 수</th>      <td><input type="text" name="roomnum" size="5" id="datepicker3" ></td></tr>
+<tr> <th>인원  </th >      <td><input type="text" name="usernum" size="5" id="datepicker4">	</td></tr>
 </table>
    </div>
+  
+   <div id="gotobook_btn" style="width: 70px;
+    margin: 0 auto;
+    margin-top: -44px">
+		<input type="submit" value="검색하기" id="book_btn" onclick="return checkRoom();">
+   
+   </div>
+  
 </form>
 </body>
 </html>

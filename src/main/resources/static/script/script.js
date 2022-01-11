@@ -1,5 +1,4 @@
 
- 
 function book_go1(kind){
    document.formm.kind.value= kind;
    document.formm.action = "book";
@@ -7,13 +6,17 @@ function book_go1(kind){
 }
 
   function checkRoom () {
+	
       var checkinStr =  document.formm.checkin.value;
       var checkoutStr = document.formm.checkout.value;
       var checkin = new Date(checkinStr);
       var checkout = new Date(checkoutStr);
-      
+		var difference= (checkout.getTime()-checkin.getTime())/(1000 * 3600 * 24);
+		 days = difference/(1000 * 3600 * 24);
+		
+		
    if (checkinStr == ""){
-      alert("입실날짜를 입력하세요.");
+      alert("입실날짜를 입력하세요."+difference);
       return false;
    } else if (checkoutStr == ""){
       alert("퇴실날짜를 입력하세요.");
@@ -29,15 +32,20 @@ function book_go1(kind){
    } else if (checkin >= checkout){
       alert("예약날짜오류. 예약날짜를 확인하세요.");
       return false;
-   }
+   }else if(difference>30){
+	alert("30일이상 예약할수 없습니다")
+		return false;
+	}
    return true;
 }
 
+
 function bookcheckpopup(){
 	var url = ".html";
-	var option="width:880px; "
-	window.open(url,"",option);
+		var option="width:880px; "
+		window.open(url,"",option);
 }
+
 function loginCheck(){
 	
 	if(document.loginFrm.id.value == ""){

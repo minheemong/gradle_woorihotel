@@ -99,8 +99,10 @@ background: #9F876B;;
 <body>
 
 <article>
-<div>
-<div id="sum_aa1" style="width: 800px; margin: 0 auto;">객실사진</div>
+<div><c:forEach items="${imglist}" var="imglist">
+<div id="sum_aa1" style="width: 800px; margin: 0 auto;">
+
+${imglist.kind} 객실 사진</div></c:forEach>
 <div style="  margin: 0 auto;
     width: 97%;"> 
 
