@@ -107,18 +107,12 @@ public class BookService {
 			int checkoutYear = checkoutTs.getYear() + 1900;
 			long confirmTime = (checkinTs.getTime() - today.getTime())/1000;
 			
-			// 아직안씀 이 두개
-			int checkinMonth = checkinTs.getMonth(); // 체크인 날짜
-			int checkinDate = checkinTs.getDate();
-			
 			String confirm5St = Integer.toString(checkinYear); confirm5St += "-05-01 00:00:00.0";
 			Date confirm5Ts = Timestamp.valueOf(confirm5St);
 			String confirm11St = Integer.toString(checkinYear); confirm11St += "-11-01 00:00:00.0";
 			Date confirm11Ts = Timestamp.valueOf(confirm11St);
 			String confirm1224St = Integer.toString(checkinYear); confirm1224St += "-12-24 00:00:00.0";
 			Date confirm1224Ts = Timestamp.valueOf(confirm1224St);
-			String confirm1231St = Integer.toString(checkinYear); confirm1231St += "-12-31 00:00:00.0";
-			Date confirm1231Ts = Timestamp.valueOf(confirm1231St);
 			
 			String confirm0101St = Integer.toString(checkoutYear); confirm0101St += "-01-01 00:00:00.0";
 			Date confirm0101Ts = Timestamp.valueOf(confirm0101St);
