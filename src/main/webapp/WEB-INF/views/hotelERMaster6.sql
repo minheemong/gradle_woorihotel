@@ -248,7 +248,7 @@ img4 varchar2(100),
 PRIMARY KEY (kind)
 );
 /* 새로추가한 호텔 이미지 테이블의 이미지 이름 */
-insert into hotelimg values('deluxe','Deluxe1','Deluxe2','Deluxe3','Deluxe4');
-insert into hotelimg values('businessdeluxe','BusinessDeluxe1','BusinessDeluxe2','BusinessDeluxe3','BusinessDeluxe4');
-insert into hotelimg values('grandcornerdeluxe','GrandCornerDeluxe1','GrandCornerDeluxe2','GrandCornerDeluxe3','GrandCornerDeluxe4');
-insert into hotelimg values('executicebusinessdeluxe','ExecuticeBusinessDeluxe1','ExecuticeBusinessDeluxe2','ExecuticeBusinessDeluxe3','ExecuticeBusinessDeluxe4');
+insert into hotelimg values('Deluxe','Deluxe1','Deluxe2','Deluxe3','Deluxe4');
+insert into hotelimg values('BusinessDeluxe','BusinessDeluxe1','BusinessDeluxe2','BusinessDeluxe3','BusinessDeluxe4');
+insert into hotelimg values('GrandCornerDeluxe','GrandCornerDeluxe1','GrandCornerDeluxe2','GrandCornerDeluxe3','GrandCornerDeluxe4');
+insert into hotelimg values('ExecuticeBusinessDeluxe','ExecuticeBusinessDeluxe1','ExecuticeBusinessDeluxe2','ExecuticeBusinessDeluxe3','ExecuticeBusinessDeluxe4');
