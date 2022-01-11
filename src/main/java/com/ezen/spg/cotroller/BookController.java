@@ -50,6 +50,51 @@ public class BookController {
 		mav.setViewName("bookDetail");
 		return mav;
 	}
+	@RequestMapping("gotobook")
+	public ModelAndView gotobook(HttpServletRequest request){
+		ModelAndView mav= new ModelAndView();
+		
+		String kind=request.getParameter("kind");
+		
+		mav.addObject("kind",kind);
+		mav.setViewName("room/gotobook");
+		return mav;	
+	}
+	@RequestMapping(value="gotobookdetail", method=RequestMethod.POST)
+	public ModelAndView gotobookdetail(@RequestParam("roomnum") int roomnum,
+			@RequestParam("usernum") int usernum, @RequestParam("checkin") String checkin,
+			@RequestParam("checkout") String checkout, HttpServletRequest request) {
+	
+		String kind=request.getParameter("kind");
+		
+		ModelAndView mav = new ModelAndView();
+		if(kind.equals("Deluxe")) {
+		boolean DBool = bs.confirmRoom(checkin,checkout,"Deluxe", usernum, roomnum);
+		mav.addObject("DBool",DBool);
+		
+		}
+		else if(kind.equals("Business")) {
+		boolean BDBool = bs.confirmRoom(checkin,checkout,"Business Deluxe",usernum, roomnum);
+		mav.addObject("BDBool",BDBool);
+		}else if(kind.equals("Grand Corner Deluxe")) {
+		boolean GCDBool = bs.confirmRoom(checkin,checkout,"Grand Corner Deluxe",usernum, roomnum);
+		mav.addObject("GCDBool",GCDBool);
+		}else {	
+		boolean EBDBool = bs.confirmRoom(checkin,checkout,"Executive Business Deluxe",usernum, roomnum);
+		mav.addObject("EBDBool",EBDBool);
+		}
+		
+		mav.addObject("checkin",checkin);
+		mav.addObject("checkout",checkout);
+		mav.addObject("roomnum",roomnum);
+		mav.addObject("usernum",usernum);
+	
+		
+		
+	
+		mav.setViewName("bookDetail");
+		return mav;
+	}
 	
 	@RequestMapping("book")
 	public String book(@RequestParam("roomnum") int roomnum,

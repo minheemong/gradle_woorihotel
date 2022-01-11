@@ -1,5 +1,7 @@
 package com.ezen.spg.cotroller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -14,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.spg.dto.HotelImgVO;
 import com.ezen.spg.dto.MemberVO;
 import com.ezen.spg.dto.QnaVO;
+import com.ezen.spg.service.HotelImgServie;
 import com.ezen.spg.service.QnaService;
 
     
@@ -25,8 +29,88 @@ public class QnaController {
 	
 	@Autowired
 	QnaService qs;
+	@Autowired
+	HotelImgServie hs;
 	
 	
+	
+	
+	@RequestMapping("gotoimgshow")
+	public ModelAndView gotoimgshow( HttpServletRequest request
+			) {
+		ModelAndView mav=new ModelAndView();
+		
+		String num=request.getParameter("num");
+		
+		System.out.println("num:"+num);
+		String kind ="";
+		
+		if(num.equals("1")) {
+			 kind="deluxe";	 
+		}else if(num.equals("2")) {
+			kind="businessdeluxe";
+		}else if(num.equals("3")) {
+			kind="grandcornerdeluxe";
+		}else{
+			kind="executicebusinessdeluxe";
+		}
+		
+		HotelImgVO hvo= new HotelImgVO();
+		System.out.println("kind :    "+kind);
+		
+		
+			hvo.setKind(kind);
+	
+		ArrayList<HotelImgVO> imglist=hs.imglist(hvo);
+		
+		mav.addObject("imglist",imglist);
+
+		mav.setViewName("room/gotoimgshow");
+		return mav;
+	}
+	
+	@RequestMapping("gotoroom")
+	public ModelAndView Deluxe(HttpServletRequest request) {
+		
+		ModelAndView mav= new ModelAndView();
+	String num=request.getParameter("num");
+		
+		System.out.println("num:"+num);
+		String kind ="";
+		
+		if(num.equals("1")) {
+			 kind="deluxe";	 
+			 mav.setViewName("room/Deluxe");
+		}else if(num.equals("2")) {
+			kind="businessdeluxe";
+			mav.setViewName("room/BusinessDeluxe");
+		}else if(num.equals("3")) {
+			kind="grandcornerdeluxe";
+			mav.setViewName("room/GrandCornerDeluxe");
+		}else{
+			kind="executicebusinessdeluxe";
+			mav.setViewName("room/ExecuticeBusinessDeluxe");
+		}
+		
+		HotelImgVO hvo= new HotelImgVO();
+		System.out.println("kind :    "+kind);
+		
+		
+			hvo.setKind(kind);
+	
+		ArrayList<HotelImgVO> imglist=hs.imglist(hvo);
+		
+		mav.addObject("imglist",imglist);
+		
+		return mav;		
+	}
+	
+	
+	
+	@RequestMapping("room")
+	public String room() {
+		return "room/room";
+	}
 	@RequestMapping("g")
 	public String gallery() {
 		return "gallery/gallery";

@@ -1,19 +1,9 @@
 
-select *from qna;
 
-	select * from qna order by qnaseq asc ;
-	select * from  qna order by REP desc
-	select *from qna order by rep asc , qnaseq asc;
-	
-	
-	
-		select * from (
-		select * from (
-			select rownum as rn, o.* from ( (select * from qna where id like '%'||#{param2}||'%' 
-			order by qnaseq desc) o)
-		 ) where rn &gt;= #{param1.startNum}
-		 ) where rn &lt;= #{param1.endNum} 
-			
+
+
+select *from hotel;
+select *from qna;
 	
 
 /* Drop Triggers */
@@ -52,6 +42,7 @@ CREATE SEQUENCE SEQ_qna_qnaseq INCREMENT BY 1 START WITH 1;
 
 
 
+drop table hotelimg;
 
 
 
@@ -192,6 +183,9 @@ insert into hotel values(1405,4,500000,'executiveBusinessDeluxe3.jbg',43,'Execut
 insert into hotel values(1406,4,500000,'executiveBusinessDeluxe3.jbg',43,'Executive Business Deluxe');
 insert into hotel values(1407,4,500000,'executiveBusinessDeluxe3.jbg',43,'Executive Business Deluxe');
 
+
+
+
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
 values(2,to_date('2021-11-08'),to_date('2021-11-12'),seq_bookdetail_bdseq.nextval,1,1101);
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
@@ -241,5 +235,20 @@ values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상
 
 
 
-
-
+/* 새로추가한 호텔 이미지 테이블 */
+select *from hotelimg;
+drop table hotelimg;
+create table hotelimg
+(
+kind varchar2(100) not null ,
+img1 varchar2(100),
+img2 varchar2(100),
+img3 varchar2(100),
+img4 varchar2(100),
+PRIMARY KEY (kind)
+);
+/* 새로추가한 호텔 이미지 테이블의 이미지 이름 */
+insert into hotelimg values('deluxe','Deluxe1','Deluxe2','Deluxe3','Deluxe4');
+insert into hotelimg values('businessdeluxe','BusinessDeluxe1','BusinessDeluxe2','BusinessDeluxe3','BusinessDeluxe4');
+insert into hotelimg values('grandcornerdeluxe','GrandCornerDeluxe1','GrandCornerDeluxe2','GrandCornerDeluxe3','GrandCornerDeluxe4');
+insert into hotelimg values('executicebusinessdeluxe','ExecuticeBusinessDeluxe1','ExecuticeBusinessDeluxe2','ExecuticeBusinessDeluxe3','ExecuticeBusinessDeluxe4');
