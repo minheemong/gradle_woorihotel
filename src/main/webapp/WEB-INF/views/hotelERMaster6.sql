@@ -232,12 +232,12 @@ values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상
 insert into qna (qnaseq, title, content, id)  
 values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'un');
 
-
-
-
-/* 새로추가한 호텔 이미지 테이블 */
 select *from hotelimg;
 drop table hotelimg;
+
+/* --------------------------------새로 추가된것들-------------------------------------------------------------------------------------------------------------------------*/
+/* 새로추가한 호텔 이미지 테이블 */
+
 create table hotelimg
 (
 kind varchar2(100) not null ,
