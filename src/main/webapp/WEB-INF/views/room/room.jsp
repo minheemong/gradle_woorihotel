@@ -5,7 +5,8 @@
 #room_view{
 width: 1100px;
 margin: 0 auto;
-height: 700px
+height: 700px;
+float: left;
 }
 #room_top{
 
@@ -28,7 +29,7 @@ font-weight:  bold;
 }
 .roomcontent_view{
 height: 100px;
-    width: 400px;
+   width: 400px;
 }
 .roomcotent123{
 idth: 200px;

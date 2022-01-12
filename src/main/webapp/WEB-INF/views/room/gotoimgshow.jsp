@@ -101,10 +101,8 @@ background: #9F876B;;
 <article>
 <div><c:forEach items="${imglist}" var="imglist">
 <div id="sum_aa1" style="width: 800px; margin: 0 auto;">
-
 ${imglist.kind} 객실 사진</div></c:forEach>
-<div style="  margin: 0 auto;
-    width: 97%;"> 
+<div style="  margin: 0 auto; width: 97%;"> 
 
   <div
       style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"

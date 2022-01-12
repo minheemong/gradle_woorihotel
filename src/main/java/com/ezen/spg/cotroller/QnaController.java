@@ -79,16 +79,16 @@ public class QnaController {
 		String kind ="";
 		
 		if(num.equals("1")) {
-			 kind="deluxe";	 
+			 kind="Deluxe";	 
 			 mav.setViewName("room/Deluxe");
 		}else if(num.equals("2")) {
-			kind="businessdeluxe";
+			kind="BusinessDeluxe";
 			mav.setViewName("room/BusinessDeluxe");
 		}else if(num.equals("3")) {
-			kind="grandcornerdeluxe";
+			kind="GrandCornerDeluxe";
 			mav.setViewName("room/GrandCornerDeluxe");
 		}else{
-			kind="executicebusinessdeluxe";
+			kind="ExecuticeBusinessDeluxe";
 			mav.setViewName("room/ExecuticeBusinessDeluxe");
 		}
 		
