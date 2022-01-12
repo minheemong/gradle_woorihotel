@@ -93,23 +93,17 @@ border:1px solid black;
 				<c:forEach items="${roomViewList}" var="roomViewDto">
 					<tr>
 		                <td>
-		                	<a href="#" onClick= "go_roomview_detail('${roomViewDto.hotelnum}')">
-		                	<img src="../static/images/${roomViewDto.img}" width="200pt"></a></td>
+		                	<img src="../static/images/${roomViewDto.img}" width="200pt"></td>
 		                <td height="23" align="center" >
-		                	<a href="#" onClick= "go_roomview_detail('${roomViewDto.hotelnum}')">
-		                	${roomViewDto.hotelnum}</a></td>
+		                	${roomViewDto.hotelnum}</td>
 		                <td height="23" align="center" >
-		                	<a href="#" onClick= "go_roomview_detail('${roomViewDto.hotelnum}')">
-		                	${roomViewDto.kind}</a></td>
+		                	${roomViewDto.kind}</td>
 		                <td height="23" align="center" >
-		                	<a href="#" onClick= "go_roomview_detail('${roomViewDto.hotelnum}')">
-		                	${roomViewDto.persons}</a></td>
+		                	${roomViewDto.persons}</td>
 		                <td height="23" align="center" >
-		                	<a href="#" onClick= "go_roomview_detail('${roomViewDto.hotelnum}')">
-		                	${roomViewDto.price}</a></td>
+		                	${roomViewDto.price}</td>
 		                <td height="23" align="center" >
-		                	<a href="#" onClick= "go_roomview_detail('${roomViewDto.hotelnum}')">
-		                	${roomViewDto.roomsize}</a></td>
+		                	${roomViewDto.roomsize}</td>
 		                <td> <center><input class="btn" type="button" name="btn_search" value="삭제" onclick="delete_room('${roomViewDto.hotelnum}');" id="qna_button"></center></td>
 					</tr>
 				</c:forEach>
