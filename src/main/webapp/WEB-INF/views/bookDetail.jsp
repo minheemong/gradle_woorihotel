@@ -188,8 +188,10 @@ $(document).ready(function( $ ){
 		<div id=room_content>
 			<ul>
 				<li>Deluxe</li>
-				<li>객실크기 : 36㎡</li>
-				<li>침대타입 : 더블(킹 사이즈)</li>
+				<li>객실크기 : 40㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 5 ~ 6층 </li>
+				<li>침대 : 더블(킹) 1개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; 최대인원 : 2명</li>
 				<li><div class="openPopup1">객실 자세히 보기</div></li>
 			</ul>
 		</div>
@@ -211,13 +213,15 @@ $(document).ready(function( $ ){
 		<div id=room_content>
 			<ul>
 				<li>Business Deluxe</li>
-				<li>객실크기 : 43㎡</li>
-				<li>침대타입 : 더블(킹 사이즈)</li>
+				<li>객실크기 : 56㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 5~6층</li>
+				<li>침대 : 더블(킹) 2개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; 최대인원 : 4명</li>
 				<li><div class="openPopup2">객실 자세히 보기</div></li>
 			</ul>
 		</div>
 		<div id =price_view>
-			<div id=price>370,000 원 ~</div>
+			<div id=price>390,000 원 ~</div>
 			<div id=price2>1박</div>
 		</div>
 		<div id =button_view>
@@ -233,13 +237,15 @@ $(document).ready(function( $ ){
 		<div id=room_content>
 			<ul>
 				<li>Grand Corner Deluxe</li>
-				<li>객실크기 : 51㎡</li>
-				<li>침대타입 : 더블(킹 사이즈)</li>
+				<li>객실크기 : 72㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 7~8층</li>
+				<li>침대 : 더블(킹) 3개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; 최대인원 : 6명</li>
 				<li><div class="openPopup3">객실 자세히 보기</div></li>
 			</ul>
 		</div>
 		<div id =price_view>
-			<div id=price>420,000 원 ~</div>
+			<div id=price>460,000 원 ~</div>
 			<div id=price2>1박</div>
 		</div>
 		<div id =button_view>
@@ -255,13 +261,15 @@ $(document).ready(function( $ ){
 		<div id=room_content>
 			<ul>
 				<li>Executive Business Deluxe</li>
-				<li>객실크기 : 43㎡</li>
-				<li>침대타입 : 더블(킹 사이즈)</li>
+				<li>객실크기 : 64㎡ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 위치 : 최상층</li>
+				<li>침대 : 더블(킹) 2개 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp; 최대인원 : 4명</li>
 				<li><div class="openPopup4">객실 자세히 보기</div></li>
 			</ul>
 		</div>
 		<div id =price_view>
-			<div id=price>520,000 원 ~</div>
+			<div id=price>550,000 원 ~</div>
 			<div id=price2>1박</div>
 		</div>
 		<div id =button_view>
@@ -294,11 +302,12 @@ $(document).ready(function( $ ){
 						</div>
 						<div id=seemore_div2_1right>
 							<ul>
+								<li>위치 : 5~6층 &nbsp;&nbsp;전망 : 산 또는 바다</li>
+                        		<li>침대 : 1&nbsp;&nbsp; 인원 : 4 &nbsp;크기 : 40㎡</li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
 								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
-								<li>베이비 크립(무료)</li>
 							</ul>
 						</div>
 					</div>
@@ -370,11 +379,12 @@ $(document).ready(function( $ ){
 						</div>
 						<div id=seemore_div2_1right>
 							<ul>
+								<li>위치 : 5~6층 &nbsp;&nbsp;전망 : 산 또는 바다</li>
+                    		    <li>침대 : 2&nbsp;&nbsp; 인원 : 4 크기 : 56㎡</li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
 								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
-								<li>베이비 크립(무료)</li>
 							</ul>
 						</div>
 					</div>
@@ -447,11 +457,12 @@ $(document).ready(function( $ ){
 						</div>
 						<div id=seemore_div2_1right>
 							<ul>
+								<li>위치 : 7~8층 &nbsp;&nbsp;전망 : 바다&nbsp;&nbsp; 크기 : 72㎡</li>
+                   			    <li>침대 : 3,&nbsp;&nbsp; 인원 : 6 </li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
 								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
-								<li>베이비 크립(무료)</li>
 							</ul>
 						</div>
 					</div>
@@ -523,11 +534,12 @@ $(document).ready(function( $ ){
 						</div>
 						<div id=seemore_div2_1right>
 							<ul>
+								<li>위치 : 최상층 &nbsp;&nbsp;전망 : 바다 크기 : 68㎡ </li>
+                       			<li>침대 : 2 &nbsp;&nbsp;인원 : 4 </li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
 								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
-								<li>베이비 크립(무료)</li>
 							</ul>
 						</div>
 					</div>
