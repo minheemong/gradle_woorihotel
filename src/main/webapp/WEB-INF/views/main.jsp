@@ -24,12 +24,19 @@
   });
 
   $(function() {
-    $("#datepicker1, #datepicker2").datepicker();
-    
+	    $("#datepicker1, #datepicker2").datepicker({
+	        showOn:"button"
+	           , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
+	           ,buttonImageOnly: true,
+	      	 minDate:"0", maxDate: "+6M"
+	    	 
+	    }); 
 
-  });
+	  });
+
   
-  $(function(){
+  
+/*   $(function(){
       var num = 2;
       var time1;
       $('img').hover(
@@ -45,7 +52,7 @@
          }
       );
       $('img').trigger('mouseleave')
-   });
+   }); */
 
   
 function days () {
@@ -82,7 +89,7 @@ position: relative; text-align: center; margin:0 auto; font-weight: bold;
 
 
 <div id="main_img">
-   <img id="img" src="static/images/main_images1.jpg">     
+   <img id="img" src="static/images/main_images3.jpg">     
 </div>
 
 

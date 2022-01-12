@@ -21,7 +21,7 @@
     
 }
 #gotobook_table{
-    width: 316px;
+    width: 320px;
     margin: 0 auto;
 }
 #gotobook_table th{
@@ -46,6 +46,10 @@ width: 70px;
 </style>
 
 <script>
+
+
+
+
   $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
     prevText: '<',
@@ -60,17 +64,21 @@ width: 70px;
   });
 
   $(function() {
-    $("#datepicker1, #datepicker2").datepicker();
-    
+    $("#datepicker1, #datepicker2").datepicker({
+        showOn:"button"
+            , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
+            ,buttonImageOnly: true,
+  
+	      	 minDate:"0", maxDate: "+6M"
+
+    	 
+    });
+ 
 
   });
-  $(function (){
-	 $("#datepicker1").datepicker({
-	
-		 showOn:'button'
-	 });
-	 
-  });
+  
+
+ 
   
   function days () {
   	var datepicker1= document.getElementById('datepicker1').value;

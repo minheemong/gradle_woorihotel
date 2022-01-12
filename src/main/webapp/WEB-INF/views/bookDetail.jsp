@@ -20,8 +20,18 @@
   });
 
   $(function() {
-    $("#datepicker1, #datepicker2").datepicker();
-  });
+	    $("#datepicker1, #datepicker2").datepicker({
+	        showOn:"button"
+	            , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
+	            ,buttonImageOnly: true,
+	  
+		      	 minDate:"0", maxDate: "+6M"
+
+	    	 
+	    });
+	 
+
+	  });
   
   
   // 객실 더보기 추가
