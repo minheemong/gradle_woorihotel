@@ -23,8 +23,6 @@ import com.ezen.spg.dto.HotelVO;
 import com.ezen.spg.dto.MemberVO;
 import com.ezen.spg.dto.Paging;
 import com.ezen.spg.service.AdminRoomService;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Controller
 public class AdminRoomController {
@@ -92,7 +90,7 @@ public class AdminRoomController {
 		return mav;
 	}
 	
-
+/*
 	@RequestMapping("adminRoomDetail")
 	public ModelAndView adminRoomDetail(HttpServletRequest request,
 			@ModelAttribute("dto") @Valid HotelVO hotelvo, BindingResult result,
@@ -131,7 +129,7 @@ public class AdminRoomController {
 		return "admin/room/completeupload";
 	}
 
-	/*
+	
 	@RequestMapping(value="/adminRoomUpdate", method=RequestMethod.POST)
 	public ModelAndView adminRoomUpdate(HttpServletRequest request,
 			@ModelAttribute("dto") @Valid HotelVO hotelvo, BindingResult result,
