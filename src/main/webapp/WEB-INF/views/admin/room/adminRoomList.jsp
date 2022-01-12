@@ -93,7 +93,7 @@ border:1px solid black;
 				<c:forEach items="${roomViewList}" var="roomViewDto">
 					<tr>
 		                <td>
-		                	<img src="../static/images/${roomViewDto.img}" width="200pt"></td>
+		                	<img src="../static/room_images/${roomViewDto.img}" width="200pt"></td>
 		                <td height="23" align="center" >
 		                	${roomViewDto.hotelnum}</td>
 		                <td height="23" align="center" >

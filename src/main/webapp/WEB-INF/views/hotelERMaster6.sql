@@ -175,13 +175,13 @@ insert into hotel values(1304,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner
 insert into hotel values(1305,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
 insert into hotel values(1306,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
 insert into hotel values(1307,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1401,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1402,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1403,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1404,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1405,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1406,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1407,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1401,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1402,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1403,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1404,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1405,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1406,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1407,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
 
 
 
@@ -232,7 +232,7 @@ values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상
 insert into qna (qnaseq, title, content, id)  
 values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'un');
 
-select *from hotelimg;
+
 drop table hotelimg;
 
 /* --------------------------------새로 추가된것들-------------------------------------------------------------------------------------------------------------------------*/
