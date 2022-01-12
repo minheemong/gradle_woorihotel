@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.ezen.spg.dao.IAdminRoomDao">
+
+
+	
+	<select id="getAllCount" resultType="_int">
+		select count(*) from hotel where hotelnum like '%'||to_number(#{param1})||'%'
+	</select>
+	
+	<select id="getAllRoomList" resultType="com.ezen.spg.dto.HotelVO">
+		select * from (
+		select * from ( 
+		select rownum as rn, r.* from 
+		( ( select * from hotel where hotelnum like '%'||to_number(#{param2})||'%'
+		order by hotelnum asc) r )) 
+		where rn&gt;=#{param1.startNum}) where rn&lt;=#{param1.endNum}
+	</select>
+	
+	<select id="getRoom" resultType="com.ezen.spg.dto.HotelVO">
+		select * from hotel where hotelnum=to_number(#{param1})
+	</select>
+	
+	<update id="updateRoom" parameterType="com.ezen.spg.dto.HotelVO">
+		update hotel set persons=to_number(#{persons}),to_number(price=#{price}),img=#{img},
+		roomsize=to_number(#{roomsize}),kind=#{kind} where hotelnum=to_number(#{hotelnum})
+	</update>
+	
+	<delete id="deleteRoom">
+		delete hotel where hotelnum=to_number(#{param1})
+	</delete>
+	
+	<insert id="insertRoom" parameterType="com.ezen.spg.dto.HotelVO">
+		insert into hotel (hotelnum, persons, price, img, roomsize, kind) 
+		values(to_number(#{hotelnum}), to_number(#{persons}), to_number(#{price}), #{img},
+		 to_number(#{roomsize}), #{kind})
+	</insert>
+	</mapper>

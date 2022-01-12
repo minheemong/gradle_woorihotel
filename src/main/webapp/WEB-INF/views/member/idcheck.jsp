@@ -8,8 +8,8 @@
 
 <script type="text/javascript">
 	function idok(userid){
-		opener.joinFrm.id.value="${id}";
-		opener.joinFrm.reid.value="${id}";
+		opener.formm.id.value="${id}";
+		opener.formm.reid.value="${id}";
 		self.close();
 	}
 </script>

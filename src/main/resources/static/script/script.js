@@ -83,7 +83,7 @@ function go_next(){
 
 
 
-function idcheck(){
+function iddoublecheck(){
    if( document.formm.id.value=="" ){
       alert("아이디를 입력하세요" );
       documnet.formm.id.focus();

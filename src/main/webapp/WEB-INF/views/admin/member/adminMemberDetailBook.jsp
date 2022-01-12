@@ -51,13 +51,13 @@ line-height: 30px;
 </table>
 
 <br>
- <jsp:include page="../paging/paging_memberbook.jsp">
+ <jsp:include page="../paging/paging_and.jsp">
   <jsp:param name="page" value="${paging.page}" />
   <jsp:param name="beginPage" value="${paging.beginPage}" />
   <jsp:param name="endPage" value="${paging.endPage}" />
   <jsp:param name="prev" value="${paging.prev}" />
   <jsp:param name="next" value="${paging.next}" />
-  <jsp:param name="command" value="adminMemberList" />
+  <jsp:param name="command" value="/adminMemberDetailBook?id=${id}" />
 </jsp:include> 
 
 </article>

@@ -33,7 +33,7 @@ input{border:#BEBBB9 solid 1px;}
 	<div class="joinTitle">웹사이트 비밀번호 입력</div>
 	<table class="joinBox">	
 		<tr><th>아이디</th><td><input type="text" name="id" size="20" value="${id}"> 
-	    		<input type="button" value="중복 체크" class="dup_brown" onclick="idcheck();">
+	    		<input type="button" value="중복 체크" class="dup_brown" onclick="iddoublecheck();">
 				<input type="hidden" name="reid"></td></tr>
 				
 				<c:if test="${result==-1}">

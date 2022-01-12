@@ -70,9 +70,10 @@ font-family: 'Nanum Myeongjo', serif;
  
  <div class="admin_header_gnb" >
            <ul >         
+                       <li><a class="admin_header_a" href="adminRoomList?a=1"> 객실관리</a></li>                              
                        <li><a class="admin_header_a" href="adminbookchecklist?a=1"> 고객 예약 리스트</a></li>                              
                        <li><a class="admin_header_a" href="adminQnaList?page=1&order=&key=">고객문의 리스트</a></li>
-                       <li><a class="admin_header_a" href="adminMemberList?page=1&key=">회원  리스트</a></li>
+                       <li><a class="admin_header_a" href="adminMemberList?page=1&key=">회원 리스트</a></li>
                        
                        
                        
