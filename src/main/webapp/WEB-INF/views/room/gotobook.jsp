@@ -7,9 +7,11 @@
 <title>Insert title here</title>
 
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" /> -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<link href="static/css/datepicker.css" rel="stylesheet">
 <style type="text/css">
 #gotobook_view{
     border: 1px solid black;
@@ -46,8 +48,8 @@ width: 70px;
 <script>
   $.datepicker.setDefaults({
     dateFormat: 'yy-mm-dd',
-    prevText: '이전 달',
-    nextText: '다음 달',
+    prevText: '<',
+    nextText: '>',
     monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
     monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
     dayNames: ['일', '월', '화', '수', '목', '금', '토'],
@@ -61,6 +63,13 @@ width: 70px;
     $("#datepicker1, #datepicker2").datepicker();
     
 
+  });
+  $(function (){
+	 $("#datepicker1").datepicker({
+	
+		 showOn:'button'
+	 });
+	 
   });
   
   function days () {
