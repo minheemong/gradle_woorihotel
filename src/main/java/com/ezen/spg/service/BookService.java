@@ -223,6 +223,14 @@ public class BookService {
 		return calDateDays;
 	}
 	
+	public int getMaxBed(int hotelnum) {
+		return bdao.getMaxBed(hotelnum);
+	}
+
+	public void ChangePeople(int bdseq, int number) {
+		bdao.ChangePeople(bdseq,number);
+	}
+	
 	
 }
 

@@ -56,6 +56,10 @@ public interface IBookDao {
 	void requestBookCancel(int bdseq, int totalPrice);
 
 	void bookCancel(int bdseq);
+	
+	int getMaxBed(int hotelnum);
+
+	void ChangePeople(int bdseq, int number);
 
 
 }

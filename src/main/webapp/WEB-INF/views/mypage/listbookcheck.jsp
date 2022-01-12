@@ -30,7 +30,11 @@
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;인원</div>
-			<div class="ctexttext_aa">${bookcheck.usernum}</div>
+			<div class="ctexttext_aa">${bookcheck.usernum}
+				<input type="button" style="float:right;" value="인원 수 변경" id="btn2_aa"
+				onclick="changeroom();">
+			</div>
+			
 		</div>
 		<div class="smallctextbox_aa">
 			<div class="ctextsub_aa">&nbsp;체크인</div>

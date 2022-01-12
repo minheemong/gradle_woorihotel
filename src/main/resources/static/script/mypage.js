@@ -39,3 +39,13 @@ function bookCancelCheck(){
 		return false;
 	}
 }
+
+
+
+
+function changeroom(){
+
+	var url = "changeRoom?bdseq="+document.frm.bdseq.value;
+	var pop = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=250";
+	window.open(url, "ChangeRoom", pop);
+}

@@ -325,4 +325,46 @@ public class BookController {
 			return "redirect:/bookChecklist";
 		}
 	}
+	
+	
+	@RequestMapping("changeRoom")
+	public ModelAndView changeRoom(HttpServletRequest request,
+			@RequestParam("bdseq") int bdseq) {
+		ModelAndView mav = new ModelAndView();
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		
+		if(mvo.getId()==null) mav.setViewName("member/login");
+		else {
+			BookVO bvo = abs.getBookDetail(bdseq);
+			int maxbed = bs.getMaxBed(bvo.getHotelnum());
+			
+			mav.addObject("bookcheck",abs.getBookDetail(bdseq));
+			mav.addObject("max", maxbed);
+			
+			mav.setViewName("mypage/changeRoom");
+		}
+		
+		return mav;
+	}
+	
+	
+	
+	
+	@RequestMapping("/gotochangeroom")
+	public String gotochangeroom(@RequestParam("bdseq") int bdseq,
+			@RequestParam("number") int number, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		
+		if(mvo.getId()==null) return "member/login";
+		else {
+			bs.ChangePeople(bdseq,number);
+			
+			return "redirect:/bookChecklist";
+		}
+		
+	}
+	
+	
 }

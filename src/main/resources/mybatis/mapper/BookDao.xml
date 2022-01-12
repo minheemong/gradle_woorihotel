@@ -112,4 +112,12 @@
 		update bookdetail set result='3' where bdseq=#{param1}
 	</update>
 	
+	<select id="getMaxBed" resultType="_int">
+		select persons from hotel where hotelnum=#{param1}
+	</select>
+	
+	<update id="ChangePeople">
+		update bookdetail set usernum=#{param2} where bdseq=#{param1}
+	</update>
+	
 </mapper>

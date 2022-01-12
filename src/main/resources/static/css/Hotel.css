@@ -126,6 +126,8 @@ body{font-family: 'Noto Serif KR', serif;}
 .ctexttext_aa{ width:392px; min-height:49px; line-height:49px; float:left;
 	padding:0 4px; /* width:400px; *//*  background:green; */
 	background:#FFFFff; color:#3a3125;}
+#btn2_aa{width:90px; height:35px; background:#f2efeb; font-weight:bold; color:black; 
+border:none; line-height:35px; margin-top:7px;}
 	
 	
 	
