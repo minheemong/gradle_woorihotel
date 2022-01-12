@@ -154,34 +154,34 @@ insert into book values(seq_book_booknum.nextval,'scott');
 insert into book values(seq_book_booknum.nextval,'one');
 insert into book values(seq_book_booknum.nextval,'one');
 
-insert into hotel values(1101,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1102,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1103,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1104,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1105,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1106,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1107,2,320000,'deluxe1.jpg',40,'Deluxe');
-insert into hotel values(1201,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1202,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1203,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1204,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1205,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1206,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1207,4,390000,'businessDeluxe1.jpg',56,'Business Deluxe');
-insert into hotel values(1301,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1302,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1303,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1304,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1305,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1306,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1307,6,460000,'grandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
-insert into hotel values(1401,4,550000,'executiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1402,4,550000,'executiveBusinessDeluxe2.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1403,4,550000,'executiveBusinessDeluxe3.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1404,4,550000,'executiveBusinessDeluxe3.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1405,4,550000,'executiveBusinessDeluxe3.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1406,4,550000,'executiveBusinessDeluxe3.jpg',64,'Executive Business Deluxe');
-insert into hotel values(1407,4,550000,'executiveBusinessDeluxe3.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1101,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1102,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1103,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1104,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1105,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1106,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1107,2,320000,'Deluxe1.jpg',40,'Deluxe');
+insert into hotel values(1201,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1202,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1203,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1204,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1205,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1206,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1207,4,390000,'BusinessDeluxe1.jpg',56,'Business Deluxe');
+insert into hotel values(1301,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1302,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1303,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1304,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1305,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1306,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1307,6,460000,'GrandCornerDeluxe1.jpg',72,'Grand Corner Deluxe');
+insert into hotel values(1401,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1402,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1403,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1404,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1405,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1406,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
+insert into hotel values(1407,4,550000,'ExecutiveBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
 
 
 
@@ -255,7 +255,7 @@ insert into hotelimg values('ExecuticeBusinessDeluxe','ExecuticeBusinessDeluxe1'
 
 /* 환불 */
 alter table bookdetail add(refund number(8) default 0 not null);
-
+select * from hotel;
 create or replace view book_view
 as
 select b.booknum, d.bdseq, m.id, m.name, h.kind, d.usernum, d.checkin, d.checkout, d.result, d.refund, h.price, h.hotelnum

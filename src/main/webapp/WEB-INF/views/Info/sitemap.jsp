@@ -23,7 +23,7 @@ color: #9F876B;
 #content{
   top: 30px;
   position: relative;
- height: 500px;
+ height: 600px;
  font-size: 90%;  
 width: 920px;
 }
@@ -64,6 +64,7 @@ border-bottom: 2px solid;
 border-bottom: 2px solid;
  height: 50px;
     }
+	
   
 </style>
 
@@ -108,13 +109,25 @@ border-bottom: 2px solid;
  <div id="b_left">
     <div id="b_left_menu"><h2><span>마이페이지 </span></h2> </div>
         <ul>
-				<li><a href="bookChecklist?page=1&a=1">-&nbsp;예약확인/취소</a></li>
-				<li><a href="profilePw">-&nbsp;프로필수정</a></li>
-				<li><a href="pwUpdateForm">-&nbsp;비밀번호 변경</a></li>
-				<li><a href="qnaList">-&nbsp;문의 내역</a></li>
-				<li><a href="quitPw">-&nbsp;탈회 요청</a></li>
+	<li><a href="bookChecklist">-&nbsp;예약확인/취소</a></li>
+		<li><a href="profilePw">-&nbsp;프로필수정</a></li>
+		<li><a href="pwUpdateForm">-&nbsp;비밀번호 변경</a></li>
+		<li><a href="qnaList">-&nbsp;문의 내역</a></li>
+		<li><a href="quitPw">-&nbsp;탈회 요청</a></li>
         </ul>
  </div>
+ <div id="b_left">
+    <div id="b_left_menu"><h2><span>객실관리 </span></h2> </div>
+        <ul>
+	        <li id="room_li"><a href="gotoroom?num=1">-&nbsp;Deluxe </a></li>
+			<li id="room_li"><a href="gotoroom?num=2">-&nbsp; BusinessDeluxe </a></li>
+			<li id="room_li"><a href="gotoroom?num=3">-&nbsp;GrandCornerDeluxe</a></li> 
+			<li id="room_li"><a href="gotoroom?num=4">-&nbsp;ExecuticeBusinessDeluxe</a></li>
+        </ul>
+ </div>
+ 
+ 
+ 
  </div>
 
 

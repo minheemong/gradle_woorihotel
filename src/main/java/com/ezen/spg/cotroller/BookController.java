@@ -136,7 +136,7 @@ public class BookController {
 		
 		// System.out.println("예약 번호 : "+booknums+", 체크인 : "+checkins+", 체크아웃 : "+checkouts+", ");
 		
-		if(mvo==null) url="loginForm";
+		if(mvo==null) url="member/login";
 		else {
 			if(booknums!=null) {
 				session.setAttribute("booknums", booknums);

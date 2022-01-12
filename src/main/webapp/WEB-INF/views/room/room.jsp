@@ -7,12 +7,14 @@ width: 1100px;
 margin: 0 auto;
 height: 700px;
 float: left;
+margin-left: 100px;
 }
 #room_top{
 
-width: 1100px;
+width: 965px;
 height:  70px;
 font-weight:  bold;
+border-bottom: 3px solid black;
 
 }
 .room_content{
@@ -20,6 +22,7 @@ font-weight:  bold;
     width: 1000px;  
     height: 700px;
     margin-top: 30px;
+    margin-left: 30px;
 }
 
 .room_1 {
@@ -61,7 +64,7 @@ width: 82.66px;
 
 function gotobook(kind){
 	 var url="gotobook?kind="+kind
-	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=810,height=470, top=300, left=300";
+	 var opt = "toolbar=no,menubar=no,scrollbars=no,resizable=no,width=900,height=550, top=300, left=300";
 	window.open(url, "객실 예약하기", opt);
 	
 }
@@ -80,7 +83,7 @@ function gotoimgshow(num){
 <div id="room_view">  
 
 			<div id="room_top">
-					<h4> 내집과같은편안함으로 공간이사으이 가치가 숨쉬고 있는 제주신라호텔객식</h4>
+					<h4> 내집과같은편안함으로 공간이사으이 가치가 숨쉬고 있는 제주 우리 호텔객식</h4>
 					<h6>
 					비즈니스를 위한 최고의 서비스와 프리미엄 베드가 말할수없이 편안함 감촉 한국적인센스가 
 					담긴 최고의 뷰와 휴양지의 안락함까지 세계명문호텘에서만 느낄수있는 수준높은 브랜드를 만나보시기 바랍니다</h6>

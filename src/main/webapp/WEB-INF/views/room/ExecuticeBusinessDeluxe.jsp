@@ -2,10 +2,26 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %><%@ include file="sub_menu.jsp" %>
 <style>
+
+#seemore_div123123{			
+	float: left;
+    height: 490px;
+    width: 392px;
+    background: #Faf1d0;
+    right: 50px;
+    text-align: left;}
+#seemore_div123123 ul{list-style:none; padding:13px; padding-top:0px; padding-right:0px;}
+#seemore_div123123 ul li{font-size:90%;}
+#seemore_div123123 ul li:nth-child(1){font-size:115%; font-weight:bold;}
+#seemore_div123123 ul li:nth-child(5){font-size:115%; font-weight:bold;}
+#seemore_div123123 ul li:nth-child(8){font-size:115%; font-weight:bold;}
+
 #room_detail{
 height: 1200px;
  width: 1200px;
  margin: 0 auto;
+ float: left;
+ margin-left: 100px;
 }
 #deluxe_view{
 margin-top:20px;
@@ -16,7 +32,7 @@ height: 500px;
 #deluxe_content{
 float:left;
 width: 1000px;
-height: 500px;
+height: 600px;
     margin-left: 40px;
     margin-top: 10px;
 }
@@ -42,18 +58,19 @@ float: left;
 						</div>
 						<div id=seemore_div2_1right>
 							<ul>
-								<li>위치:7~8층 &nbsp;&nbsp;전망 :바다&nbsp;&nbsp;구성:침실2,거실1,욕실2,화장실2,월풀 욕조&nbsp;&nbsp; 크기:246㎡</li>
+								<li>위치:최상층 &nbsp;&nbsp;전망 :바다  </li>
+								<li>침대 :2 &nbsp;인원:4&nbsp; 크기:68㎡ </li>
 								<li>55인치 스마트 TV(위성 TV 48개 채널)</li>
 								<li>50~100Mbps 초고속 유·무선(wifi) 인터넷 무</li>
 								<li>220V, 110V 전압 사용 가능</li>
 								<li>커피·차 티백 무료 제공</li>
-								<li>베이비 크립(무료)</li>
+							
 							</ul>
 						</div>
 					</div>
 					<hr>
 					<div id=seemore_div2_2>
-						<div id=seemore_div2_2left>
+						<div id=seemore_div2_2left ">
 							부대시설
 						</div>
 						<div id=seemore_div2_2right>
@@ -73,13 +90,7 @@ float: left;
 						</div>
 					</div>
 				</div>
-				<div  style="
-	float: left;
-    height: 585px;
-    width: 392px;
-    background: #Faf1d0;
-    right: 50px;
-    text-align: left;">
+				<div  id="seemore_div123123">
 				<ul style="list-style: none;">
 					<li>조식 이용 안내</li>
 						<li>&nbsp;&nbsp;- 더 파크뷰 06:00~10:00(주중/주말/공휴일)</li>

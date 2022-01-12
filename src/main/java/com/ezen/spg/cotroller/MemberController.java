@@ -583,7 +583,7 @@ public class MemberController {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); 
 		if(mvo==null) {
-			url = "login";
+			url = "member/login";
 		} else {
 	    	session.setAttribute("loginUser", mvo);
  		}
