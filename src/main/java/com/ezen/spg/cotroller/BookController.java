@@ -134,7 +134,7 @@ public class BookController {
 		String indate="";
 		String outdate="";
 		
-		System.out.println("예약 번호 : "+booknums+", 체크인 : "+checkins+", 체크아웃 : "+checkouts+", ");
+		// System.out.println("예약 번호 : "+booknums+", 체크인 : "+checkins+", 체크아웃 : "+checkouts+", ");
 		
 		if(mvo==null) url="loginForm";
 		else {
@@ -181,7 +181,7 @@ public class BookController {
 			}
 			
 			if(request.getParameter("a")!=null) {
-				System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+				//System.out.println("파라미터 a 값 : "+request.getParameter("a"));
 				session.removeAttribute("checkins");
 				indate="";
 				session.removeAttribute("checkouts");

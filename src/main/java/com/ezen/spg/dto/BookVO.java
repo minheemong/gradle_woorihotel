@@ -18,6 +18,7 @@ public class BookVO {
 	private Timestamp checkout;
 	private String result;
 	private int price;
+	private int refund;
 
 	private String name;
 	private int bdseq;

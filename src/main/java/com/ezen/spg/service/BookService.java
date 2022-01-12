@@ -131,24 +131,30 @@ public class BookService {
 					// 체크인이 5월 전 체크아웃 5월 전 
 					if(confirm5Ts.compareTo(checkinTs)>0 && confirm5Ts.compareTo(checkoutTs)>=0) {
 						totalPrice = calTotalPrice10(checkinTs, checkoutTs,calPrice);
-						
+						bdao.requestBookCancel(bdseq,totalPrice);
 					// 체크인 5월전 체크아웃 5월 후	
 					}else if (confirm5Ts.compareTo(checkinTs)>0 && confirm5Ts.compareTo(checkoutTs)<0 ){
 						totalPrice = calTotalPriceBtw(checkinTs, checkoutTs, confirm5Ts,calPrice);
+						bdao.requestBookCancel(bdseq,totalPrice);
 					// 체크인이 5월뒤에 체크아웃이 10.31 안에있을때
 					}else if( confirm5Ts.compareTo(checkinTs)<=0 && confirm11Ts.compareTo(checkoutTs)>0) {
 						totalPrice = calTotalPrice80(checkinTs, checkoutTs,calPrice);
+						bdao.requestBookCancel(bdseq,totalPrice);
 					//체크인이 11월 안 체크아웃이 11월 밖	
 					}else if(confirm11Ts.compareTo(checkinTs)>0 && confirm11Ts.compareTo(checkoutTs)<0 ) {
 						totalPrice = calTotalPriceBtwReverse(checkinTs, checkoutTs, confirm11Ts,calPrice);
+						bdao.requestBookCancel(bdseq,totalPrice);
 					//체크인이 11월 이후 체크아웃으 1224 전
 					}else if(confirm11Ts.compareTo(checkinTs)<=0 && confirm1224Ts.compareTo(checkoutTs)>=0) {
 						totalPrice = calTotalPrice10(checkinTs, checkoutTs,calPrice);
+						bdao.requestBookCancel(bdseq,totalPrice);
 					// 체크인이 1224전 체크아웃이 1224 후
 					}else if(confirm1224Ts.compareTo(checkinTs)>0 && confirm1224Ts.compareTo(checkoutTs)<=0) {
 						totalPrice = calTotalPriceBtw(checkinTs, checkoutTs, confirm1224Ts,calPrice);
+						bdao.requestBookCancel(bdseq,totalPrice);
 					}else {
 						totalPrice = calTotalPrice80(checkinTs, checkoutTs,calPrice);
+						bdao.requestBookCancel(bdseq,totalPrice);
 					}
 					
 					
@@ -160,15 +166,18 @@ public class BookService {
 						int totalPrice2 = calTotalPrice80(confirm1224Ts, confirm0101Ts,calPrice);
 						int totalPrice3 = calTotalPrice10(confirm0101Ts,checkoutTs,calPrice);
 						totalPrice = totalPrice1 + totalPrice2 + totalPrice3;
+						bdao.requestBookCancel(bdseq,totalPrice);
 					// 둘때 1224후 체크인
 					} else {
 						int totalPrice1 = calTotalPrice80(checkinTs, confirm0101Ts,calPrice);
 						int totalPrice2 = calTotalPrice10(confirm0101Ts,checkoutTs,calPrice);
 						totalPrice = totalPrice1 + totalPrice2;
+						bdao.requestBookCancel(bdseq,totalPrice);
 					}
 				}		
 			}else {
 				totalPrice = price;
+				bdao.requestBookCancel(bdseq,totalPrice);
 			}
 		}
 	}

@@ -49,14 +49,32 @@
 			<div class="ctextsub_aa">&nbsp;결제 금액</div>
 			<div class="ctexttext_aa">${booklist.price}</div>
 		</div>
+		<c:choose>
+			<c:when test='${booklist.result=="2" }'>
+				<div class="smallctextbox_aa">
+					<div class="ctextsub_aa">&nbsp;환불 금액</div>
+					<div class="ctexttext_aa">${booklist.refund}</div>
+				</div>
+			</c:when>
+			<c:when test='${booklist.result=="3" }'>
+				<div class="smallctextbox_aa">
+					<div class="ctextsub_aa">&nbsp;환불 금액</div>
+					<div class="ctexttext_aa">${booklist.refund}</div>
+				</div>
+			</c:when>
+		</c:choose>
 		
 	</div>
 	
 	<div id="buttons_aa">
 	<input type="button" value="목록으로" class="btn_aa" id="checkmain_aa"
 		onclick="history.go(-1)">
-	<input type="button" value="예약 취소" class="btn_aa" id="checkmain_aa"
-		onclick="confirmbookcancel();">
+	<c:choose>
+		<c:when test='${booklist.result=="2" }'>
+			<input type="button" value="예약 취소" class="btn_aa" id="checkmain_aa"
+				onclick="confirmbookcancel();">
+		</c:when>
+	</c:choose>
 	<input type="hidden" id="gotonum" value="${gotonum}">
 		<!-- location.href='hotel.do?command=adminbookcancel&booknum=${bookcheck.booknum}' -->
 </div> 

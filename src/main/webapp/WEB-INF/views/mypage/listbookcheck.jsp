@@ -44,6 +44,20 @@
 			<div class="ctextsub_aa">&nbsp;결제 금액</div>
 			<div class="ctexttext_aa">${bookcheck.price}</div>
 		</div>
+		<c:choose>
+			<c:when test='${bookcheck.result=="2" }'>
+				<div class="smallctextbox_aa">
+					<div class="ctextsub_aa">&nbsp;환불 금액</div>
+					<div class="ctexttext_aa">${bookcheck.refund}</div>
+				</div>
+			</c:when>
+			<c:when test='${bookcheck.result=="3" }'>
+				<div class="smallctextbox_aa">
+					<div class="ctextsub_aa">&nbsp;환불 금액</div>
+					<div class="ctexttext_aa">${bookcheck.refund}</div>
+				</div>
+			</c:when>
+		</c:choose>
 		
 	</div>
 	

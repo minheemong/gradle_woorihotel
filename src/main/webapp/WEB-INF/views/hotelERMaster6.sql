@@ -134,7 +134,7 @@ ALTER TABLE qna
 	ADD FOREIGN KEY (id)
 	REFERENCES hotelmember (id)
 ;
-select *from BOOK_VIEW;
+
 create or replace view book_view
 as
 select b.booknum, d.bdseq, m.id, m.name, h.kind, d.usernum, d.checkin, d.checkout, d.result, h.price, h.hotelnum
@@ -252,3 +252,14 @@ insert into hotelimg values('Deluxe','Deluxe1','Deluxe2','Deluxe3','Deluxe4');
 insert into hotelimg values('BusinessDeluxe','BusinessDeluxe1','BusinessDeluxe2','BusinessDeluxe3','BusinessDeluxe4');
 insert into hotelimg values('GrandCornerDeluxe','GrandCornerDeluxe1','GrandCornerDeluxe2','GrandCornerDeluxe3','GrandCornerDeluxe4');
 insert into hotelimg values('ExecuticeBusinessDeluxe','ExecuticeBusinessDeluxe1','ExecuticeBusinessDeluxe2','ExecuticeBusinessDeluxe3','ExecuticeBusinessDeluxe4');
+
+/* 환불 */
+alter table bookdetail add(refund number(8) default 0 not null);
+
+create or replace view book_view
+as
+select b.booknum, d.bdseq, m.id, m.name, h.kind, d.usernum, d.checkin, d.checkout, d.result, d.refund, h.price, h.hotelnum
+from book b , bookdetail d, hotelmember m, hotel h
+where b.booknum = d.booknum and b.id=m.id and h.hotelnum=d.hotelnum;
+
+	

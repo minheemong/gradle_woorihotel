@@ -53,7 +53,7 @@ public interface IBookDao {
 
 	ArrayList<BookVO> getbooklistWithOutdate(Paging paging, String id, String outdate);
 
-	void requestBookCancel(int bdseq);
+	void requestBookCancel(int bdseq, int totalPrice);
 
 	void bookCancel(int bdseq);
 
