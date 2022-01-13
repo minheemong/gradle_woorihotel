@@ -178,7 +178,7 @@ $(document).ready(function( $ ){
 	
 	<hr> <!-- 방선택 뷰  Deluxe--> 
  
- <c:if test="${DBool == false && DBool == false && GCDBool == false && EBDBool == false}">
+ <c:if test="${DBool == false && BDBool == false && GCDBool == false && EBDBool == false}">
    <div style="margin-top:250px; margin-left:370px;"><h2>남아있는 방이 없습니다.</h2></div>
    </c:if>
   <!--  ----------------- -->
