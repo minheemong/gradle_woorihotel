@@ -339,7 +339,7 @@ mav.setViewName("bookDetail");
 	
 	
 	
-	@RequestMapping("/bookcancel")
+     	@RequestMapping("/bookcancel")
 	public String bookcancel(@RequestParam("bdseq") int bdseq,
 			@RequestParam("checkin") String checkin, @RequestParam("checkout") String checkout,
 			@RequestParam("price") int price, HttpServletRequest request) {
