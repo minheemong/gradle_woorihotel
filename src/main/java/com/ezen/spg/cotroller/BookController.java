@@ -66,64 +66,64 @@ public class BookController {
 			@RequestParam("checkout") String checkout, HttpServletRequest request) {
 	
 		String kind=request.getParameter("kind");
-		boolean DBool=false;
-		boolean BDBool=false;
-		boolean GCDBool=false;
-		boolean EBDBool=false;
+				boolean DBool=false;
+					boolean BDBool=false;
+						boolean GCDBool=false;
+							boolean EBDBool=false;
 		
 		
-		ModelAndView mav = new ModelAndView();
-		if(kind.equals("Deluxe")) {
-		DBool=true;
-		DBool = bs.confirmRoom(checkin,checkout,"Deluxe", usernum, roomnum);
-		
-		mav.addObject("DBool",DBool);	
-		mav.addObject("BDBool",BDBool);
-		mav.addObject("GCDBool",GCDBool);
-		mav.addObject("EBDBool",EBDBool);
-		}
-		
-		else if(kind.equals("Business Deluxe")) {
-		BDBool=true;
-		BDBool = bs.confirmRoom(checkin,checkout,"Business Deluxe",usernum, roomnum);
-		mav.addObject("BDBool",BDBool);
+ModelAndView mav = new ModelAndView();
+if(kind.equals("Deluxe")) {
+DBool=true;
+DBool = bs.confirmRoom(checkin,checkout,"Deluxe", usernum, roomnum);
 
-		mav.addObject("DBool",DBool);
-		mav.addObject("GCDBool",GCDBool);
-		mav.addObject("EBDBool",EBDBool);
-		}
-		else if(kind.equals("Grand Corner Deluxe")) {
-		GCDBool=true;
-		 GCDBool = bs.confirmRoom(checkin,checkout,"Grand Corner Deluxe",usernum, roomnum);
-		mav.addObject("GCDBool",GCDBool);
+mav.addObject("DBool",DBool);	
+mav.addObject("BDBool",BDBool);
+mav.addObject("GCDBool",GCDBool);
+mav.addObject("EBDBool",EBDBool);
+}
 
-		mav.addObject("DBool",DBool);
-		mav.addObject("BDBool",BDBool);		
-		mav.addObject("EBDBool",EBDBool);
-		}
-		else {	
-		EBDBool=true;
-		 EBDBool = bs.confirmRoom(checkin,checkout,"Executive Business Deluxe",usernum, roomnum);
-		mav.addObject("EBDBool",EBDBool);
+else if(kind.equals("Business Deluxe")) {
+BDBool=true;
+BDBool = bs.confirmRoom(checkin,checkout,"Business Deluxe",usernum, roomnum);
+mav.addObject("BDBool",BDBool);
 
-		mav.addObject("DBool",DBool);
-		mav.addObject("BDBool",BDBool);
-		mav.addObject("GCDBool",GCDBool);
-		
-		}
-		
-		
-		mav.addObject("checkin",checkin);
-		mav.addObject("checkout",checkout);
-		mav.addObject("roomnum",roomnum);
-		mav.addObject("usernum",usernum);
-	
-		
-		
-	
-		mav.setViewName("bookDetail");
-		return mav;
-	}
+mav.addObject("DBool",DBool);
+mav.addObject("GCDBool",GCDBool);
+mav.addObject("EBDBool",EBDBool);
+}
+else if(kind.equals("Grand Corner Deluxe")) {
+GCDBool=true;
+ GCDBool = bs.confirmRoom(checkin,checkout,"Grand Corner Deluxe",usernum, roomnum);
+mav.addObject("GCDBool",GCDBool);
+
+mav.addObject("DBool",DBool);
+mav.addObject("BDBool",BDBool);		
+mav.addObject("EBDBool",EBDBool);
+}
+else {	
+EBDBool=true;
+ EBDBool = bs.confirmRoom(checkin,checkout,"Executive Business Deluxe",usernum, roomnum);
+mav.addObject("EBDBool",EBDBool);
+
+mav.addObject("DBool",DBool);
+mav.addObject("BDBool",BDBool);
+mav.addObject("GCDBool",GCDBool);
+
+}
+
+
+mav.addObject("checkin",checkin);
+mav.addObject("checkout",checkout);
+mav.addObject("roomnum",roomnum);
+mav.addObject("usernum",usernum);
+
+
+
+
+mav.setViewName("bookDetail");
+	return mav;
+}
 	
 	@RequestMapping("book")
 	public String book(@RequestParam("roomnum") int roomnum,
