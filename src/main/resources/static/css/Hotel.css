@@ -162,7 +162,7 @@ border:none; line-height:35px; margin-top:7px;}
 
 #chklistcontent_aa{position:relative; border-bottom:2px solid #9f876b; width:820px; 
 	height:30px; /* background:yellow; */}
-#chklistcontent2_aa{position:relative; height:30px; text-align:center; line-height:30px;}
+#chklistcontent2_aa{position:relative; height:30px; text-align:center; line-height:30px; font-size:90%;}
 .chkselect_aa{font-size:90%; font-weight:bold; color:#3a3125;}
 
 
