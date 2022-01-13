@@ -25,7 +25,7 @@
 	            , buttonImage: "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif"
 	            ,buttonImageOnly: true,
 	  
-		      	 minDate:"0", maxDate: "+6M"
+		      	 minDate:"0", maxDate: "+1Y"
 
 	    	 
 	    });

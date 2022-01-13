@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %><%@ include file="sub_menu.jsp" %>
 <article>
-<div>
+<div style="float: left">
 <div id="sum_aa" style="width: 800px; margin: 0 auto;">동영상</div>
 
 

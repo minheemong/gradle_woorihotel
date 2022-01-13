@@ -187,17 +187,17 @@ insert into hotel values(1407,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Execut
 
 
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
-values(2,to_date('2021-11-08'),to_date('2021-11-12'),seq_bookdetail_bdseq.nextval,1,1101);
+values(2,to_date('2022-01-14'),to_date('2022-01-16'),seq_bookdetail_bdseq.nextval,1,1101);
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
-values(2,to_date('2021-11-08'),to_date('2021-11-12'),seq_bookdetail_bdseq.nextval,1,1102);
+values(2,to_date('2022-02-08'),to_date('2022-02-12'),seq_bookdetail_bdseq.nextval,1,1102);
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
-values(2,to_date('2021-11-19'),to_date('2021-11-21'),seq_bookdetail_bdseq.nextval,1,1101);
+values(2,to_date('2022-01-19'),to_date('2022-01-21'),seq_bookdetail_bdseq.nextval,1,1101);
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
-values(2,to_date('2021-11-19'),to_date('2021-11-21'),seq_bookdetail_bdseq.nextval,1,1102);
+values(2,to_date('2022-02-19'),to_date('2022-02-21'),seq_bookdetail_bdseq.nextval,1,1102);
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
-values(2,to_date('2021-11-05'),to_date('2021-11-07'),seq_bookdetail_bdseq.nextval,2,1201);
+values(2,to_date('2022-03-05'),to_date('2022-03-07'),seq_bookdetail_bdseq.nextval,2,1201);
 insert into bookdetail(usernum,checkin,checkout,bdseq,booknum,hotelnum)
-values(2,to_date('2021-11-12'),to_date('2021-11-17'),seq_bookdetail_bdseq.nextval,3,1301);
+values(2,to_date('2022-03-12'),to_date('2022-03-17'),seq_bookdetail_bdseq.nextval,3,1301);
 
  insert into qna (qnaseq, title, content, id) 
 values(seq_qna_qnaseq.nextval, '배송관리 문의입니다', '현재 배송상태와 예상 배송일을 답변 부탁드립니다', 'oh');
@@ -237,7 +237,7 @@ drop table hotelimg;
 
 /* --------------------------------새로 추가된것들-------------------------------------------------------------------------------------------------------------------------*/
 /* 새로추가한 호텔 이미지 테이블 */
-
+select *from hotel;
 create table hotelimg
 (
 kind varchar2(100) not null ,
