@@ -39,8 +39,8 @@ border:1px solid black;
 }
 </style>
 <article>
-
-
+<center><h1>객실 추가</h1></center>
+<div style="width:1000px; height:500px; margin:0 auto;">
 <form method="post" name="formm" action="adminRoomInsert">
 
 <table  id="adminmemebrlist" style="center; width: 500px;">
@@ -51,10 +51,13 @@ border:1px solid black;
 	<tr><th>방크기(숫자)</th> <td><input type="text" size="30" name="roomsize"  value="${dto.roomsize}"></td></tr>
 	<tr><th>이미지</th> <td><input type="file" name="img"  value="${dto.img}" /></td></tr>
 </table>
-
+<br>
 	<center><input class="btn" type="submit" value="입력완료" id="qna_button">           
 	<input class="btn" type="button" value="취소"  onClick="self_close()"id="qna_button"></center>
 <center>${message}</center>
+</form>
+</div>
+
 </article>
 
 <%@ include file="../adminfooter.jsp" %>
