@@ -53,7 +53,7 @@ border:1px solid black;
 </table>
 <br>
 	<center><input class="btn" type="submit" value="입력완료" id="qna_button">           
-	<input class="btn" type="button" value="취소"  onClick="self_close()"id="qna_button"></center>
+	<input class="btn" type="button" value="취소"  onClick="location.href='adminRoomList'" id="qna_button"></center>
 <center>${message}</center>
 </form>
 </div>
