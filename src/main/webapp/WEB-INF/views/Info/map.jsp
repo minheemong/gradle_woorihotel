@@ -51,7 +51,7 @@ infowindow.open(map, marker);
 
 
 </script>
-
+<div class="clear"></div>
 <div class="box_aa" id="box3_aa" style="left:350px; margin-top: 50px; height: 140px; float: left;">
 		<ul class="add_aa" id="name_aa"   style="  margin: 29px 5px;">
 			<li>주소</li>
