@@ -70,10 +70,9 @@ public class BookController {
 		ModelAndView mav = new ModelAndView();
 		if(kind.equals("Deluxe")) {
 		boolean DBool = bs.confirmRoom(checkin,checkout,"Deluxe", usernum, roomnum);
-		mav.addObject("DBool",DBool);
-		
+		mav.addObject("DBool",DBool);	
 		}
-		else if(kind.equals("Business")) {
+		else if(kind.equals("Business Deluxe")) {
 		boolean BDBool = bs.confirmRoom(checkin,checkout,"Business Deluxe",usernum, roomnum);
 		mav.addObject("BDBool",BDBool);
 		}else if(kind.equals("Grand Corner Deluxe")) {
@@ -134,7 +133,7 @@ public class BookController {
 		String indate="";
 		String outdate="";
 		
-		// System.out.println("예약 번호 : "+booknums+", 체크인 : "+checkins+", 체크아웃 : "+checkouts+", ");
+		// System.out.println("�삁�빟 踰덊샇 : "+booknums+", 泥댄겕�씤 : "+checkins+", 泥댄겕�븘�썐 : "+checkouts+", ");
 		
 		if(mvo==null) url="member/login";
 		else {
@@ -181,7 +180,7 @@ public class BookController {
 			}
 			
 			if(request.getParameter("a")!=null) {
-				//System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+				//System.out.println("�뙆�씪誘명꽣 a 媛� : "+request.getParameter("a"));
 				session.removeAttribute("checkins");
 				indate="";
 				session.removeAttribute("checkouts");
@@ -194,7 +193,7 @@ public class BookController {
 			Paging paging = new Paging();
 			paging.setPage(page);
 
-			System.out.println("아이디 : "+mvo.getId()+", 예약 번호 : "+booknums);
+			System.out.println("�븘�씠�뵒 : "+mvo.getId()+", �삁�빟 踰덊샇 : "+booknums);
 			int count=abs.getAllCount(mvo.getId(), booknums, indate, outdate);
 			paging.setTotalCount(count);
 			paging.paging();
@@ -253,7 +252,7 @@ public class BookController {
 	 * session.removeAttribute("checkouts"); outdate=""; }
 	 * 
 	 * if(request.getParameter("a")!=null) {
-	 * System.out.println("파라미터 a 값 : "+request.getParameter("a"));
+	 * System.out.println("�뙆�씪誘명꽣 a 媛� : "+request.getParameter("a"));
 	 * session.removeAttribute("checkins"); indate="";
 	 * session.removeAttribute("checkouts"); outdate="";
 	 * session.removeAttribute("booknums"); booknums=""; }
