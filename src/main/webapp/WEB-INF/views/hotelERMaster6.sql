@@ -182,7 +182,7 @@ insert into hotel values(1404,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Execut
 insert into hotel values(1405,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
 insert into hotel values(1406,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
 insert into hotel values(1407,4,550000,'ExecuticeBusinessDeluxe1.jpg',64,'Executive Business Deluxe');
-
+ 
 
 
 
