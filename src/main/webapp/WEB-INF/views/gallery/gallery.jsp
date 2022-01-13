@@ -101,10 +101,10 @@
     </style>
 <meta charset="UTF-8">
 <article>
-<div>
-<div id="sum_aa" style="width: 1000px; margin: 0 auto;">사진</div>
+<div id="sbox_aa">
+<div id="sum_aa">사진</div>
 <div style="  margin: 0 auto;
-    width: 52%;"> 
+    width: 80%;"> 
 
   <div
       style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
