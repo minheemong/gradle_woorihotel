@@ -15,13 +15,13 @@
 <style type="text/css">
 #gotobook_view{
     border: 1px solid black;
-    width: 400px;
+    width: 500px;
     margin: auto;
-        height: 256px;
+        height: 300px;
     
 }
 #gotobook_table{
-    width: 320px;
+    width: 420px;
     margin: 0 auto;
 }
 #gotobook_table th{
@@ -31,7 +31,7 @@ width: 116px;
 }
 
 #gotobook_table caption{
-    width: 100px;
+    width: 420px;
     margin: 0 auto;
 }
 #book_btn{
@@ -133,7 +133,7 @@ width: 70px;
 <div id="gotobook_view"  style="border:1px solid black;">
 <table id="gotobook_table">
 <caption>
-		<h2>${kind}</h2>
+	<h1>${kind}</h1>
 </caption>
 <tr><th>방 클래스</th>          <td><input type="text"  name="kind" size="" value="${kind}" ></td>
 <tr> <th>체크인 날짜</th> <td><input type="text"  name="checkin" id="datepicker1" size="20" ></td></tr>
